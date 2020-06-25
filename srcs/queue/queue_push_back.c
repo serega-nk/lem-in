@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:19:06 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 21:33:25 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/25 22:08:13 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,22 @@
 
 void	queue_push_back(t_queue *self, void *data)
 {
-	if (self && data)
+	t_queue_item	*item;
+
+	if (self)
 	{
-		self = NULL;
+		item = queue_item_create();
+		item->data = data;
+		if (self->size == 0)
+		{
+			self->head = item;
+			self->tail = item;
+		}
+		else
+		{
+			self->tail->next = item;
+			self->tail = item;
+		}
+		self->size++;
 	}
 }

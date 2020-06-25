@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:05:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 21:56:52 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/25 22:01:57 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ typedef struct s_queue		t_queue;
 
 struct			s_queue_item
 {
-	t_queue_item	*head;
-	t_queue_item	*tail;
+	t_queue_item	*next;
+	void			*data;
 };
 
 struct			s_queue
 {
-	size_t	size;
-	void	*head;
-	void	*tail;
+	t_queue_item	*head;
+	t_queue_item	*tail;
+	size_t			size;
 };
 
 t_queue_item	*queue_item_create(void);

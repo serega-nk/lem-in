@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/25 21:27:55 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/25 22:01:35 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SOURCES		= \
 		queue_clean.c \
 		queue_create.c \
 		queue_destroy.c \
+		queue_item_create.c \
+		queue_item_destroy.c \
 		queue_pop_front.c \
 		queue_push_back.c \
 	) \

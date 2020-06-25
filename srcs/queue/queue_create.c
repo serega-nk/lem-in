@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 20:16:11 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 21:16:12 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/25 21:47:29 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "queue.h"
 
-t_queue		*queue_create(void)
+t_queue	*queue_create(void)
 {
 	t_queue		*self;
 

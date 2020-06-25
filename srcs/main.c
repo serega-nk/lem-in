@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 20:26:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 21:40:29 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/25 21:47:53 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int		main(void)
 	t_queue		*queue;
 
 	queue = queue_create();
-
 	ft_printf("PUSH [A, B, C]\n");
 	queue_push_back(queue, "A");
 	queue_push_back(queue, "B");

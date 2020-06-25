@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 20:27:04 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/25 21:36:17 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 # define LEM_IN_H
 
 # include <stdlib.h>
+# include "libft.h"
+# include "ft_printf.h"
+# include "queue.h"
 
 #endif

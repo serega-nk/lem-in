@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   queue_pop_front.c                                  :+:      :+:    :+:   */
+/*   gnl.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 21:18:55 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 22:55:28 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/25 22:27:31 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/25 22:50:42 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "queue.h"
+#ifndef GNL_H
+# define GNL_H
 
-void	*queue_pop_front(t_queue *self)
+# include "libft.h"
+# include "ft_xexit.h"
+
+typedef struct s_gnl	t_gnl;
+
+struct	s_gnl
 {
-	t_queue_item	*item;
-	void			*data;
+	int		fd;
+};
 
-	data = NULL;
-	if (self && self->size > 0)
-	{
-		item = self->head;
-		self->head = item->next;
-		self->size--;
-		if (self->size == 0)
-			self->tail = NULL;
-		data = item->data;
-		queue_item_destroy(&item);
-	}
-	return (data);
-}
+t_gnl	*gnl_create(int fd);
+void	gnl_destroy(t_gnl **aself);
+int		gnl_readline(t_gnl *self, char **aline);
+
+#endif

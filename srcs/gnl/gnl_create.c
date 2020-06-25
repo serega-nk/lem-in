@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   queue_pop_front.c                                  :+:      :+:    :+:   */
+/*   gnl_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 21:18:55 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 22:55:28 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/25 22:28:02 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/25 22:54:09 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "queue.h"
+#include "gnl.h"
 
-void	*queue_pop_front(t_queue *self)
+t_gnl	*gnl_create(int fd)
 {
-	t_queue_item	*item;
-	void			*data;
+	t_gnl	*self;
 
-	data = NULL;
-	if (self && self->size > 0)
-	{
-		item = self->head;
-		self->head = item->next;
-		self->size--;
-		if (self->size == 0)
-			self->tail = NULL;
-		data = item->data;
-		queue_item_destroy(&item);
-	}
-	return (data);
+	self = (t_gnl *)ft_xmemalloc(sizeof(t_gnl));
+	self->fd = fd;
+	return (self);
 }

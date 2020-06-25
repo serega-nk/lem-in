@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/25 22:01:35 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/25 22:41:44 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= lem_in.h queue.h
+HEADERS		= lem_in.h queue.h gnl.h
 SOURCES		= \
 	$(addprefix queue/, \
 		queue_clean.c \
@@ -26,6 +26,11 @@ SOURCES		= \
 		queue_item_destroy.c \
 		queue_pop_front.c \
 		queue_push_back.c \
+	) \
+	$(addprefix gnl/, \
+		gnl_create.c \
+		gnl_destroy.c \
+		gnl_readline.c \
 	) \
 	main.c
 

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:05:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 21:26:47 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/25 21:33:13 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define QUEUE_H
 
 # include "libft.h"
+# include "ft_xexit.h"
 
 typedef struct	s_queue
 {

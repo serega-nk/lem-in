@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 20:26:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/26 06:58:29 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/26 07:27:57 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,18 @@ void	test2(void)
 	while (gnl_readline(gnl, &line) > 0)
 	{
 		//ft_printf("READLINE |%s|\n", line);
-		ft_printf("%s", line);
+		if (ft_strcmp(line, "##start\n") == 0)
+		{
+			ft_printf("=== START\n");
+		}
+		else if (ft_strcmp(line, "##end\n") == 0)
+		{
+			ft_printf("=== END\n");
+		}
+		else
+		{
+			ft_printf("%s", line);
+		}
 		ft_strdel(&line);
 	}
 	gnl_destroy(&gnl);	

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/26 06:11:31 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/26 07:25:10 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,14 @@
 # include "ft_printf.h"
 # include "queue.h"
 # include "gnl.h"
+
+typedef struct s_room	t_room;
+
+struct	s_room
+{
+	char		*name;
+	unsigned	x;
+	unsigned	y;
+};
 
 #endif

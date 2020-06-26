@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 20:26:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/26 07:27:57 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/26 07:38:07 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,32 @@ void	test2(void)
 {
 	t_gnl	*gnl;
 	char	*line;
+	ssize_t	length;
 
-	ft_printf("=== GNL\n");
+	//ft_printf("=== GNL\n");
 	gnl = gnl_create(STDIN_FILENO);
 	while (gnl_readline(gnl, &line) > 0)
 	{
+		length = strlen(line);
+		if (line[length - 1] != '\n')
+		{
+			ft_printf("=== ERROR NOT END LINE\n");
+			ft_strdel(&line);
+			break ;
+		}
+
 		//ft_printf("READLINE |%s|\n", line);
 		if (ft_strcmp(line, "##start\n") == 0)
 		{
-			ft_printf("=== START\n");
+			ft_printf("=== BLOCK START\n");
 		}
 		else if (ft_strcmp(line, "##end\n") == 0)
 		{
-			ft_printf("=== END\n");
+			ft_printf("=== BLOCK END\n");
+		}
+		else if (*line == '#')
+		{
+			ft_printf("=== SKIP COMMENT\n");
 		}
 		else
 		{
@@ -65,7 +78,7 @@ void	test2(void)
 		ft_strdel(&line);
 	}
 	gnl_destroy(&gnl);	
-	ft_printf("===\n");
+	//ft_printf("===\n");
 }
 
 int		main(void)

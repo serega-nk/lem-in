@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/26 06:52:28 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/26 07:35:20 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,6 @@ norm:
 	@norminette $(INCS) $(SRCS)
 
 test: $(NAME)
-	./$(NAME) < _maps/subject.map
+	./$(NAME) < _maps/1
 
 .PHONY: all clean fclean re norm

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bconchit  <bconchit@student.42.fr>         +#+  +:+       +#+         #
+#    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/25 20:22:05 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/26 07:05:30 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,6 @@ HEADERS		= libft.h \
 			  ft_printf_private.h \
 			  ft_xexit.h \
 			  ft_xexit_private.h \
-			  ft_avl_tree.h \
-			  ft_avl_tree_private.h \
 
 SOURCES		= \
 	$(addprefix part1/, \

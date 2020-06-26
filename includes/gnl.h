@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 22:27:31 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 22:50:42 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/26 06:50:09 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@
 # include "libft.h"
 # include "ft_xexit.h"
 
+# define GNL_BUF 1000
+
 typedef struct s_gnl	t_gnl;
 
 struct	s_gnl
 {
 	int		fd;
+	int		eof;
+	char	**addr;
+	char	**save;
 };
 
 t_gnl	*gnl_create(int fd);

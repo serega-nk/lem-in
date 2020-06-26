@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 20:26:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/26 05:51:01 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/26 06:58:29 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,28 @@ void	test1(void)
 	ft_printf("POP %s\n", queue_pop_front(queue));
 	queue_push_back(queue, "E");
 	queue_destroy(&queue);
-	ft_printf("=== EXIT\n");
-	//malloc(10);
+	ft_printf("===\n");
 }
 
 void	test2(void)
 {
-	ft_printf("123\n");
+	t_gnl	*gnl;
+	char	*line;
+
+	ft_printf("=== GNL\n");
+	gnl = gnl_create(STDIN_FILENO);
+	while (gnl_readline(gnl, &line) > 0)
+	{
+		//ft_printf("READLINE |%s|\n", line);
+		ft_printf("%s", line);
+		ft_strdel(&line);
+	}
+	gnl_destroy(&gnl);	
+	ft_printf("===\n");
 }
 
 int		main(void)
 {
-	test1();
+	test2();
 	return (EXIT_SUCCESS);
 }

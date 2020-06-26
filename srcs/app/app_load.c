@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 00:06:02 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 00:17:01 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,18 @@
 	
 static void		app_load_while(t_app *self)
 {
+	size_t	len;
+
+	len = ft_strlen(self->line);
+	if (len == 0)
+		app_error(self);
+	if (self->line[len-1] != '\n')
+		app_error(self);
+	self->line[--len] = '\0';
+	if (self->line[0] == '#')
+		return ;
+	ft_printf("|%s|\n", self->line);
+	
 	// The rooms, which are defined by: name coord_x coord_y
 	// The links, which are defined by: name1-name2
 	// All of it is broken by comments, which start with #
@@ -88,8 +100,6 @@ static void		app_load_while(t_app *self)
 	// The rooms’ coordinates will always be integers.
 
 	// The links, which are defined by: name1-name2
-	if (!self)
-		app_error(self);
 }
 
 void			app_load(t_app *self)

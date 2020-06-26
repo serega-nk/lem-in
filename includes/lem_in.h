@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 00:02:31 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 00:10:57 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ struct	s_app
 {
 	t_gnl	*gnl;
 	char	*line;
+	int		mode;
 	size_t	number_of_ants;
 	void	*rooms;
 	void	*links;

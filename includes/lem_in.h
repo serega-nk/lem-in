@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/26 09:30:12 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 00:02:31 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,28 @@
 # include "queue.h"
 
 typedef struct s_room	t_room;
+typedef struct s_app	t_app;
 
 struct	s_room
 {
-	char		*name;
-	unsigned	x;
-	unsigned	y;
+	char	*name;
+	int		coord_x;
+	int		coord_y;
 };
+
+struct	s_app
+{
+	t_gnl	*gnl;
+	char	*line;
+	size_t	number_of_ants;
+	void	*rooms;
+	void	*links;
+};
+
+void	app_error(t_app *self);
+void	app_load(t_app *self);
+void	app_calc(t_app *self);
+void	app_play(t_app *self);
+void	app_free(t_app *self);
 
 #endif

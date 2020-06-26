@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   app_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 20:26:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 00:02:39 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/27 00:04:24 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		main(void)
+void	app_free(t_app *self)
 {
-	t_app	app;
-
-	ft_bzero(&app, sizeof(t_app));
-	ft_on_xexit(&app_free, &app);
-	app_load(&app);
-	app_calc(&app);
-	app_play(&app);
-	app_free(&app);
-	return (EXIT_SUCCESS);
+	ft_printf("FREE\n");
+	if (self)
+	{
+		if (self->line)
+			ft_strdel(&self->line);
+		if (self->gnl)
+			gnl_destroy(&self->gnl);
+	}
 }

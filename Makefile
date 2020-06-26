@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/26 10:39:12 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/27 00:03:39 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,11 @@ SOURCES		= \
 		deque_push_back.c \
 		deque_push_front.c \
 	) \
+	$(addprefix gnl/, \
+		gnl_create.c \
+		gnl_destroy.c \
+		gnl_readline.c \
+	) \
 	$(addprefix queue/, \
 		queue_clean.c \
 		queue_create.c \
@@ -38,10 +43,12 @@ SOURCES		= \
 		queue_pop_front.c \
 		queue_push_back.c \
 	) \
-	$(addprefix gnl/, \
-		gnl_create.c \
-		gnl_destroy.c \
-		gnl_readline.c \
+	$(addprefix app/, \
+		app_calc.c \
+		app_error.c \
+		app_free.c \
+		app_load.c \
+		app_play.c \
 	) \
 	main.c
 

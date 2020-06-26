@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 20:26:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 23:00:01 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/26 05:51:01 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,19 @@ void	test1(void)
 	ft_printf("POP %s\n", queue_pop_front(queue));
 	ft_printf("POP %s\n", queue_pop_front(queue));
 	ft_printf("POP %s\n", queue_pop_front(queue));
+	ft_printf("PUSH [Z, X]\n");
+	queue_push_back(queue, "Z");
+	queue_push_back(queue, "X");
+	ft_printf("POP %s\n", queue_pop_front(queue));
+	ft_printf("SIZE = %llu\n", queue->size);
+	ft_printf("CLEAN\n");
+	queue_clean(queue);
+	ft_printf("SIZE = %llu\n", queue->size);
+	ft_printf("POP %s\n", queue_pop_front(queue));
+	queue_push_back(queue, "E");
 	queue_destroy(&queue);
 	ft_printf("=== EXIT\n");
+	//malloc(10);
 }
 
 void	test2(void)
@@ -37,6 +48,6 @@ void	test2(void)
 
 int		main(void)
 {
-	test2();
+	test1();
 	return (EXIT_SUCCESS);
 }

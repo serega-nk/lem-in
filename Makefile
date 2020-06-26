@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/26 07:35:20 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/26 10:39:12 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,17 @@ OBJ_DIR		= ./objs
 
 HEADERS		= lem_in.h queue.h gnl.h
 SOURCES		= \
+	$(addprefix deque/, \
+		deque_clean.c \
+		deque_create.c \
+		deque_destroy.c \
+		deque_item_create.c \
+		deque_item_destroy.c \
+		deque_pop_back.c \
+		deque_pop_front.c \
+		deque_push_back.c \
+		deque_push_front.c \
+	) \
 	$(addprefix queue/, \
 		queue_clean.c \
 		queue_create.c \

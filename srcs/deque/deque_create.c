@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.h                                           :+:      :+:    :+:   */
+/*   deque_create.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/26 09:30:12 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/26 08:23:47 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/26 09:08:45 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEM_IN_H
-# define LEM_IN_H
+#include "deque.h"
 
-# include <stdlib.h>
-# include "libft.h"
-# include "ft_printf.h"
-# include "deque.h"
-# include "gnl.h"
-# include "queue.h"
-
-typedef struct s_room	t_room;
-
-struct	s_room
+t_deque	*deque_create(void)
 {
-	char		*name;
-	unsigned	x;
-	unsigned	y;
-};
+	t_deque		*self;
 
-#endif
+	self = (t_deque *)ft_xmemalloc(sizeof(t_deque));
+	return (self);
+}

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:38 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:38:50 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 22:49:07 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	load_link_parse(char *line)
 {
 	char	*name1;
 	char	*name2;
-	
+
 	name1 = NULL;
 	name2 = NULL;
 	if (parse_str(&line, &name1, "- \n") &&
@@ -36,7 +36,7 @@ static int	load_link_parse(char *line)
 	return (0);
 }
 
-int		load_link(t_app *self)
+int			load_link(t_app *self)
 {
 	if (self->signal_start || self->signal_end)
 		app_error(self);

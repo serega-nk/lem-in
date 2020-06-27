@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 00:10:57 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 03:49:18 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 # include "ft_printf.h"
 # include "deque.h"
 # include "gnl.h"
+# include "parse.h"
 # include "queue.h"
 
 typedef struct s_room	t_room;
+typedef struct s_link	t_link;
 typedef struct s_app	t_app;
 
 struct	s_room
@@ -30,12 +32,22 @@ struct	s_room
 	int		coord_y;
 };
 
+struct	s_link
+{
+	t_room	*room1;
+	t_room	*room2;
+};
+
 struct	s_app
 {
 	t_gnl	*gnl;
 	char	*line;
-	int		mode;
-	size_t	number_of_ants;
+	int		state;
+	int		flag_start;
+	int		flag_end;
+	void	*room_start;
+	void	*room_end;
+	int		number_of_ants;
 	void	*rooms;
 	void	*links;
 };

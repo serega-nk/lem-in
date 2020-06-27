@@ -6,19 +6,25 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 04:14:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 04:14:56 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 04:35:20 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "lem_in.h"
+
+void	load_while(t_app *self)
+{
+	if (self)
+		ft_printf("%s", self->line);
+}
 
 
-
-		if (self->state == 0)
-			app_load_number_of_ants(self, self->line);
-		else if (self->state == 1)
-			app_load_the_rooms(self, self->line);
-		else
-			app_load_the_links(self, self->line);
+		// if (self->state == 0)
+		// 	app_load_number_of_ants(self, self->line);
+		// else if (self->state == 1)
+		// 	app_load_the_rooms(self, self->line);
+		// else
+		// 	app_load_the_links(self, self->line);
 
 
 
@@ -124,48 +130,48 @@
 // }
 
 	
-static int		parse_number_of_ants(char *line, int *avalue)
-{
-	return (parse_int(&line, avalue) && *line == '\0');
-}
+// static int		parse_number_of_ants(char *line, int *avalue)
+// {
+// 	return (parse_int(&line, avalue) && *line == '\0');
+// }
 
-static int		parse_the_rooms(char *line, t_room *room)
-{
-	return (parse_int(&line, avalue) && *line == '\0');
-}
+// static int		parse_the_rooms(char *line, t_room *room)
+// {
+// 	return (parse_int(&line, avalue) && *line == '\0');
+// }
 
-static int		parse_the_links(char *line, t_room *room)
-{
-	return (parse_int(&line, avalue) && *line == '\0');
-}
+// static int		parse_the_links(char *line, t_room *room)
+// {
+// 	return (parse_int(&line, avalue) && *line == '\0');
+// }
 	
-static void		app_load_while(t_app *self, char *line)
-{
-	if (self->state == 0)
-	{
-		if (!parse_number_of_ants(self->line, self->number_of_ants))
-			app_error();
-		self->state++;
-		return ;
-	}
-	if (self->state == 1)
-	{
-		room = room_create();
-		if (parse_the_rooms(self->line, room)
-		{
-			return ;
-		}
-		room_destroy(&room);
-		self->state++;
-	}
-	room = room_create();
-	if (parse_the_links(self->line, room))
-	{
+// static void		app_load_while(t_app *self, char *line)
+// {
+// 	if (self->state == 0)
+// 	{
+// 		if (!parse_number_of_ants(self->line, self->number_of_ants))
+// 			app_error();
+// 		self->state++;
+// 		return ;
+// 	}
+// 	if (self->state == 1)
+// 	{
+// 		room = room_create();
+// 		if (parse_the_rooms(self->line, room)
+// 		{
+// 			return ;
+// 		}
+// 		room_destroy(&room);
+// 		self->state++;
+// 	}
+// 	room = room_create();
+// 	if (parse_the_links(self->line, room))
+// 	{
 
-		return ;
-	}
-	room_destroy(&room);
-	app_error();
+// 		return ;
+// 	}
+// 	room_destroy(&room);
+// 	app_error();
 
 	// len = ft_strlen(self->line);
 	// if (len == 0)
@@ -335,51 +341,51 @@ static void		app_load_while(t_app *self, char *line)
 	// The rooms’ coordinates will always be integers.
 
 	// The links, which are defined by: name1-name2
-}
+//}
 
-static void		app_load_number_of_ants(t_app *self, char *line)
-{
-	if (parse_int(&line, &self->number_of_ants) && *line == '\0')
-	{
-		if (self->number_of_ants <= 0)
-			app_error(self);
-		self->state++;
-		return ;
-	}
-	app_error();
-}
+// static void		app_load_number_of_ants(t_app *self, char *line)
+// {
+// 	if (parse_int(&line, &self->number_of_ants) && *line == '\0')
+// 	{
+// 		if (self->number_of_ants <= 0)
+// 			app_error(self);
+// 		self->state++;
+// 		return ;
+// 	}
+// 	app_error();
+// }
 
-static void		app_load_the_rooms(t_app *self, char *line)
-{
-	room = room_create();
-	if (parse_name(&line, &room->name) && *line == ' ' && line++ &&
-		parse_int(&line, &room->coord_x) && *line == ' ' && line++ &&
-		parse_int(&line, &room->coord_y) && *line == '\0')
-	{
+// static void		app_load_the_rooms(t_app *self, char *line)
+// {
+// 	room = room_create();
+// 	if (parse_name(&line, &room->name) && *line == ' ' && line++ &&
+// 		parse_int(&line, &room->coord_x) && *line == ' ' && line++ &&
+// 		parse_int(&line, &room->coord_y) && *line == '\0')
+// 	{
 
-		return ;
-	}
-	room_destroy(&room);
-	self->state++;
-	app_load_the_links(self, self->line);
-}
+// 		return ;
+// 	}
+// 	room_destroy(&room);
+// 	self->state++;
+// 	app_load_the_links(self, self->line);
+// }
 
-static void		app_load_the_links(t_app *self, char *line)
-{
-	char	*name1;
-	char	*name2;
+// static void		app_load_the_links(t_app *self, char *line)
+// {
+// 	char	*name1;
+// 	char	*name2;
 
-	name1 = NULL;
-	name2 = NULL;
-	if (parse_name(&line, &name1) && *line == ' ' && line++ &&
-		parse_name(&line, &name2) && *line == '\0')
-	{
+// 	name1 = NULL;
+// 	name2 = NULL;
+// 	if (parse_name(&line, &name1) && *line == ' ' && line++ &&
+// 		parse_name(&line, &name2) && *line == '\0')
+// 	{
 		
-		ft_strdel(&name2);
-		ft_strdel(&name1);
-		return ;
-	}
-	ft_strdel(&name2);
-	ft_strdel(&name1);
-	app_error();
-}
+// 		ft_strdel(&name2);
+// 		ft_strdel(&name1);
+// 		return ;
+// 	}
+// 	ft_strdel(&name2);
+// 	ft_strdel(&name1);
+// 	app_error();
+// }

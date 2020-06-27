@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 04:30:00 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 04:32:02 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ struct	s_app
 };
 
 void	app_error(t_app *self);
-void	app_read(t_app *self);
+void	app_load(t_app *self);
 void	app_calc(t_app *self);
 void	app_play(t_app *self);
 void	app_free(t_app *self);

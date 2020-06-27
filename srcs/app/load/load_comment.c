@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 21:08:12 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 22:17:49 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		load_comment(t_app *self)
 			app_error(self);
 		self->signal_start = 1;
 		return (1);
-	}	
+	}
 	if (ft_strcmp(self->line, "##end\n") == 0)
 	{
 		ft_printf("SIGNAL END\n");

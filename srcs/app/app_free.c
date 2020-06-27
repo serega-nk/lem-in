@@ -6,16 +6,43 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 21:06:48 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 22:25:46 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_free(t_app *self)
+static void		links_destroy(t_queue **aself)
+{
+	void	*data;
+
+	while ((data = queue_pop_front(*aself)))
+		;
+	queue_destroy(aself);
+}
+
+static void		rooms_destroy(t_queue **aself)
+{
+	t_room	*room;
+
+	while ((room = queue_pop_front(*aself)))
+		room_destroy(&room);
+	queue_destroy(aself);
+}
+
+static void		lines_destroy(t_queue **aself)
+{
+	char	*line;
+
+	while ((line = queue_pop_front(*aself)))
+		ft_strdel(&line);
+	queue_destroy(aself);
+}
+
+void			app_free(t_app *self)
 {
 	gnl_destroy(&self->gnl);
-	while ((self->line = queue_pop_front(self->lines)))
-		ft_strdel(&self->line);
-	queue_destroy(&self->lines);
+	links_destroy(&self->links);
+	rooms_destroy(&self->rooms);
+	lines_destroy(&self->lines);
 }

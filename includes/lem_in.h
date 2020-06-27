@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 18:38:26 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 22:17:20 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ struct	s_app
 	int			state;
 	int			signal_start;
 	int			signal_end;
-	// void		*room_start;
-	// void		*room_end;
+	t_room		*room_start;
+	t_room		*room_end;
 	int			number;
-	// void		*rooms;
-	// void		*links;
+	t_queue		*rooms;
+	t_queue		*links;
 };
 
 void	app_error(t_app *self);
@@ -66,5 +66,8 @@ int		load_link(t_app *self);
 
 void	load_while(t_app *self);
 void	load_check(t_app *self);
+
+t_room	*room_create(void);
+void	room_destroy(t_room **aself);
 
 #endif

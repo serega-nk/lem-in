@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 15:00:54 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 22:05:50 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	app_load(t_app *self)
 {
 	self->lines = queue_create();
+	self->rooms = queue_create();
+	self->links = queue_create();
 	self->gnl = gnl_create(STDIN_FILENO);
 	while (gnl_readline(self->gnl, &self->line) > 0)
 	{

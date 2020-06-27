@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_load.c                                         :+:      :+:    :+:   */
+/*   load_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 04:15:03 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/27 04:13:11 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/27 04:13:34 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_load(t_app *self)
+void	load_check(t_app *self)
 {
-	self->gnl = gnl_create(STDIN_FILENO);
-	while (gnl_readline(self->gnl, &self->line) > 0)
-	{
-		load_while(self);
-		ft_strdel(&self->line);
-	}
-	load_check(self);
-	gnl_destroy(&self->gnl);
+	if (self->state != 2)
+		app_error(self);
+	if (self->number_of_ants <= 0)
+		app_error(self);
+	if (self->flag_start || self->flag_end)
+		app_error(self);
+	if (self->room_start == NULL || self->room_end == NULL)
+		app_error(self);
 }

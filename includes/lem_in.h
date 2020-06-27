@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 03:49:18 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 04:15:54 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,9 @@ void	app_load(t_app *self);
 void	app_calc(t_app *self);
 void	app_play(t_app *self);
 void	app_free(t_app *self);
+
+void	load_while(t_app *self);
+void	load_check(t_app *self);
+
 
 #endif

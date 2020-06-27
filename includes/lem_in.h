@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 17:45:33 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 18:18:44 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ struct	s_app
 	int			signal_end;
 	// void		*room_start;
 	// void		*room_end;
-	int			number_of_ants;
+	int			number;
 	// void		*rooms;
 	// void		*links;
 };
@@ -59,6 +59,10 @@ void	app_calc(t_app *self);
 void	app_play(t_app *self);
 void	app_free(t_app *self);
 
+int		load_comment(t_app *self);
+int		load_number(t_app *self);
+int		load_room(t_app *self);
+int		load_link(t_app *self);
 void	load_while(t_app *self);
 void	load_check(t_app *self);
 

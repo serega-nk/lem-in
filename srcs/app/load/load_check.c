@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 04:13:11 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 17:38:53 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 18:18:00 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	load_check(t_app *self)
 {
 	if (self->state != 2)
 		app_error(self);
-	if (self->number_of_ants <= 0)
+	if (self->number <= 0)
 		app_error(self);
 	if (self->signal_start || self->signal_end)
 		app_error(self);

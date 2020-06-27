@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/27 18:09:14 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/27 18:22:34 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,10 @@ SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix load/, \
 			load_check.c \
+			load_comment.c \
+			load_link.c \
+			load_number.c \
+			load_room.c \
 			load_while.c \
 		) \
 		app_calc.c \

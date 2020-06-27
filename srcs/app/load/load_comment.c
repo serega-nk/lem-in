@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_while.c                                       :+:      :+:    :+:   */
+/*   load_comment.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 04:14:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 18:21:20 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/27 18:19:57 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/27 18:20:06 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	load_while(t_app *self)
+int		load_comment(t_app *self)
 {
-	if (load_comment(self))
-		return ;
-	if (self->state == 0)
-	{
-		load_number(self);
-		self->state++;
-		return ;
-	}
-	if (self->state == 1)
-	{
-		if (load_room(self))
-			return ;
-		self->state++;
-	}
-	load_link(self);
+	// if (!check_ln(self->line))
+	// 	app_error(self);
+	// skip comment
+	if (*self->line == '#')
+		return (1);
+	// if (self->signal_start || self->signal_end)
+	// 	app_error(self);
+	// if (self)
+	// 	return (0);
+	return (0);
 }

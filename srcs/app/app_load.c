@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 14:52:12 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 14:55:13 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	app_load(t_app *self)
 		queue_push_back(self->lines, self->line);
 		//load_while(self);
 	}
-	app_error(self);
-	//load_check(self);
+	load_check(self);
 	gnl_destroy(&self->gnl);
 }

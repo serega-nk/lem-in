@@ -30,8 +30,8 @@ void	link_destroy(t_link **aself)
 {
 	if (aself && *aself)
 	{
-		ft_strdel(&(*aself)->room1);
-		ft_strdel(&(*aself)->room2);
+		ft_strdel(&(*aself)->name1);
+		ft_strdel(&(*aself)->name2);
 		ft_memdel((void **)aself);
 	}
 }

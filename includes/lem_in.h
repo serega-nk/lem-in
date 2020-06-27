@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:45:49 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 22:59:01 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ struct	s_room
 
 struct	s_link
 {
-	char	*room1;
-	char	*room2;
+	char	*name1;
+	char	*name2;
 };
 
 struct	s_app

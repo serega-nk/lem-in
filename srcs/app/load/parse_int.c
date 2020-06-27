@@ -6,11 +6,11 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 02:44:31 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 02:53:28 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 15:43:29 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "lem_in.h"
 
 int		parse_int(char **addr, int *avalue)
 {

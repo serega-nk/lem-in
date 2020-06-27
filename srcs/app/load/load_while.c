@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 04:14:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 15:04:29 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 16:06:40 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,34 @@
 
 void	load_while(t_app *self)
 {
-	self->number_of_ants = 2;
-	self->state = 2;
+	// check line
+	
+	if (self->state == 1)
+	{
+		// room
+		if (1 = 0)
+			// check flags, none or one
+			// save start end
+			return ;
+		self->state++;
+	}
+
+	// flags
+
+	// skip comment
+	
+	// check flags, none
+
+	if (self->state == 0)
+	{
+
+		self->number_of_ants = 2;
+		// check  number_of_ants > 0		
+		self->state++;
+		return ;
+	}
+	
+	// links
 }
 
 

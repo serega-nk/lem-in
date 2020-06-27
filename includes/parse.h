@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 17:44:49 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 18:37:15 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 21:12:01 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PARSE_H
 
 # include "libft.h"
+# include "ft_xexit.h"
 
 int		parse_int(char **addr, int *avalue);
 int		parse_str(char **addr, char **avalue, const char *deny);

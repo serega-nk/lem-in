@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 00:05:51 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 14:24:43 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	app_calc(t_app *self)
 {
 	if (self)
 	{
-		ft_printf("CALC\n");
+		//ft_printf("CALC\n");
 	}
 }

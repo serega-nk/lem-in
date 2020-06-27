@@ -14,8 +14,16 @@
 
 void	app_play(t_app *self)
 {
+	char	*line;
+
 	if (self)
 	{
+		while ((line = queue_pop_front(self->lines)))
+		{
+			ft_printf("%s", line);
+			ft_strdel(&line);
+		}
+		ft_printf("\n");
 		ft_printf("PLAY\n");
 	}
 }

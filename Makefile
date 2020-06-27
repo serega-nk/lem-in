@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/27 04:33:18 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/27 13:33:30 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= deque.h gnl.h lem_in.h parse.h queue.h 
+HEADERS		= deque.h gnl.h lem_in.h queue.h 
 SOURCES		= \
 	$(addprefix deque/, \
 		deque_clean.c \
@@ -59,7 +59,7 @@ SOURCES		= \
 LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-CC			= gcc
+CC			= gcc -g
 WFLAGS		= -Wall -Wextra -Werror
 IFLAGS		= -I$(INC_DIR)/ -I$(LIBFT_DIR)/includes/
 LFLAGS		= -L$(LIBFT_DIR)/ -lft

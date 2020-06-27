@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:25:46 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 22:47:38 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void		links_destroy(t_queue **aself)
 {
-	void	*data;
+	t_link	*link;
 
-	while ((data = queue_pop_front(*aself)))
-		;
+	while ((link = queue_pop_front(*aself)))
+		link_destroy(&link);
 	queue_destroy(aself);
 }
 

@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/27 18:22:34 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/27 18:36:20 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SOURCES		= \
 		gnl_readline.c \
 	) \
 	$(addprefix parse/, \
+		parse_goto.c \
 		parse_int.c \
 		parse_none.c \
 		parse_skip.c \

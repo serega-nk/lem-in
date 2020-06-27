@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 18:18:44 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 18:38:26 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		load_comment(t_app *self);
 int		load_number(t_app *self);
 int		load_room(t_app *self);
 int		load_link(t_app *self);
+
 void	load_while(t_app *self);
 void	load_check(t_app *self);
 

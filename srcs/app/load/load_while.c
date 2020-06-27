@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 04:14:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 18:21:20 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 18:47:30 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	load_while(t_app *self)
 {
+	ft_printf(self->line);
 	if (load_comment(self))
 		return ;
 	if (self->state == 0)

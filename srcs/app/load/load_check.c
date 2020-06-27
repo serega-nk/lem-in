@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 04:13:11 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 14:55:57 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 15:04:12 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 void	load_check(t_app *self)
 {
-	app_error(self);
-	if (self)
-		self = NULL;
-	// if (self->state != 2)
-	// 	app_error(self);
-	// if (self->number_of_ants <= 0)
-	// 	app_error(self);
+	if (self->state != 2)
+		app_error(self);
+	if (self->number_of_ants <= 0)
+		app_error(self);
 	// if (self->flag_start || self->flag_end)
 	// 	app_error(self);
 	// if (self->room_start == NULL || self->room_end == NULL)

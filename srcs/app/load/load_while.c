@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 04:14:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 13:17:38 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 15:04:29 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	load_while(t_app *self)
 {
-	if (self)
-		self = NULL;
+	self->number_of_ants = 2;
+	self->state = 2;
 }
 
 

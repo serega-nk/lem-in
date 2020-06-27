@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 14:51:00 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 15:02:00 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ struct	s_app
 	t_gnl		*gnl;
 	t_queue		*lines;
 	char		*line;
-	// int			state;
+	int			state;
 	// int			flag_start;
 	// int			flag_end;
 	// void		*room_start;
 	// void		*room_end;
-	// int			number_of_ants;
+	int			number_of_ants;
 	// void		*rooms;
 	// void		*links;
 };

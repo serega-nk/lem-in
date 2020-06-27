@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 13:42:30 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 14:51:00 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ struct	s_app
 {
 	t_gnl		*gnl;
 	t_queue		*lines;
-	//char		*line;
+	char		*line;
 	// int			state;
 	// int			flag_start;
 	// int			flag_end;

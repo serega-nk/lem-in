@@ -6,29 +6,21 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 14:24:38 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 14:51:53 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void		lines_destroy(t_queue **addr)
+void	app_free(t_app *self)
 {
-	char	*line;
-
-	while ((line = queue_pop_front(*addr)))
-		ft_strdel(&line);
-	queue_destroy(addr);
-}
-
-void			app_free(t_app *self)
-{
-	if (self)
+	ft_printf("FREE\n");
+	if (self->gnl)
+		gnl_destroy(&self->gnl);
+	if (self->lines)
 	{
-		//ft_printf("FREE\n");
-		if (self->gnl)
-			gnl_destroy(&self->gnl);
-		if (self->lines)
-			lines_destroy(&self->lines);
+		while ((self->line = queue_pop_front(self->lines)))
+			ft_strdel(&self->line);
+		queue_destroy(&self->lines);
 	}
 }

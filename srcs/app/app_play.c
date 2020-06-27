@@ -14,16 +14,13 @@
 
 void	app_play(t_app *self)
 {
-	char	*line;
-
-	if (self)
+	//ft_printf_set_global_buffer(1024);
+	while ((self->line = queue_pop_front(self->lines)))
 	{
-		while ((line = queue_pop_front(self->lines)))
-		{
-			ft_printf("%s", line);
-			ft_strdel(&line);
-		}
-		ft_printf("\n");
-		ft_printf("PLAY\n");
+		ft_printf("%s", self->line);
+		ft_strdel(&self->line);
 	}
+	ft_printf("\n");
+	ft_printf("PLAY\n");
+	//ft_printf_set_global_buffer(0);
 }

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 14:26:07 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 14:52:12 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	app_load(t_app *self)
 {
-	char	*line;
-
 	self->lines = queue_create();
 	self->gnl = gnl_create(STDIN_FILENO);
-	while (gnl_readline(self->gnl, &line) > 0)
+	while (gnl_readline(self->gnl, &self->line) > 0)
 	{
-		queue_push_back(self->lines, line);
+		queue_push_back(self->lines, self->line);
 		//load_while(self);
 	}
 	app_error(self);

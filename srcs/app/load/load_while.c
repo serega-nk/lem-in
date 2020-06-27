@@ -6,42 +6,83 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 04:14:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 16:06:40 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 18:12:38 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
+
+// int		check_ln(char *line)
+// {
+// 	size_t	len;
+
+// 	len = ft_strlen(line);
+// 	if (len > 0 && line[len-1] == '\n')
+// 		return (1);
+// 	return (0);
+// }
+
+int		load_comment(t_app *self)
+{
+	// if (!check_ln(self->line))
+	// 	app_error(self);
+	// skip comment
+	if (*self->line == '#')
+		return (1);
+	// if (self->signal_start || self->signal_end)
+	// 	app_error(self);
+	// if (self)
+	// 	return (0);
+	return (0);
+}
+
+int		load_number_of_ants(t_app *self)
+{
+	if (self->signal_start || self->signal_end)
+		app_error(self);
+	if (!parse_int(&self->line, &self->number_of_ants))
+		app_error(self);
+	if (self->number_of_ants <= 0)
+		app_error(self);
+	return (1);
+}
+
+int		load_room(t_app *self)
+{
+	//ft_printf("ROOM: %s", self->line);
+	// check flags, none or one
+	// save start end
+	if (self)
+		return (0);
+	return (0);
+}
+
+int		load_link(t_app *self)
+{
+	if (self->signal_start || self->signal_end)
+		app_error(self);
+	//ft_printf("LINK: %s", self->line);
+	return (1);
+}
+
 void	load_while(t_app *self)
 {
-	// check line
-	
-	if (self->state == 1)
-	{
-		// room
-		if (1 = 0)
-			// check flags, none or one
-			// save start end
-			return ;
-		self->state++;
-	}
-
-	// flags
-
-	// skip comment
-	
-	// check flags, none
-
+	if (load_comment(self))
+		return ;
 	if (self->state == 0)
 	{
-
-		self->number_of_ants = 2;
-		// check  number_of_ants > 0		
+		load_number_of_ants(self);
 		self->state++;
 		return ;
 	}
-	
-	// links
+	if (self->state == 1)
+	{
+		if (load_room(self))
+			return ;
+		self->state++;
+	}
+	load_link(self);
 }
 
 

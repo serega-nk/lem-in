@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 15:02:00 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 17:45:33 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "ft_printf.h"
 # include "deque.h"
 # include "gnl.h"
+# include "parse.h"
 # include "queue.h"
 
 typedef struct s_room	t_room;
@@ -43,8 +44,8 @@ struct	s_app
 	t_queue		*lines;
 	char		*line;
 	int			state;
-	// int			flag_start;
-	// int			flag_end;
+	int			signal_start;
+	int			signal_end;
 	// void		*room_start;
 	// void		*room_end;
 	int			number_of_ants;
@@ -60,6 +61,5 @@ void	app_free(t_app *self);
 
 void	load_while(t_app *self);
 void	load_check(t_app *self);
-
 
 #endif

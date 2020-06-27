@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 15:10:32 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 21:06:48 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	app_free(t_app *self)
 {
-	//ft_printf("FREE\n");
 	gnl_destroy(&self->gnl);
 	while ((self->line = queue_pop_front(self->lines)))
 		ft_strdel(&self->line);

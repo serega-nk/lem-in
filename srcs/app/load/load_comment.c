@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 18:57:02 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 21:08:12 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int		load_comment(t_app *self)
 	}
 	if (parse_skip(&self->line, "#"))
 	{
-		ft_printf("SKIP COMMENT\n");
 		if (!parse_goto(&self->line, "\n"))
 			app_error(self);
 		if (!parse_none(&self->line))

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 07:44:07 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/26 09:45:02 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 21:05:34 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 typedef struct s_deque_item		t_deque_item;
 typedef struct s_deque			t_deque;
 
-struct	s_deque_item
+struct			s_deque_item
 {
 	t_deque_item	*prev;
 	t_deque_item	*next;
 	void			*data;
 };
 
-struct	s_deque
+struct			s_deque
 {
 	t_deque_item	*head;
 	t_deque_item	*tail;

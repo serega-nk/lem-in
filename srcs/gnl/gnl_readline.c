@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 22:27:22 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/26 06:51:20 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 21:06:38 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int				gnl_readline(t_gnl *self, char **aline)
 {
 	char		buf[GNL_BUF + 1];
 	ssize_t		ret;
-	
+
 	if (!self || read(self->fd, NULL, 0) < 0)
 		return (-1);
 	while (!gnl_pop(self, aline))

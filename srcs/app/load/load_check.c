@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 04:13:11 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:26:00 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/27 22:33:09 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	load_check(t_app *self)
 {
-	ft_printf("CHECK STATE = %d\n", self->state);
 	if (self->state != 2)
 		app_error(self);
 	if (self->number <= 0)
@@ -23,6 +22,4 @@ void	load_check(t_app *self)
 		app_error(self);
 	if (self->room_start == NULL || self->room_end == NULL)
 		app_error(self);
-	ft_printf("ROOM START: %s, ROOM END: %s\n",
-		self->room_start->name, self->room_end->name);
 }

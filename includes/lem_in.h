@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:59:01 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/28 04:39:20 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_app	t_app;
 struct	s_room
 {
 	char	*name;
+	char	*key_coord;
 	int		coord_x;
 	int		coord_y;
 };

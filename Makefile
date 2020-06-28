@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/27 22:16:51 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/28 05:00:40 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,40 +16,8 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= deque.h gnl.h lem_in.h parse.h queue.h 
+HEADERS		= lem_in.h
 SOURCES		= \
-	$(addprefix deque/, \
-		deque_clean.c \
-		deque_create.c \
-		deque_destroy.c \
-		deque_item_create.c \
-		deque_item_destroy.c \
-		deque_pop_back.c \
-		deque_pop_front.c \
-		deque_push_back.c \
-		deque_push_front.c \
-	) \
-	$(addprefix gnl/, \
-		gnl_create.c \
-		gnl_destroy.c \
-		gnl_readline.c \
-	) \
-	$(addprefix parse/, \
-		parse_goto.c \
-		parse_int.c \
-		parse_none.c \
-		parse_skip.c \
-		parse_str.c \
-	) \
-	$(addprefix queue/, \
-		queue_clean.c \
-		queue_create.c \
-		queue_destroy.c \
-		queue_item_create.c \
-		queue_item_destroy.c \
-		queue_pop_front.c \
-		queue_push_back.c \
-	) \
 	$(addprefix app/, \
 		$(addprefix load/, \
 			load_check.c \
@@ -66,7 +34,7 @@ SOURCES		= \
 		app_play.c \
 	) \
 	home.c \
-	main.c	
+	main.c \
 
 LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a

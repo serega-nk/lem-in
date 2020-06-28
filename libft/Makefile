@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/26 07:05:30 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/28 05:00:06 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,69 +16,17 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= libft.h \
+HEADERS		= deque.h \
 			  ft_printf.h \
 			  ft_printf_private.h \
 			  ft_xexit.h \
 			  ft_xexit_private.h \
+			  gnl.h \
+			  libft.h \
+			  parse.h \
+			  queue.h \
 
 SOURCES		= \
-	$(addprefix part1/, \
-		ft_memset.c \
-		ft_bzero.c \
-		ft_memcpy.c \
-		ft_memccpy.c \
-		ft_memmove.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_strlen.c \
-		ft_strdup.c \
-		ft_strcpy.c \
-		ft_strncpy.c \
-		ft_strcat.c \
-		ft_strncat.c \
-		ft_strlcat.c \
-		ft_strchr.c \
-		ft_strrchr.c \
-		ft_strstr.c \
-		ft_strnstr.c \
-		ft_strcmp.c \
-		ft_strncmp.c \
-		ft_atoi.c \
-		ft_isalpha.c \
-		ft_isdigit.c \
-		ft_isalnum.c \
-		ft_isascii.c \
-		ft_isprint.c \
-		ft_toupper.c \
-		ft_tolower.c \
-	) \
-	$(addprefix part2/, \
-		ft_memalloc.c \
-		ft_memdel.c \
-		ft_strnew.c \
-		ft_strdel.c \
-		ft_strclr.c \
-		ft_striter.c \
-		ft_striteri.c \
-		ft_strmap.c \
-		ft_strmapi.c \
-		ft_strequ.c \
-		ft_strnequ.c \
-		ft_strsub.c \
-		ft_strjoin.c \
-		ft_strtrim.c \
-		ft_strsplit.c \
-		ft_itoa.c \
-		ft_putchar.c \
-		ft_putstr.c \
-		ft_putendl.c \
-		ft_putnbr.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-	) \
 	$(addprefix bonus/, \
 		ft_lstnew.c \
 		ft_lstdelone.c \
@@ -86,6 +34,17 @@ SOURCES		= \
 		ft_lstadd.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
+	) \
+	$(addprefix deque/, \
+		deque_clean.c \
+		deque_create.c \
+		deque_destroy.c \
+		deque_item_create.c \
+		deque_item_destroy.c \
+		deque_pop_back.c \
+		deque_pop_front.c \
+		deque_push_back.c \
+		deque_push_front.c \
 	) \
 	$(addprefix extra/, \
 		ft_isspace.c \
@@ -148,7 +107,83 @@ SOURCES		= \
 		ft_xmemalloc.c \
 		ft_xstrdup.c \
 	) \
-
+	$(addprefix gnl/, \
+		gnl_create.c \
+		gnl_destroy.c \
+		gnl_readline.c \
+	) \
+	$(addprefix parse/, \
+		parse_goto.c \
+		parse_int.c \
+		parse_none.c \
+		parse_skip.c \
+		parse_str.c \
+	) \
+	$(addprefix part1/, \
+		ft_memset.c \
+		ft_bzero.c \
+		ft_memcpy.c \
+		ft_memccpy.c \
+		ft_memmove.c \
+		ft_memchr.c \
+		ft_memcmp.c \
+		ft_strlen.c \
+		ft_strdup.c \
+		ft_strcpy.c \
+		ft_strncpy.c \
+		ft_strcat.c \
+		ft_strncat.c \
+		ft_strlcat.c \
+		ft_strchr.c \
+		ft_strrchr.c \
+		ft_strstr.c \
+		ft_strnstr.c \
+		ft_strcmp.c \
+		ft_strncmp.c \
+		ft_atoi.c \
+		ft_isalpha.c \
+		ft_isdigit.c \
+		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
+		ft_toupper.c \
+		ft_tolower.c \
+	) \
+	$(addprefix part2/, \
+		ft_memalloc.c \
+		ft_memdel.c \
+		ft_strnew.c \
+		ft_strdel.c \
+		ft_strclr.c \
+		ft_striter.c \
+		ft_striteri.c \
+		ft_strmap.c \
+		ft_strmapi.c \
+		ft_strequ.c \
+		ft_strnequ.c \
+		ft_strsub.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_strsplit.c \
+		ft_itoa.c \
+		ft_putchar.c \
+		ft_putstr.c \
+		ft_putendl.c \
+		ft_putnbr.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
+	) \
+	$(addprefix queue/, \
+		queue_clean.c \
+		queue_create.c \
+		queue_destroy.c \
+		queue_item_create.c \
+		queue_item_destroy.c \
+		queue_pop_front.c \
+		queue_push_back.c \
+	) \
 
 CC			= gcc
 WFLAGS		= -Wall -Wextra -Werror

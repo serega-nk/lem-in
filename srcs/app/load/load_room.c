@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:37:12 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/28 04:39:59 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static int	load_room_parse(t_room *room, char *line)
 	if (parse_str(&line, &room->name, "- \n") &&
 		room->name[0] != 'L' &&
 		parse_skip(&line, " ") &&
+		(room->key_coord = ft_xstrdup(line)) &&
 		parse_int(&line, &room->coord_x) &&
 		parse_skip(&line, " ") &&
 		parse_int(&line, &room->coord_y) &&

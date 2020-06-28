@@ -14,6 +14,7 @@ void	room_destroy(t_room **aself)
 	if (aself && *aself)
 	{
 		ft_strdel(&(*aself)->name);
+		ft_strdel(&(*aself)->key_coord);
 		ft_memdel((void **)aself);
 	}
 }

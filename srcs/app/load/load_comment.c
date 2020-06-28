@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:17:49 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/28 04:26:36 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		load_comment(t_app *self)
 {
 	if (ft_strcmp(self->line, "##start\n") == 0)
 	{
-		ft_printf("SIGNAL START\n");
+		ft_printf("### SIGNAL START\n");
 		if (self->signal_start)
 			app_error(self);
 		self->signal_start = 1;
@@ -24,7 +24,7 @@ int		load_comment(t_app *self)
 	}
 	if (ft_strcmp(self->line, "##end\n") == 0)
 	{
-		ft_printf("SIGNAL END\n");
+		ft_printf("### SIGNAL END\n");
 		if (self->signal_end)
 			app_error(self);
 		self->signal_end = 1;

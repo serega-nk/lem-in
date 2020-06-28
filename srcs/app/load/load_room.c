@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/28 04:39:59 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/28 05:14:34 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static int	load_room_parse(t_room *room, char *line)
+static int	load_room_parse(char *line, t_room *room)
 {
 	if (parse_str(&line, &room->name, "- \n") &&
 		room->name[0] != 'L' &&
@@ -34,7 +34,7 @@ int			load_room(t_app *self)
 	if (self->signal_start && self->signal_end)
 		app_error(self);
 	room = room_create();
-	if (load_room_parse(room, self->line))
+	if (load_room_parse(self->line, room))
 	{
 		if (self->signal_start)
 			self->room_start = room;

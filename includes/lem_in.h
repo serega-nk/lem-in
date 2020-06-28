@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/28 04:39:20 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/28 05:31:12 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	app_calc(t_app *self);
 void	app_play(t_app *self);
 void	app_free(t_app *self);
 
+int		load_signal(t_app *self);
 int		load_comment(t_app *self);
 int		load_number(t_app *self);
 int		load_room(t_app *self);

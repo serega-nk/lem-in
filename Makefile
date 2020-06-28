@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/28 05:00:40 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/28 05:31:26 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SOURCES		= \
 			load_link.c \
 			load_number.c \
 			load_room.c \
+			load_signal.c \
 			load_while.c \
 		) \
 		app_calc.c \

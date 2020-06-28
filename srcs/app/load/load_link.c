@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:38 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:59:53 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/28 05:14:06 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static int	load_link_parse(t_link *link, char *line)
+static int	load_link_parse(char *line, t_link *link)
 {
 	if (parse_str(&line, &link->name1, "- \n") &&
 		link->name1[0] != 'L' &&
@@ -34,11 +34,12 @@ int			load_link(t_app *self)
 	if (self->signal_start || self->signal_end)
 		app_error(self);
 	link = link_create();
-	if (!load_link_parse(link, self->line))
+	if (load_link_parse(self->line, link))
 	{
-		link_destroy(&link);
-		app_error(self);
+		queue_push_back(self->links, link);	
+		return (1);
 	}
-	queue_push_back(self->links, link);	
-	return (1);
+	link_destroy(&link);
+	app_error(self);
+	return (0);
 }

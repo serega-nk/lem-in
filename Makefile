@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/29 03:27:10 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/29 06:21:01 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,10 @@ SOURCES		= \
 			load_signal.c \
 			load_while.c \
 		) \
+		$(addprefix room/, \
+			room_create.c \
+			room_destroy.c \
+		) \
 		app_calc.c \
 		app_error.c \
 		app_free.c \
@@ -43,10 +47,12 @@ SOURCES		= \
 		hashtab_insert.c \
 		hashtab_item_create.c \
 		hashtab_item_destroy.c \
+		hashtab_next.c \
+		hashtab_next_kv.c \
 		hashtab_remove.c \
 		hashtab_resize.c \
+		hashtab_start.c \
 	) \
-	home.c \
 	main.c \
 
 LIBFT_DIR	= ./libft

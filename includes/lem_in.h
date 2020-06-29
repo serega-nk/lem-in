@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 05:41:26 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 05:57:07 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include "hashtab.h"
 
 typedef struct s_room	t_room;
-typedef struct s_link	t_link;
 typedef struct s_app	t_app;
 
 struct	s_room
@@ -32,12 +31,7 @@ struct	s_room
 	int			coord_x;
 	int			coord_y;
 	t_hashtab	*links;
-};
-
-struct	s_link
-{
-	char	*name1;
-	char	*name2;
+	int			lock;
 };
 
 struct	s_app

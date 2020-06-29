@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 20:41:58 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 20:45:57 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ void	app_play(t_app *self)
 	ft_printf("HEAP COUNT = %llu, SIZE = %llu\n", heap->count, heap->size);
 
 	heap_clean(heap, &ft_strdel);
-	heap_destroy(&heap);	
+	heap_destroy(&heap);
 }

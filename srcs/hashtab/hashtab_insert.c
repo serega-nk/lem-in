@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 18:38:11 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 04:53:31 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:18:26 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		hashtab_insert(t_hashtab *self, const char *key, void *value)
 			awalk = &(*awalk)->next;
 		}
 		*awalk = hashtab_item_create(key, value);
-		self->count++;		
+		self->count++;
 		return (1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:38 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 05:39:02 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:23:58 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	load_link_parse(t_app *self, char **aname1, char **aname2)
 		*(*aname1) != 'L' &&
 		parse_skip(&line, "-") &&
 		parse_str(&line, aname2, "- \n") &&
-		*(*aname2)!= 'L' &&
+		*(*aname2) != 'L' &&
 		parse_skip(&line, "\n") &&
 		parse_none(&line))
 	{

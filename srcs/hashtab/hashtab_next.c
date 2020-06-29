@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 06:02:26 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 06:41:03 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:18:18 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ t_hashtab_item	*hashtab_next(t_hashtab *self)
 		self->cursor = self->cursor->next;
 		return (item);
 	}
-	return (NULL);	
+	return (NULL);
 }

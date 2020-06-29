@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/29 14:14:04 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/29 18:16:12 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,8 @@ SOURCES		= \
 	$(addprefix heap/, \
 		heap_create.c \
 		heap_destroy.c \
+		heap_sift_down.c \
+		heap_sift_up.c \
 	) \
 	main.c \
 

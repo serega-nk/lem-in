@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 16:21:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 14:03:41 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:21:49 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ struct			s_hashtab
 
 t_hashtab		*hashtab_create(void);
 void			hashtab_destroy(t_hashtab **aself);
-void	hashtab_clean(t_hashtab *self, void (*delf)());
+void			hashtab_clean(t_hashtab *self, void (*delf)());
 
 t_hashtab_item	*hashtab_item_create(const char *key, void *value);
 void			hashtab_item_destroy(t_hashtab_item **aself);
@@ -51,6 +51,7 @@ void			hashtab_resize(t_hashtab *self);
 
 void			hashtab_start(t_hashtab *self);
 t_hashtab_item	*hashtab_next(t_hashtab *self);
-int				hashtab_next_kv(t_hashtab *self, const char **akey, void **avalue);
+int				hashtab_next_kv(
+	t_hashtab *self, const char **akey, void **avalue);
 
 #endif

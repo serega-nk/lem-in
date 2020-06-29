@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 20:35:27 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 03:05:25 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 18:19:02 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		resize(t_hashtab *self, t_hashtab_item **table, size_t size)
 	size_t			i;
 
 	self->size = size * 4;
-	self->table = (t_hashtab_item **) \
+	self->table = (t_hashtab_item **)
 		ft_xmemalloc(self->size * sizeof(t_hashtab_item *));
 	i = 0;
 	while (i < size)

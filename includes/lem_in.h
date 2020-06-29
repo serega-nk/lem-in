@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 05:57:07 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 14:08:53 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "parse.h"
 # include "queue.h"
 # include "hashtab.h"
+# include "heap.h"
 
 typedef struct s_room	t_room;
 typedef struct s_app	t_app;
@@ -31,6 +32,7 @@ struct	s_room
 	int			coord_x;
 	int			coord_y;
 	t_hashtab	*links;
+	t_heap		*levels;  // visitors
 	int			lock;
 };
 

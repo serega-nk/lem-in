@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   room_destroy.c                                     :+:      :+:    :+:   */
+/*   heap.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/29 05:58:54 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 14:14:17 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/29 14:04:45 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/29 14:04:47 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#ifndef HEAP_H
+# define HEAP_H
 
-void	room_destroy(t_room **aself)
+# include "libft.h"
+# include "ft_xexit.h"
+# include "ft_printf.h"
+
+typedef struct t_heap	t_heap;
+
+struct	t_heap
 {
-	if (aself && *aself)
-	{
-		heap_destroy(&(*aself)->levels);
-		hashtab_destroy(&(*aself)->links);
-		ft_strdel(&(*aself)->name);
-		ft_memdel((void **)aself);
-	}
-}
+	size_t	size;
+	size_t	count;
+};
+
+t_heap	*heap_create(void);
+void	heap_destroy(t_heap **aself);
+
+#endif

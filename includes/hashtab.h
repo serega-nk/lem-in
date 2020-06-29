@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 16:21:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 06:22:54 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 14:03:41 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include "ft_xexit.h"
-# include "ft_printf.h"
 
 typedef struct s_hashtab_item	t_hashtab_item;
 typedef struct s_hashtab		t_hashtab;

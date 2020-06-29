@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   room_destroy.c                                     :+:      :+:    :+:   */
+/*   heap_create.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/29 05:58:54 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 14:14:17 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/29 14:06:25 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/29 14:06:38 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "heap.h"
 
-void	room_destroy(t_room **aself)
+t_heap	*heap_create(void)
 {
-	if (aself && *aself)
-	{
-		heap_destroy(&(*aself)->levels);
-		hashtab_destroy(&(*aself)->links);
-		ft_strdel(&(*aself)->name);
-		ft_memdel((void **)aself);
-	}
+	t_heap	*self;
+
+	self = (t_heap *)ft_xmemalloc(sizeof(t_heap));
+	return (self);
 }

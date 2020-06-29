@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/29 06:21:01 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/29 14:14:04 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= lem_in.h hashtab.h
+HEADERS		= hashtab.h heap.h lem_in.h
 SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix load/, \
@@ -52,6 +52,10 @@ SOURCES		= \
 		hashtab_remove.c \
 		hashtab_resize.c \
 		hashtab_start.c \
+	) \
+	$(addprefix heap/, \
+		heap_create.c \
+		heap_destroy.c \
 	) \
 	main.c \
 
@@ -97,4 +101,7 @@ norm:
 test: $(NAME)
 	./$(NAME) < _maps/1
 
-.PHONY: all clean fclean re norm
+vv: $(NAME)
+	valgrind --leak-check=full ./$(NAME) < _maps/big-superposition
+
+.PHONY: all clean fclean re norm test vv

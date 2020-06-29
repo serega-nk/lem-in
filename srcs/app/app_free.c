@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:47:38 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 04:48:12 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,6 @@ static void		links_destroy(t_queue **aself)
 	queue_destroy(aself);
 }
 
-static void		rooms_destroy(t_queue **aself)
-{
-	t_room	*room;
-
-	while ((room = queue_pop_front(*aself)))
-		room_destroy(&room);
-	queue_destroy(aself);
-}
-
 static void		lines_destroy(t_queue **aself)
 {
 	char	*line;
@@ -41,8 +32,11 @@ static void		lines_destroy(t_queue **aself)
 
 void			app_free(t_app *self)
 {
+	ft_strdel(&self->temp);
 	gnl_destroy(&self->gnl);
 	links_destroy(&self->links);
-	rooms_destroy(&self->rooms);
+	hashtab_destroy(&self->coords);
+	hashtab_clean(self->rooms, &room_destroy);
+	hashtab_destroy(&self->rooms);
 	lines_destroy(&self->lines);
 }

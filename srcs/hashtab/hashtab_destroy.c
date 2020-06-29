@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_load.c                                         :+:      :+:    :+:   */
+/*   hashtab_destroy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 03:29:12 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/28 16:39:10 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/29 02:59:07 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "hashtab.h"
 
-void	app_load(t_app *self)
+void		hashtab_destroy(t_hashtab **aself)
 {
-	self->lines = queue_create();
-	self->rooms = hashtab_create();
-	self->coords = hashtab_create();
-	self->links = queue_create();
-	self->gnl = gnl_create(STDIN_FILENO);
-	while (gnl_readline(self->gnl, &self->line) > 0)
+	if (aself && *aself)
 	{
-		queue_push_back(self->lines, self->line);
-		load_while(self);
+		hashtab_clean(*aself, NULL);
+		ft_memdel((void **)&(*aself)->table);
+		ft_memdel((void **)aself);
 	}
-	load_check(self);
 }

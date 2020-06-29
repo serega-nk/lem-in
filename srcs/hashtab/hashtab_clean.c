@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_load.c                                         :+:      :+:    :+:   */
+/*   hashtab_clean.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 03:29:12 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/29 02:52:20 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/29 04:38:16 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "hashtab.h"
 
-void	app_load(t_app *self)
+void	hashtab_clean(t_hashtab *self, void (*delf)())
 {
-	self->lines = queue_create();
-	self->rooms = hashtab_create();
-	self->coords = hashtab_create();
-	self->links = queue_create();
-	self->gnl = gnl_create(STDIN_FILENO);
-	while (gnl_readline(self->gnl, &self->line) > 0)
+	t_hashtab_item	*item;
+	size_t			i;
+
+	if (self)
 	{
-		queue_push_back(self->lines, self->line);
-		load_while(self);
+		i = 0;
+		while (i < self->size)
+		{
+			while (self->table[i])
+			{
+				item = self->table[i];
+				self->table[i] = item->next;
+				if (delf)
+					(*delf)(&item->value);
+				hashtab_item_destroy(&item);
+			}
+			i++;
+		}
 	}
-	load_check(self);
 }

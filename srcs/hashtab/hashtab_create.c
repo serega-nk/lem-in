@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_load.c                                         :+:      :+:    :+:   */
+/*   hashtab_create.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 03:29:12 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/28 16:38:11 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/29 04:40:52 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "hashtab.h"
 
-void	app_load(t_app *self)
+t_hashtab	*hashtab_create(void)
 {
-	self->lines = queue_create();
-	self->rooms = hashtab_create();
-	self->coords = hashtab_create();
-	self->links = queue_create();
-	self->gnl = gnl_create(STDIN_FILENO);
-	while (gnl_readline(self->gnl, &self->line) > 0)
-	{
-		queue_push_back(self->lines, self->line);
-		load_while(self);
-	}
-	load_check(self);
+	t_hashtab	*self;
+
+	self = (t_hashtab *)ft_xmemalloc(sizeof(t_hashtab));
+	self->size = 2;
+	self->table = (t_hashtab_item **) \
+		ft_xmemalloc(self->size * sizeof(t_hashtab_item *));
+	return (self);
 }

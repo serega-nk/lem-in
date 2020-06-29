@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_load.c                                         :+:      :+:    :+:   */
+/*   hashtab_get.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 03:29:12 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/28 23:08:16 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/28 23:09:48 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "hashtab.h"
 
-void	app_load(t_app *self)
+int		hashtab_get(t_hashtab *self, const char *key, void **avalue)
 {
-	self->lines = queue_create();
-	self->rooms = hashtab_create();
-	self->coords = hashtab_create();
-	self->links = queue_create();
-	self->gnl = gnl_create(STDIN_FILENO);
-	while (gnl_readline(self->gnl, &self->line) > 0)
+	t_hashtab_item	**awalk;
+	size_t			hash;
+
+	if (self)
 	{
-		queue_push_back(self->lines, self->line);
-		load_while(self);
+		hash = hashtab_hash(key, self->size);
+		awalk = &self->table[hash];
+		while (*awalk)
+		{
+			if (ft_strcmp(key, (*awalk)->key) == 0)
+			{
+				if (avalue)
+					*avalue = (*awalk)->value;
+				return (1);
+			}
+			awalk = &(*awalk)->next;
+		}
 	}
-	load_check(self);
+	return (0);
 }

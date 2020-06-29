@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_load.c                                         :+:      :+:    :+:   */
+/*   hashtab_hash.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 03:29:12 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/28 22:04:32 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/28 22:05:26 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "hashtab.h"
 
-void	app_load(t_app *self)
+size_t	hashtab_hash(const char *key, size_t size)
 {
-	self->lines = queue_create();
-	self->rooms = hashtab_create();
-	self->coords = hashtab_create();
-	self->links = queue_create();
-	self->gnl = gnl_create(STDIN_FILENO);
-	while (gnl_readline(self->gnl, &self->line) > 0)
-	{
-		queue_push_back(self->lines, self->line);
-		load_while(self);
-	}
-	load_check(self);
+    size_t	hash;
+
+	hash = 0;
+	while (*key)
+		hash = *key++ + 31 * hash;
+    return hash % size;
 }

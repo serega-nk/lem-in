@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/28 05:31:26 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/29 03:27:10 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= lem_in.h
+HEADERS		= lem_in.h hashtab.h
 SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix load/, \
@@ -34,13 +34,25 @@ SOURCES		= \
 		app_load.c \
 		app_play.c \
 	) \
+	$(addprefix hashtab/, \
+		hashtab_clean.c \
+		hashtab_create.c \
+		hashtab_destroy.c \
+		hashtab_get.c \
+		hashtab_hash.c \
+		hashtab_insert.c \
+		hashtab_item_create.c \
+		hashtab_item_destroy.c \
+		hashtab_remove.c \
+		hashtab_resize.c \
+	) \
 	home.c \
 	main.c \
 
 LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-CC			= gcc
+CC			= gcc -g
 WFLAGS		= -Wall -Wextra -Werror
 IFLAGS		= -I$(INC_DIR)/ -I$(LIBFT_DIR)/includes/
 LFLAGS		= -L$(LIBFT_DIR)/ -lft

@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_number.c                                      :+:      :+:    :+:   */
+/*   hashtab_insert.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 18:16:36 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 04:58:04 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/28 18:38:11 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/29 04:53:31 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "hashtab.h"
 
-static int	load_number_parse(t_app *self)
+int		hashtab_insert(t_hashtab *self, const char *key, void *value)
 {
-	char	*line;
+	t_hashtab_item	**awalk;
+	size_t			hash;
 
-	line = self->line;
-	if (parse_int(&line, &self->number) &&
-		parse_skip(&line, "\n") &&
-		parse_none(&line))
+	if (self)
+	{
+		hashtab_resize(self);
+		hash = hashtab_hash(key, self->size);
+		awalk = &self->table[hash];
+		while (*awalk)
+		{
+			if (ft_strcmp(key, (*awalk)->key) == 0)
+				return (0);
+			awalk = &(*awalk)->next;
+		}
+		*awalk = hashtab_item_create(key, value);
+		self->count++;		
 		return (1);
+	}
 	return (0);
-}
-
-int			load_number(t_app *self)
-{
-	if (self->signal_start || self->signal_end)
-		app_error(self);
-	if (!load_number_parse(self))
-		app_error(self);
-	if (self->number <= 0)
-		app_error(self);
-
-	ft_printf("### %d ###\n", +020);
-	return (1);
 }

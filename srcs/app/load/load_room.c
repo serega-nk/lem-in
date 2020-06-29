@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 14:16:07 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 23:19:23 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ static int	load_room_parse(t_app *self, t_room *room)
 
 static int	load_room_insert(t_app *self, t_room *room)
 {
+	char 	key[100];
+
 	if (self->signal_start && self->signal_end)
 		return (0);
-	if (!self->temp)
-		self->temp = (char *)ft_xmemalloc(100 * sizeof(char));
-	ft_sprintf(self->temp, "x = %d, y = %d", room->coord_x, room->coord_y);
+	ft_sprintf(key, "x = %d, y = %d", room->coord_x, room->coord_y);
 	if (room->name[0] != 'L' &&
 		room->coord_x >= 0 &&
 		room->coord_y >= 0 &&
-		hashtab_insert(self->coords, self->temp, NULL) &&
+		hashtab_insert(self->coords, key, NULL) &&
 		hashtab_insert(self->rooms, room->name, room))
 	{
 		if (self->signal_start)

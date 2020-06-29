@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 05:45:59 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 23:18:09 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void			app_free(t_app *self)
 {
-	ft_strdel(&self->temp);
 	gnl_destroy(&self->gnl);
 	hashtab_destroy(&self->coords);
 	hashtab_clean(self->rooms, &room_destroy);

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 23:09:15 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 23:19:38 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ struct	s_app
 	int			number;
 	t_hashtab	*rooms;
 	t_hashtab	*coords;
-	char		*temp;
 };
 
 void	app_error(t_app *self);

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 05:58:42 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 14:09:17 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 23:10:00 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ t_room	*room_create(void)
 
 	self = (t_room *)ft_xmemalloc(sizeof(t_room));
 	self->links = hashtab_create();
-	self->levels = heap_create();
+	self->visitors = queue_create();
 	return (self);
 }

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:06:25 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 14:06:38 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 19:00:00 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@ t_heap	*heap_create(void)
 	t_heap	*self;
 
 	self = (t_heap *)ft_xmemalloc(sizeof(t_heap));
+	self->size = 2;
+	self->table = (t_heap_item *)ft_xmemalloc(self->size * sizeof(t_heap_item));
 	return (self);
 }

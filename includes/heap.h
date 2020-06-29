@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:04:45 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 18:30:42 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 19:38:40 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,20 @@
 # include "ft_xexit.h"
 # include "ft_printf.h"
 
-typedef struct s_heap	t_heap;
+typedef struct s_heap_item	t_heap_item;
+typedef struct s_heap		t_heap;
+
+struct		s_heap_item
+{
+	size_t	priority;
+	void	*data;
+};
 
 struct		s_heap
 {
-	size_t	size;
-	size_t	count;
+	t_heap_item	*table;
+	size_t		size;
+	size_t		count;
 };
 
 t_heap		*heap_create(void);

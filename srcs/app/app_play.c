@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 06:40:09 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 20:41:58 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,47 @@ void	app_play(t_app *self)
 		ft_printf("END: link = %s\n", room->name);
 	}
 
+	t_heap	*heap;
+	
+	heap = heap_create();
+	
+	ft_printf("HEAP COUNT = %llu, SIZE = %llu\n", heap->count, heap->size);
+	
+	int		ret = 0;
+	size_t	prio = 0;
+	char	*data = NULL;
+
+	ret = heap_extract(heap, &prio, (void **)&data);
+	ft_printf("COUNT = %llu, RET = %llu, prio = %llu\n", heap->count, ret, prio);
+
+	heap_insert(heap, 10, ft_xstrdup("10"));
+	heap_insert(heap, 1, ft_xstrdup("1"));
+	// heap_insert(heap, 2, ft_xstrdup("2"));
+	// heap_insert(heap, 5, ft_xstrdup("5"));
+	// heap_insert(heap, 3, ft_xstrdup("3"));
+	// heap_insert(heap, 4, ft_xstrdup("4"));
+
+	ret = heap_extract(heap, &prio, (void **)&data);
+	ft_printf("COUNT = %llu, RET = %llu, prio = %llu, data = %s\n", heap->count, ret, prio, data);
+	ft_strdel(&data);
+	
+	// heap_insert(heap, 8, ft_xstrdup("8"));
+
+	// ret = heap_extract(heap, &prio, (void **)&data);
+	// ft_printf("COUNT = %llu, RET = %llu, prio = %llu, data = %s\n", heap->count, ret, prio, data);
+
+
+	heap_insert(heap, 2, ft_xstrdup("2"));
+	heap_insert(heap, 5, ft_xstrdup("5"));
+	heap_insert(heap, 3, ft_xstrdup("3"));
+	heap_insert(heap, 4, ft_xstrdup("4"));
+
+	ret = heap_extract(heap, &prio, (void **)&data);
+	ft_printf("COUNT = %llu, RET = %llu, prio = %llu, data = %s\n", heap->count, ret, prio, data);
+	ft_strdel(&data);
+
+	ft_printf("HEAP COUNT = %llu, SIZE = %llu\n", heap->count, heap->size);
+
+	heap_clean(heap, &ft_strdel);
+	heap_destroy(&heap);	
 }

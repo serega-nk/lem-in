@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 19:59:37 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 20:07:32 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 20:37:56 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ int		heap_extract(t_heap *self, size_t *apriority, void **adata)
 {
 	if (self && self->count > 0)
 	{
-		*apriority = self->table[0].priority;
-		*adata = self->table[0].data;
+		if (apriority)
+			*apriority = self->table[0].priority;
+		if (adata)
+			*adata = self->table[0].data;
 		self->count--;
 		if (self->count > 0)
 		{

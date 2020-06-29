@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/29 18:16:12 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/29 18:34:22 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= hashtab.h heap.h lem_in.h
+HEADERS		= heap.h lem_in.h
 SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix load/, \
@@ -38,24 +38,10 @@ SOURCES		= \
 		app_load.c \
 		app_play.c \
 	) \
-	$(addprefix hashtab/, \
-		hashtab_clean.c \
-		hashtab_create.c \
-		hashtab_destroy.c \
-		hashtab_get.c \
-		hashtab_hash.c \
-		hashtab_insert.c \
-		hashtab_item_create.c \
-		hashtab_item_destroy.c \
-		hashtab_next.c \
-		hashtab_next_kv.c \
-		hashtab_remove.c \
-		hashtab_resize.c \
-		hashtab_start.c \
-	) \
 	$(addprefix heap/, \
 		heap_create.c \
 		heap_destroy.c \
+		heap_resize.c \
 		heap_sift_down.c \
 		heap_sift_up.c \
 	) \

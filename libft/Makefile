@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/28 05:00:06 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/29 18:33:44 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ HEADERS		= deque.h \
 			  ft_xexit.h \
 			  ft_xexit_private.h \
 			  gnl.h \
+			  hashtab.h \
 			  libft.h \
 			  parse.h \
 			  queue.h \
@@ -111,6 +112,21 @@ SOURCES		= \
 		gnl_create.c \
 		gnl_destroy.c \
 		gnl_readline.c \
+	) \
+	$(addprefix hashtab/, \
+		hashtab_clean.c \
+		hashtab_create.c \
+		hashtab_destroy.c \
+		hashtab_get.c \
+		hashtab_hash.c \
+		hashtab_insert.c \
+		hashtab_item_create.c \
+		hashtab_item_destroy.c \
+		hashtab_next.c \
+		hashtab_next_kv.c \
+		hashtab_remove.c \
+		hashtab_resize.c \
+		hashtab_start.c \
 	) \
 	$(addprefix parse/, \
 		parse_goto.c \

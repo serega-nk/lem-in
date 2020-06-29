@@ -6,19 +6,22 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:38 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/28 05:14:06 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 05:39:02 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static int	load_link_parse(char *line, t_link *link)
+static int	load_link_parse(t_app *self, char **aname1, char **aname2)
 {
-	if (parse_str(&line, &link->name1, "- \n") &&
-		link->name1[0] != 'L' &&
+	char	*line;
+
+	line = self->line;
+	if (parse_str(&line, aname1, "- \n") &&
+		*(*aname1) != 'L' &&
 		parse_skip(&line, "-") &&
-		parse_str(&line, &link->name2, "- \n") &&
-		link->name2[0] != 'L' &&
+		parse_str(&line, aname2, "- \n") &&
+		*(*aname2)!= 'L' &&
 		parse_skip(&line, "\n") &&
 		parse_none(&line))
 	{
@@ -29,17 +32,24 @@ static int	load_link_parse(char *line, t_link *link)
 
 int			load_link(t_app *self)
 {
-	t_link	*link;
+	char	*name1;
+	char	*name2;
+	t_room	*room1;
+	t_room	*room2;
 
 	if (self->signal_start || self->signal_end)
 		app_error(self);
-	link = link_create();
-	if (load_link_parse(self->line, link))
+	if (!load_link_parse(self, &name1, &name2) ||
+		!hashtab_get(self->rooms, name1, (void **)&room1) ||
+		!hashtab_get(self->rooms, name2, (void **)&room2) ||
+		!hashtab_insert(room1->links, name2, room2) ||
+		!hashtab_insert(room2->links, name1, room1))
 	{
-		queue_push_back(self->links, link);	
-		return (1);
+		ft_strdel(&name2);
+		ft_strdel(&name1);
+		app_error(self);
 	}
-	link_destroy(&link);
-	app_error(self);
-	return (0);
+	ft_strdel(&name2);
+	ft_strdel(&name1);
+	return (1);
 }

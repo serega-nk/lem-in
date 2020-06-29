@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:16:36 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 04:58:04 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 05:19:09 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ int			load_number(t_app *self)
 		app_error(self);
 	if (self->number <= 0)
 		app_error(self);
-
-	ft_printf("### %d ###\n", +020);
 	return (1);
 }

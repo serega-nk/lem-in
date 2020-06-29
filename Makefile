@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/29 21:46:14 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/29 23:12:15 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= heap.h lem_in.h
+HEADERS		= lem_in.h
 SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix load/, \
@@ -37,17 +37,6 @@ SOURCES		= \
 		app_free.c \
 		app_load.c \
 		app_play.c \
-	) \
-	$(addprefix heap/, \
-		heap_clean.c \
-		heap_create.c \
-		heap_destroy.c \
-		heap_extract.c \
-		heap_insert.c \
-		heap_item_swap.c \
-		heap_resize.c \
-		heap_sift_down.c \
-		heap_sift_up.c \
 	) \
 	main.c \
 

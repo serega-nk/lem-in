@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:04:45 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 21:45:43 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 23:10:41 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include "ft_xexit.h"
-# include "ft_printf.h"
 
 typedef struct s_heap_item	t_heap_item;
 typedef struct s_heap		t_heap;

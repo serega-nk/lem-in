@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:04:45 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 19:38:40 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 19:50:26 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		heap_destroy(t_heap **aself);
 
 void		heap_resize(t_heap *self);
 
-void		heap_sift_up(t_heap *self);
-void		heap_sift_down(t_heap *self);
+void		heap_sift_up(t_heap *self, size_t index);
+void		heap_sift_down(t_heap *self, size_t index);
 
 #endif

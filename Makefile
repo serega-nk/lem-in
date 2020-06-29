@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/29 18:34:22 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/29 19:50:58 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,10 @@ SOURCES		= \
 		app_play.c \
 	) \
 	$(addprefix heap/, \
+		heap_clean.c \
 		heap_create.c \
 		heap_destroy.c \
+		heap_insert.c \
 		heap_resize.c \
 		heap_sift_down.c \
 		heap_sift_up.c \

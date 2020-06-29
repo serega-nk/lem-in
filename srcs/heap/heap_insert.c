@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heap_sift_down.c                                   :+:      :+:    :+:   */
+/*   heap_insert.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/29 18:15:37 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 19:50:05 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/29 19:42:51 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/29 19:50:08 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "heap.h"
 
-void	heap_sift_down(t_heap *self, size_t index)
+void	heap_insert(t_heap *self, size_t priority, void *data)
 {
-	if (self && index)
-		self = NULL;
+	size_t	index;
+
+	if (self)
+	{
+		heap_resize(self);
+		index = self->count++;
+		self->table[index].priority = priority;
+		self->table[index].data = data;
+		heap_sift_up(self, index);
+	}	
 }

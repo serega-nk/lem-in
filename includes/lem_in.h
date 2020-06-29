@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 05:17:37 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 05:41:26 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ struct	s_app
 	int			number;
 	t_hashtab	*rooms;
 	t_hashtab	*coords;
-	t_queue		*links;
 	char		*temp;
 };
 
@@ -74,8 +73,5 @@ void	load_check(t_app *self);
 
 t_room	*room_create(void);
 void	room_destroy(t_room **aself);
-
-t_link	*link_create(void);
-void	link_destroy(t_link **aself);
 
 #endif

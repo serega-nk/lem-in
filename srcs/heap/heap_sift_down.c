@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:15:37 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 19:50:05 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 23:02:58 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,26 @@
 
 void	heap_sift_down(t_heap *self, size_t index)
 {
-	if (self && index)
-		self = NULL;
+	size_t	curr;
+	size_t	next;
+
+	if (self)
+	{
+		curr = index;
+		while (index < self->count)
+		{
+			next = 2 * index + 1;
+			if (next < self->count &&
+				self->table[next].priority < self->table[curr].priority)
+				curr = next;
+			next++;
+			if (next < self->count &&
+				self->table[next].priority < self->table[curr].priority)
+				curr = next;
+			if (index == curr)
+				break ;
+			heap_item_swap(&self->table[index], &self->table[curr]);
+			index = curr;
+		}
+	}
 }

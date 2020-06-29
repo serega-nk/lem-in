@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/29 20:08:05 by bconchit         ###   ########.fr        #
+#    Updated: 2020/06/29 21:46:14 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SOURCES		= \
 		heap_destroy.c \
 		heap_extract.c \
 		heap_insert.c \
+		heap_item_swap.c \
 		heap_resize.c \
 		heap_sift_down.c \
 		heap_sift_up.c \

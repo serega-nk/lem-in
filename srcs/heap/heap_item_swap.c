@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heap_insert.c                                      :+:      :+:    :+:   */
+/*   heap_item_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/29 19:42:51 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 23:07:43 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/29 21:45:10 by bconchit          #+#    #+#             */
+/*   Updated: 2020/06/29 23:07:54 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "heap.h"
 
-void	heap_insert(t_heap *self, size_t priority, void *data)
+void	heap_item_swap(t_heap_item *item_a, t_heap_item *item_b)
 {
-	size_t	index;
+	t_heap_item		temp;
 
-	if (self)
-	{
-		index = self->count++;
-		heap_resize(self);
-		self->table[index].priority = priority;
-		self->table[index].data = data;
-		heap_sift_up(self, index);
-	}
+	temp = *item_a;
+	*item_a = *item_b;
+	*item_b = temp;
 }

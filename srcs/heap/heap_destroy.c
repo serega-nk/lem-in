@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:05:58 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 20:45:48 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 23:03:29 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	heap_destroy(t_heap **aself)
 {
 	if (aself && *aself)
 	{
-		ft_printf("DESTROY HEAP count = %llu, size = %llu\n", (*aself)->count, (*aself)->size);
 		ft_memdel((void **)&(*aself)->table);
 		ft_memdel((void **)aself);
 	}

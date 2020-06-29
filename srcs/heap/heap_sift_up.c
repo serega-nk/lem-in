@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:14:30 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 19:49:52 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 23:07:35 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 
 void	heap_sift_up(t_heap *self, size_t index)
 {
-	if (self && index)
-		self = NULL;
+	size_t	parent;
+
+	if (self)
+	{
+		while (index > 0)
+		{
+			parent = (index - 1) / 2;
+			if (self->table[parent].priority <= self->table[index].priority)
+				break ;
+			heap_item_swap(&self->table[parent], &self->table[index]);
+			index = parent;
+		}
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 20:45:57 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 23:02:08 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,60 @@ void	app_play(t_app *self)
 	char	*data = NULL;
 
 	ret = heap_extract(heap, &prio, (void **)&data);
-	ft_printf("COUNT = %llu, RET = %llu, prio = %llu\n", heap->count, ret, prio);
+	ft_printf("***COUNT = %llu, RET = %llu, prio = %llu\n", heap->count, ret, prio);
 
-	heap_insert(heap, 10, ft_xstrdup("10"));
+	heap_insert(heap, 6, ft_xstrdup("6"));
+	heap_insert(heap, 2, ft_xstrdup("2"));
 	heap_insert(heap, 1, ft_xstrdup("1"));
-	// heap_insert(heap, 2, ft_xstrdup("2"));
-	// heap_insert(heap, 5, ft_xstrdup("5"));
-	// heap_insert(heap, 3, ft_xstrdup("3"));
-	// heap_insert(heap, 4, ft_xstrdup("4"));
+	heap_insert(heap, 3, ft_xstrdup("3"));
+	heap_insert(heap, 4, ft_xstrdup("4"));
+	heap_insert(heap, 5, ft_xstrdup("5"));
 
-	ret = heap_extract(heap, &prio, (void **)&data);
-	ft_printf("COUNT = %llu, RET = %llu, prio = %llu, data = %s\n", heap->count, ret, prio, data);
-	ft_strdel(&data);
-	
+	while (heap_extract(heap, &prio, (void **)&data))
+	{
+	 	ft_printf("***COUNT = %llu, prio = %llu, %s\n", heap->count, prio, data);
+	 	ft_strdel(&data);
+	}
+	heap_insert(heap, 2, ft_xstrdup("2"));
+	heap_insert(heap, 1, ft_xstrdup("1"));
+	heap_insert(heap, 3, ft_xstrdup("3"));
+	heap_insert(heap, 4, ft_xstrdup("4"));
+	heap_insert(heap, 5, ft_xstrdup("5"));
+	heap_insert(heap, 2, ft_xstrdup("2"));
+	heap_insert(heap, 1, ft_xstrdup("1"));
+	heap_insert(heap, 3, ft_xstrdup("3"));
+	heap_insert(heap, 4, ft_xstrdup("4"));
+	heap_insert(heap, 5, ft_xstrdup("5"));
+	heap_insert(heap, 2, ft_xstrdup("2"));
+	heap_insert(heap, 1, ft_xstrdup("1"));
+	heap_insert(heap, 3, ft_xstrdup("3"));
+	heap_insert(heap, 4, ft_xstrdup("4"));
+	heap_insert(heap, 5, ft_xstrdup("5"));
+
+		heap_insert(heap, 2, ft_xstrdup("2"));
+	heap_insert(heap, 1, ft_xstrdup("1"));
+	heap_insert(heap, 3, ft_xstrdup("3"));
+	heap_insert(heap, 4, ft_xstrdup("4"));
+	heap_insert(heap, 5, ft_xstrdup("5"));
+	while (heap_extract(heap, &prio, (void **)&data))
+	{
+	 	ft_printf("***COUNT = %llu, prio = %llu, %s\n", heap->count, prio, data);
+	 	ft_strdel(&data);
+	}
 	// heap_insert(heap, 8, ft_xstrdup("8"));
 
 	// ret = heap_extract(heap, &prio, (void **)&data);
 	// ft_printf("COUNT = %llu, RET = %llu, prio = %llu, data = %s\n", heap->count, ret, prio, data);
 
 
-	heap_insert(heap, 2, ft_xstrdup("2"));
-	heap_insert(heap, 5, ft_xstrdup("5"));
-	heap_insert(heap, 3, ft_xstrdup("3"));
-	heap_insert(heap, 4, ft_xstrdup("4"));
+	// heap_insert(heap, 2, ft_xstrdup("2"));
+	// heap_insert(heap, 5, ft_xstrdup("5"));
+	// heap_insert(heap, 3, ft_xstrdup("3"));
+	// heap_insert(heap, 4, ft_xstrdup("4"));
 
-	ret = heap_extract(heap, &prio, (void **)&data);
-	ft_printf("COUNT = %llu, RET = %llu, prio = %llu, data = %s\n", heap->count, ret, prio, data);
-	ft_strdel(&data);
+	// ret = heap_extract(heap, &prio, (void **)&data);
+	// ft_printf("COUNT = %llu, RET = %llu, prio = %llu, data = %s\n", heap->count, ret, prio, data);
+	// ft_strdel(&data);
 
 	ft_printf("HEAP COUNT = %llu, SIZE = %llu\n", heap->count, heap->size);
 

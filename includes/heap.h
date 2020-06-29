@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:04:45 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 20:41:18 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/29 21:45:43 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ struct		s_heap
 	size_t		size;
 	size_t		count;
 };
+
+void		heap_item_swap(t_heap_item *item_a, t_heap_item *item_b);
 
 t_heap		*heap_create(void);
 void		heap_destroy(t_heap **aself);

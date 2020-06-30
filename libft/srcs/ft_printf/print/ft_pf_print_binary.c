@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pf_print_binary.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 21:15:13 by bconchit          #+#    #+#             */
 /*   Updated: 2019/11/08 22:02:11 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 21:23:29 by bconchit          #+#    #+#             */
 /*   Updated: 2020/02/23 01:57:08 by bconchit         ###   ########.fr       */

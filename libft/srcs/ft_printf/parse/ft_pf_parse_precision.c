@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pf_parse_precision.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 02:22:12 by bconchit          #+#    #+#             */
 /*   Updated: 2019/11/08 21:57:31 by bconchit         ###   ########.fr       */

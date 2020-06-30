@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_xexit.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 02:50:47 by bconchit          #+#    #+#             */
 /*   Updated: 2019/11/21 19:15:14 by bconchit         ###   ########.fr       */

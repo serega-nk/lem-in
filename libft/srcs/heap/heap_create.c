@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   heap_create.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:06:25 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/30 03:56:23 by bconchit         ###   ########.fr       */

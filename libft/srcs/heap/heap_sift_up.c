@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   heap_sift_up.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:14:30 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 23:07:35 by bconchit         ###   ########.fr       */

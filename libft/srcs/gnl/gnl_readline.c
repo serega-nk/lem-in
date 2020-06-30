@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   gnl_readline.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 22:27:22 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/27 21:06:38 by bconchit         ###   ########.fr       */

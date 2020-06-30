@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pf_parse_width.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 02:04:37 by bconchit          #+#    #+#             */
 /*   Updated: 2019/11/08 21:58:06 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   queue.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:05:12 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 05:43:57 by bconchit         ###   ########.fr       */

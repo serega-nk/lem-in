@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   room_create.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 05:58:42 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/30 04:18:50 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   heap_resize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:29:27 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 23:02:50 by bconchit         ###   ########.fr       */

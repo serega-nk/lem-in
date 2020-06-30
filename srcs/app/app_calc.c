@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   app_calc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/28 04:26:27 by bconchit         ###   ########.fr       */

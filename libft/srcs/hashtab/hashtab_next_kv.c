@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   hashtab_next_kv.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 06:02:26 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 06:22:40 by bconchit         ###   ########.fr       */

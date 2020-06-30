@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   heap.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:04:45 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 23:10:41 by bconchit         ###   ########.fr       */

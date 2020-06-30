@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parse_skip.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 17:49:29 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/27 17:57:15 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 01:37:39 by bconchit          #+#    #+#             */
 /*   Updated: 2019/11/23 20:41:17 by bconchit         ###   ########.fr       */

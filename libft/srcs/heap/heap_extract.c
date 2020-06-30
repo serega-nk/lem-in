@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   heap_extract.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 19:59:37 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 23:07:02 by bconchit         ###   ########.fr       */

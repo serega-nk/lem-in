@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   load_comment.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:57 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/28 05:32:43 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   load_signal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 05:23:40 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 04:29:15 by bconchit         ###   ########.fr       */

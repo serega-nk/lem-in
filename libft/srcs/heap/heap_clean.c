@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   heap_clean.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 19:14:57 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 23:06:37 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   deque.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 07:44:07 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/27 21:05:34 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   queue_pop_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:18:55 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/25 22:55:28 by bconchit         ###   ########.fr       */

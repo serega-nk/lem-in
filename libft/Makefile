@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+         #
+#    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
 #    Updated: 2020/06/29 23:12:03 by bconchit         ###   ########.fr        #

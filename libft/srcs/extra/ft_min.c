@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 20:10:31 by bconchit          #+#    #+#             */
 /*   Updated: 2020/03/07 20:10:37 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   hashtab_destroy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 16:39:10 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 02:59:07 by bconchit         ###   ########.fr       */

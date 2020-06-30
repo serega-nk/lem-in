@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   app_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 23:46:23 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/27 22:18:21 by bconchit         ###   ########.fr       */

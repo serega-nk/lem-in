@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   heap_item_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:45:10 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 23:07:54 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parse_none.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 17:48:26 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/27 17:58:05 by bconchit         ###   ########.fr       */

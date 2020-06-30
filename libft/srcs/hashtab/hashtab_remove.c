@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   hashtab_remove.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 23:11:41 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/29 03:05:24 by bconchit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   queue_item_create.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:50:16 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/25 21:51:11 by bconchit         ###   ########.fr       */

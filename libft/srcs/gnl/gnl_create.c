@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   gnl_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 22:28:02 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/25 22:54:09 by bconchit         ###   ########.fr       */

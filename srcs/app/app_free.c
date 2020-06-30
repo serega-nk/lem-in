@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   app_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/30 04:06:30 by bconchit         ###   ########.fr       */

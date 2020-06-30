@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   queue_push_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:19:06 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/25 22:08:13 by bconchit         ###   ########.fr       */

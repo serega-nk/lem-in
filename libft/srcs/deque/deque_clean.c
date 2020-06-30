@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   deque_clean.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 08:23:54 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/26 09:12:51 by bconchit         ###   ########.fr       */

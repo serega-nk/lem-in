@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   load_room.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/30 04:06:01 by bconchit         ###   ########.fr       */

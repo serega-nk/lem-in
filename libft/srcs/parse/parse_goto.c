@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parse_goto.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:30:57 by bconchit          #+#    #+#             */
 /*   Updated: 2020/06/27 18:37:23 by bconchit         ###   ########.fr       */

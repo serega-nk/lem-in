@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 23:19:38 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/30 04:05:01 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ struct	s_app
 	t_gnl		*gnl;
 	t_queue		*lines;
 	char		*line;
+	char		*key;
 	int			state;
 	int			signal_start;
 	int			signal_end;

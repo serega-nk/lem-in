@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/30 04:18:09 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/06/30 05:15:14 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ struct	s_room
 	int			coord_y;
 	t_hashtab	*links;
 	int			level;
-	t_room		*path;
+	t_room		*walk;
 	int			lock;
 };
 

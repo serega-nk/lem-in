@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/01 20:49:52 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/01 22:24:59 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	ant_destroy(t_ant **aself)
 	}
 }
 
-void	*deque_remove(t_deque *self, t_deque_item *item)
+void	*deque_remove_item(t_deque *self, t_deque_item *item)
 {
-	void	*data;
+ 	void	*data;
 
-	data = NULL;
+ 	data = NULL;
 	if (self && item)
 	{
 		if (self->head == item)
@@ -62,6 +62,61 @@ void	*deque_remove(t_deque *self, t_deque_item *item)
 	}
 	return (data);
 }
+
+int		ant_finish(t_ant *self)
+{
+	return (self->next == NULL);
+}
+
+void	ant_output(t_ant *self)
+{
+	ft_printf("L%d-%s", self->id, self->curr->name);
+}
+
+int		ant_move(t_ant *self)
+{
+	if (self && self->next && self->next->lock == 0)
+	{
+		if (self->curr)
+			self->curr->lock = 0;
+		self->curr = self->next;
+		self->next = self->curr->path;
+		if (self->next)
+			self->curr->lock = 1;
+		return (1);
+	}
+	return (0);
+}
+
+int		deque_start(t_deque *self)
+{
+	if (self && self->size > 0)
+	{
+		self->next = self->head;
+		return (1);
+	}
+	return (0);
+}
+
+void 	*deque_next(t_deque *self)
+{
+	void	*data;
+
+	data = NULL;
+	if (self && self->next)
+	{
+		data = self->next->data;
+		self->next = self->next->next;
+	}
+	return (data);
+}
+
+void 	deque_remove(t_deque *self)
+{
+	if (self )
+		deque_remove_item(self, self->next);
+}
+
 
 void	app_play(t_app *self)
 {
@@ -101,38 +156,34 @@ void	app_play(t_app *self)
 	
 	// t_ant *a = (t_ant *)deque_remove(ants, ants->head);
 	// ft_printf("REMOVE ant = %d [%d]\n", a->id, ants->size);
+	// ft_printf("%sL%d-%s", count++ ? " " : "", ant->id, ant->curr->name);
 
-	while (ants->head)
+	t_ant *ant;
+	int count;
+	
+	while (deque_start(ants))
 	{
-		//ft_printf("ants->size = %d  (%p)\n", ants->size, ants->head);
-		int count = 0;
-		t_deque_item *walk = ants->head;
-		while (walk)
+		count = 0;
+		while ((ant = deque_next(ants)))
 		{
-			t_deque_item *item = walk;			
-			t_ant *ant = (t_ant *)walk->data;
-			walk = walk->next;
-
-			if (ant->next && ant->next->lock == 0)
+			if (ant_move(ant))
 			{
-				if (ant->curr)
-					ant->curr->lock = 0;
-				ant->curr = ant->next;
-				ant->next = ant->curr->path;
-				if (ant->next)
-					ant->curr->lock = 1;
-				ft_printf("%sL%d-%s", count == 0 ? "" : " ", ant->id, ant->curr->name);
-				count++;
+				if (count++)
+					ft_printf(" ");
+				ant_output(ant);
+				if (ant_finish(ant))
+				{
+					deque_remove(ants);
+					ant_destroy(&ant);
+				}
 			}
-			if (!ant->next)
-			{
-				deque_remove(ants, item);
-				ant_destroy(&ant);
-			}
-
 		}
 		ft_printf("\n");
-		
+		if (count == 0)
+		{
+			ft_printf("FATAL ERROR!!!\n");
+			ft_xexit(EXIT_SUCCESS);
+		}
 	}
 
 	// t_ant *ant = (t_ant *)ants->head->data;

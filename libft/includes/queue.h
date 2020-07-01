@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:05:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 05:43:57 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/01 22:22:11 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ struct			s_queue
 {
 	t_queue_item	*head;
 	t_queue_item	*tail;
+	t_queue_item	**awalk;
 	size_t			size;
 };
 
@@ -39,6 +40,11 @@ t_queue			*queue_create(void);
 void			queue_destroy(t_queue **aself);
 void			queue_clean(t_queue *self, void (*delf)());
 void			*queue_pop_front(t_queue *self);
+void			queue_push_front(t_queue *self, void *data);
 void			queue_push_back(t_queue *self, void *data);
+
+int				queue_walk_start(t_queue *self);
+int				queue_walk_next(t_queue *self, void **adata);
+int				queue_walk_remove(t_queue *self);
 
 #endif

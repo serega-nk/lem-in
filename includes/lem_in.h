@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/01 20:03:23 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:34:56 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "heap.h"
 
 typedef struct s_room	t_room;
+typedef struct s_ant	t_ant;
 typedef struct s_app	t_app;
 
 struct	s_room
@@ -35,6 +36,13 @@ struct	s_room
 	int			level;
 	int			lock;
 	t_room		*path;
+};
+
+struct	s_ant
+{
+	int		id;
+	t_room	*curr;
+	t_room	*next;
 };
 
 struct	s_app
@@ -70,5 +78,11 @@ void	load_check(t_app *self);
 
 t_room	*room_create(void);
 void	room_destroy(t_room **aself);
+
+t_ant	*ant_create(int id, t_room *first);
+void	ant_destroy(t_ant **aself);
+int		ant_move(t_ant *self);
+void	ant_output(t_ant *self, int index);
+int		ant_finish(t_ant *self);
 
 #endif

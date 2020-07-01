@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/06/30 05:11:44 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/02 00:33:31 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,13 @@ OBJ_DIR		= ./objs
 HEADERS		= lem_in.h
 SOURCES		= \
 	$(addprefix app/, \
+		$(addprefix ant/, \
+			ant_create.c \
+			ant_destroy.c \
+			ant_finish.c \
+			ant_move.c \
+			ant_output.c \
+		) \
 		$(addprefix load/, \
 			load_check.c \
 			load_comment.c \

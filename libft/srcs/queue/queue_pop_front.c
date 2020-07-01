@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:18:55 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/02 00:48:03 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:52:19 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int		queue_pop_front(t_queue *self, void **adata)
 		self->size--;
 		if (self->size == 0)
 			self->tail = NULL;
-		*adata = item->data;
+		if (adata)
+			*adata = item->data;
 		queue_item_destroy(&item);
 		return (1);
 	}

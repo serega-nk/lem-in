@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/02 00:16:36 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:26:21 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ int		ant_finish(t_ant *self)
 	return (self->next == NULL);
 }
 
-void	ant_output(t_ant *self)
+void	ant_output(t_ant *self, int index)
 {
-	ft_printf("L%d-%s", self->id, self->curr->name);
+	ft_printf("%sL%d-%s", index ? " " : "", self->id, self->curr->name);
 }
 
 int		ant_move(t_ant *self)
@@ -196,13 +196,11 @@ void	app_play(t_app *self)
 	queue_push_back(ants, ant_create(1, r0));
 	queue_push_back(ants, ant_create(4, r42));
 	
-	// // t_ant *a = (t_ant *)queue_remove(ants, ants->head);
-	// // ft_printf("REMOVE ant = %d [%d]\n", a->id, ants->size);
 	// // ft_printf("%sL%d-%s", count++ ? " " : "", ant->id, ant->curr->name);
 
-	t_ant *ant;
-	int count;
-	
+	t_ant	*ant;
+	int		count;
+
 	while (queue_walk_start(ants))
 	{
 		count = 0;
@@ -210,14 +208,9 @@ void	app_play(t_app *self)
 		{
 			if (ant_move(ant))
 			{
-				if (count++)
-					ft_printf(" ");
-				ant_output(ant);
+				ant_output(ant, count++);
 				if (ant_finish(ant))
-				{
-					queue_walk_remove(ants);
-					ant_destroy(&ant);
-				}
+					queue_walk_remove(ants, &ant_destroy);
 			}
 		}
 		ft_printf("\n");
@@ -229,9 +222,6 @@ void	app_play(t_app *self)
 	}
 	queue_clean(ants, &ant_destroy);
 	queue_destroy(&ants);
-
-
-
 
 
 

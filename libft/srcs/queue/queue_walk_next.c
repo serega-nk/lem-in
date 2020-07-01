@@ -6,12 +6,11 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 22:07:22 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/02 00:11:37 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:35:51 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "queue.h"
-#include "ft_printf.h"
 
 int		queue_walk_next(t_queue *self, void **adata)
 {

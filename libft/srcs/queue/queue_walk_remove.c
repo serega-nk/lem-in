@@ -6,12 +6,11 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 22:07:25 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/02 00:25:56 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:35:42 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "queue.h"
-#include "ft_printf.h"
 
 int		queue_walk_remove(t_queue *self, void (*delf)())
 {

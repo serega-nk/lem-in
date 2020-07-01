@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/02 00:34:56 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:38:49 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ struct	s_app
 	int			number;
 	t_hashtab	*rooms;
 	t_hashtab	*coords;
+	t_queue		*ants;
 };
 
 void	app_error(t_app *self);

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:05:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/02 00:25:44 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:48:23 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			queue_item_destroy(t_queue_item **aself);
 t_queue			*queue_create(void);
 void			queue_destroy(t_queue **aself);
 void			queue_clean(t_queue *self, void (*delf)());
-void			*queue_pop_front(t_queue *self);
+int				queue_pop_front(t_queue *self, void **adata);
 void			queue_push_front(t_queue *self, void *data);
 void			queue_push_back(t_queue *self, void *data);
 

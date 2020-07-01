@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/30 04:06:30 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:39:08 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void			app_free(t_app *self)
 {
+	queue_clean(self->ants, &ant_destroy);
+	queue_destroy(&self->ants);
 	ft_strdel(&self->key);
 	gnl_destroy(&self->gnl);
 	hashtab_destroy(&self->coords);

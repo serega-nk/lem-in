@@ -6,18 +6,16 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:18:55 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/25 22:55:28 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:48:03 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "queue.h"
 
-void	*queue_pop_front(t_queue *self)
+int		queue_pop_front(t_queue *self, void **adata)
 {
 	t_queue_item	*item;
-	void			*data;
 
-	data = NULL;
 	if (self && self->size > 0)
 	{
 		item = self->head;
@@ -25,8 +23,9 @@ void	*queue_pop_front(t_queue *self)
 		self->size--;
 		if (self->size == 0)
 			self->tail = NULL;
-		data = item->data;
+		*adata = item->data;
 		queue_item_destroy(&item);
+		return (1);
 	}
-	return (data);
+	return (0);
 }

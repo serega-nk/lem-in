@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/01 22:24:59 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:16:36 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,28 @@ void	ant_destroy(t_ant **aself)
 	}
 }
 
-void	*deque_remove_item(t_deque *self, t_deque_item *item)
-{
- 	void	*data;
+// void	*queue_remove_item(t_queue *self, t_queue_item *item)
+// {
+//  	void	*data;
 
- 	data = NULL;
-	if (self && item)
-	{
-		if (self->head == item)
-			data = deque_pop_front(self);
-		else if (self->tail == item)
-			data = deque_pop_back(self);
-		else
-		{
-			data = item->data;
-			item->prev->next = item->next;
-			item->next->prev = item->prev;
-			deque_item_destroy(&item);
-			self->size--;
-		}
-	}
-	return (data);
-}
+//  	data = NULL;
+// 	if (self && item)
+// 	{
+// 		if (self->head == item)
+// 			data = queue_pop_front(self);
+// 		else if (self->tail == item)
+// 			data = queue_pop_back(self);
+// 		else
+// 		{
+// 			data = item->data;
+// 			item->prev->next = item->next;
+// 			item->next->prev = item->prev;
+// 			queue_item_destroy(&item);
+// 			self->size--;
+// 		}
+// 	}
+// 	return (data);
+// }
 
 int		ant_finish(t_ant *self)
 {
@@ -88,38 +88,81 @@ int		ant_move(t_ant *self)
 	return (0);
 }
 
-int		deque_start(t_deque *self)
-{
-	if (self && self->size > 0)
-	{
-		self->next = self->head;
-		return (1);
-	}
-	return (0);
-}
+// int		queue_start(t_queue *self)
+// {
+// 	if (self && self->size > 0)
+// 	{
+// 		self->next = self->head;
+// 		return (1);
+// 	}
+// 	return (0);
+// }
 
-void 	*deque_next(t_deque *self)
-{
-	void	*data;
+// void 	*queue_next(t_queue *self)
+// {
+// 	void	*data;
 
-	data = NULL;
-	if (self && self->next)
-	{
-		data = self->next->data;
-		self->next = self->next->next;
-	}
-	return (data);
-}
+// 	data = NULL;
+// 	if (self && self->next)
+// 	{
+// 		data = self->next->data;
+// 		self->next = self->next->next;
+// 	}
+// 	return (data);
+// }
 
-void 	deque_remove(t_deque *self)
-{
-	if (self )
-		deque_remove_item(self, self->next);
-}
+// void 	queue_remove(t_queue *self)
+// {
+// 	if (self )
+// 		queue_remove_item(self, self->next);
+// }
 
 
 void	app_play(t_app *self)
 {
+	// if (self)
+	// 	self = NULL;
+
+	// t_queue *q = queue_create();
+
+	// queue_push_back(q, "1");
+	// queue_push_front(q, "C");
+	// queue_push_back(q, "2");
+	// queue_push_back(q, "3");
+	// queue_push_front(q, "B");
+	// queue_push_back(q, "4");
+	// queue_push_front(q, "A");
+	
+	// if (queue_walk_start(q))
+	// {
+	// 	char *line;
+	// 	while (queue_walk_next(q, (void **)&line))
+	// 	{
+			
+	// 		if (ft_strcmp(line, "1") == 0)
+	// 		{
+	// 		 	queue_walk_remove(q);
+	// 		}
+	// 		else
+	// 		{
+	// 			ft_printf("= %s\n", line);
+	// 		}
+			
+	// 	}
+	// }
+
+	// if (queue_walk_start(q))
+	// {
+	// 	char *line;
+	// 	while (queue_walk_next(q, (void **)&line))
+	// 	{
+	// 		ft_printf("= %s\n", line);			
+	// 	}
+	// }
+	
+	// queue_destroy(&q);
+
+
 	//t_room		*room;
 	//t_queue		*route;
 	
@@ -129,6 +172,9 @@ void	app_play(t_app *self)
 	// if (hashtab_get(self->rooms, "3", (void **)&room))
 	// 	queue_push_back(route, room);
 	// queue_push_back(route, self->room_end);
+
+
+
 
 	t_room *r0, *r1, *r2, *r3, *r42, *r21;
 	r0 = r42 = NULL;
@@ -146,25 +192,21 @@ void	app_play(t_app *self)
 		r21->path = r3;
 	}
 
-	t_deque *ants = deque_create();
-	deque_push_back(ants, ant_create(1, r0));
-	deque_push_back(ants, ant_create(2, r0));
-	deque_push_back(ants, ant_create(3, r0));
-	deque_push_back(ants, ant_create(4, r42));	
-	deque_push_back(ants, ant_create(5, r42));
-	deque_push_back(ants, ant_create(6, r42));
+	t_queue *ants = queue_create();
+	queue_push_back(ants, ant_create(1, r0));
+	queue_push_back(ants, ant_create(4, r42));
 	
-	// t_ant *a = (t_ant *)deque_remove(ants, ants->head);
-	// ft_printf("REMOVE ant = %d [%d]\n", a->id, ants->size);
-	// ft_printf("%sL%d-%s", count++ ? " " : "", ant->id, ant->curr->name);
+	// // t_ant *a = (t_ant *)queue_remove(ants, ants->head);
+	// // ft_printf("REMOVE ant = %d [%d]\n", a->id, ants->size);
+	// // ft_printf("%sL%d-%s", count++ ? " " : "", ant->id, ant->curr->name);
 
 	t_ant *ant;
 	int count;
 	
-	while (deque_start(ants))
+	while (queue_walk_start(ants))
 	{
 		count = 0;
-		while ((ant = deque_next(ants)))
+		while (queue_walk_next(ants, (void **)&ant))
 		{
 			if (ant_move(ant))
 			{
@@ -173,7 +215,7 @@ void	app_play(t_app *self)
 				ant_output(ant);
 				if (ant_finish(ant))
 				{
-					deque_remove(ants);
+					queue_walk_remove(ants);
 					ant_destroy(&ant);
 				}
 			}
@@ -185,6 +227,13 @@ void	app_play(t_app *self)
 			ft_xexit(EXIT_SUCCESS);
 		}
 	}
+	queue_clean(ants, &ant_destroy);
+	queue_destroy(&ants);
+
+
+
+
+
 
 	// t_ant *ant = (t_ant *)ants->head->data;
 	// while (ant->curr) {

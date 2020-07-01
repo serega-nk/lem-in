@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:05:12 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/01 22:22:11 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:07:09 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ struct			s_queue
 	t_queue_item	*head;
 	t_queue_item	*tail;
 	t_queue_item	**awalk;
+	int				walk_remove;
 	size_t			size;
 };
 

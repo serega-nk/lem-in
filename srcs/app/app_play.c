@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/02 00:50:26 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/03 19:23:09 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ static void		play(t_app *self)
 	t_ant	*ant;
 	int		count;
 
-	while (queue_walk_start(self->ants))
+	while (queue_start(self->ants))
 	{
 		count = 0;
-		while (queue_walk_next(self->ants, (void **)&ant))
+		while (queue_next(self->ants, (void **)&ant))
 		{
 			if (ant_move(ant))
 			{
 				ant_output(ant, count++);
 				if (ant_finish(ant))
-					queue_walk_remove(self->ants, &ant_destroy);
+					queue_remove(self->ants, &ant_destroy);
 			}
 		}
 		ft_printf("\n");

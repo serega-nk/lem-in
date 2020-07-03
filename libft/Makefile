@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/01 23:52:14 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/03 19:23:51 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -209,12 +209,12 @@ SOURCES		= \
 		queue_destroy.c \
 		queue_item_create.c \
 		queue_item_destroy.c \
+		queue_next.c \
 		queue_pop_front.c \
 		queue_push_back.c \
 		queue_push_front.c \
-		queue_walk_next.c \
-		queue_walk_remove.c \
-		queue_walk_start.c \
+		queue_remove.c \
+		queue_start.c \
 	) \
 
 CC			= gcc

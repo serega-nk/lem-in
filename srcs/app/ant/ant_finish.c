@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 00:31:28 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/02 00:31:40 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/03 19:40:33 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int		ant_finish(t_ant *self)
 {
-	return (self->next == NULL);
+	return (self && self->next == NULL);
 }

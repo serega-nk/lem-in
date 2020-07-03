@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/03 19:35:01 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/03 19:38:27 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	room_destroy(t_room **aself);
 t_ant	*ant_create(int id, t_room *first);
 void	ant_destroy(t_ant **aself);
 int		ant_move(t_ant *self);
-void	ant_output(t_ant *self, int index);
+void	ant_print(t_ant *self, int index);
 int		ant_finish(t_ant *self);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/03 19:35:23 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/03 19:37:41 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SOURCES		= \
 			ant_destroy.c \
 			ant_finish.c \
 			ant_move.c \
-			ant_output.c \
+			ant_print.c \
 		) \
 		$(addprefix load/, \
 			load_check.c \

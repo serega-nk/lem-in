@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/03 19:34:44 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/03 19:37:14 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void		print_steps_ants(t_app *self)
 		{
 			if (ant_move(ant))
 			{
-				ant_output(ant, count++);
+				ant_print(ant, count++);
 				if (ant_finish(ant))
 					queue_remove(self->ants, &ant_destroy);
 			}

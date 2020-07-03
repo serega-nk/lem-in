@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/02 00:39:08 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/03 19:41:25 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void			app_free(t_app *self)
+void	app_free(t_app *self)
 {
 	queue_clean(self->ants, &ant_destroy);
 	queue_destroy(&self->ants);

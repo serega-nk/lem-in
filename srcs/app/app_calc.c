@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/03 22:32:19 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/04 01:23:07 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,18 +129,42 @@ t_queue		*get_route(t_app *self)
 // 	// }	 
 // }
 
-static int		create_ant(t_app *self, )
+static int		calc_add_ants_all_routes(t_app *self, int count)
+{
+	t_queue		*route;
+
+	while (queue_start(self->routes))
+	{
+		while (queue_next(self->routes, (void **)&route))
+		{
+			if (!calc_add_ants_route(self, route, count))
+				return (0);
+		}
+	}
+	return (1);
+}
+
+static int		calc_add_ants_route(t_app *self, t_queue *route, int count)
 {
 	
 }
 
+
 static int		calc_while(t_app *self)
 {
 	t_queue		*route;
-	
-	route = NULL;
-	if (!create_ant(self, route))
-		return (0);
+
+	if (antfarm_full(self))
+		return ;
+	route = get_route(self);
+	if (route)
+	{
+		if (self->last_route)
+			ants_add_all_routes(self, route->size - self->last_route->size);
+		queue_push_back(self->routes, route);
+		ants_add_route(self, route, 1);
+		self->last_route = route;
+	}
 }
 
 static void		calc_complete(t_app *self)
@@ -151,7 +175,7 @@ static void		calc_complete(t_app *self)
 	{
 		while (queue_next(self->routes, (void **)&route))
 		{
-			if (!calc_add_ant(self, route))
+			if (!calc_add_ant(self, route, 1))
 				return ;
 		}
 	}
@@ -160,6 +184,20 @@ static void		calc_complete(t_app *self)
 
 void			app_calc(t_app *self)
 {
+	t_queue		*route;
+	t_queue		*last;
+
+	route = get_route(self);
+	while (route)
+	{
+		if (last)
+			antfarm_add(self, route->size - self->last_route->size);
+		
+		last = route;
+		route = get_route(self);
+	}
+	
+
 	while (calc_while(self))
 		;
 	calc_complete(self);

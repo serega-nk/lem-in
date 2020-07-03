@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ant_create.c                                       :+:      :+:    :+:   */
+/*   antfarm_populate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/02 00:28:49 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/03 20:53:59 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/03 21:22:46 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/03 21:23:26 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-t_ant	*ant_create(int id, t_room *first)
+void	antfarm_populate(t_app *self)
 {
-	t_ant	*self;
-
-	self = (t_ant *)ft_xmemalloc(sizeof(t_ant));
-	self->id = id;
-	self->curr = NULL;
-	self->next = first;
-	return (self);
+	
 }

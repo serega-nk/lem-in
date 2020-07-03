@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_print.c                                        :+:      :+:    :+:   */
+/*   app_play.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/03 19:37:14 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/03 20:19:48 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void		print_steps_ants(t_app *self)
 	}
 }
 
-void			app_print(t_app *self)
+void			app_play(t_app *self)
 {
 	print_lines(self);
 	ft_printf("\n");

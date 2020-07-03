@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/02 00:33:31 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/03 19:35:23 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ SOURCES		= \
 		app_error.c \
 		app_free.c \
 		app_load.c \
-		app_play.c \
+		app_print.c \
 	) \
 	main.c \
 

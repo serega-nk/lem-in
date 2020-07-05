@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/05 04:49:47 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/05 05:17:51 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,6 @@ SOURCES		= \
 		app_output.c \
 	) \
 	$(addprefix list/, \
-		list_apply.c \
 		list_clean.c \
 		list_create.c \
 		list_destroy.c \

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:22:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/04 14:22:58 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/05 07:05:25 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	list_push_back(t_list *self, void *data)
 {
 	t_list_item	*item;
 
-	if (self)
+	if (self && data)
 	{
 		item = list_item_create();
 		item->data = data;

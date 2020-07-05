@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 08:04:39 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/05 05:02:46 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:03:07 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "libft.h"
 # include "ft_xexit.h"
+
+# define LIST_FOREACH_REMOVE -1
+# define LIST_FOREACH_STOP 0
+# define LIST_FOREACH_NEXT 1
 
 typedef struct s_list_item	t_list_item;
 typedef struct s_list		t_list;
@@ -38,11 +42,12 @@ void			list_item_destroy(t_list_item **aself);
 t_list			*list_create(void);
 void			list_destroy(t_list **aself);
 
-int				list_apply(t_list *self, int (*applyf)(), void *param);
 void			list_clean(t_list *self, void (*delf)());
 
 int				list_pop_front(t_list *self, void **adata);
 void			list_push_back(t_list *self, void *data);
 void			list_push_front(t_list *self, void *data);
+
+int				list_foreach(t_list *self, int (*foreachf)(), void *context);
 
 #endif

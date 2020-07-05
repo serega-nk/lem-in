@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   antfarm_populate.c                                 :+:      :+:    :+:   */
+/*   room_unlock.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 21:22:46 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/03 21:23:26 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/05 17:15:58 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/05 17:17:02 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	antfarm_populate(t_app *self)
+void	room_unlock(t_room *self)
 {
-	
+	self->lock = 0;
 }

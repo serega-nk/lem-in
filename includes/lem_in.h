@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/05 04:54:49 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:55:56 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ struct	s_room
 
 struct	s_ant
 {
-	int		id;
-	t_room	*curr;
-	t_room	*next;
+	int				id;
+	t_list_item		*walk;
+	t_room			*room;
+	t_room			*next;
 };
 
 struct	s_app
@@ -59,10 +60,11 @@ struct	s_app
 	int			number;
 	t_hashtab	*rooms;
 	t_hashtab	*coords;
-	t_queue		*routes;
-	t_queue		*ants;
-	int			ant_id;
-	t_queue		*last_route;
+	t_list		*routes;
+	t_list		*ants;
+	int			id_ant;
+	int			capacity;
+	int			count;
 };
 
 void	app_error(t_app *self);
@@ -83,10 +85,10 @@ void	load_check(t_app *self);
 t_room	*room_create(void);
 void	room_destroy(t_room **aself);
 
-t_ant	*ant_create(int id, t_room *first);
+t_ant	*ant_create(int id, t_list *route);
 void	ant_destroy(t_ant **aself);
 int		ant_move(t_ant *self);
-void	ant_print(t_ant *self, int index);
+void	ant_print(t_ant *self);
 int		ant_finish(t_ant *self);
 
 #endif

@@ -6,255 +6,97 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/05 04:49:29 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:02:50 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_calc(t_app *self)
+t_list		*calc_route(t_app *self)
 {
-	if (self)
-		self = NULL;
+	t_list *route;
+	static int mode = 0;
+
+	route = NULL;
+	++mode;
+	if (mode == 1)
+	{
+		t_room *r0, *r1, *r2, *r3, *r42, *r21;
+		r0 = r42 = NULL;
+		if (hashtab_get(self->rooms, "0", (void **)&r0) &&
+			hashtab_get(self->rooms, "1", (void **)&r1) &&
+			hashtab_get(self->rooms, "2", (void **)&r2) &&
+			hashtab_get(self->rooms, "3", (void **)&r3) && 
+			hashtab_get(self->rooms, "42", (void **)&r42) &&
+			hashtab_get(self->rooms, "21", (void **)&r21))
+		{
+			ft_printf("111\n");
+			route = list_create();
+			list_push_back(route, r0);
+			list_push_back(route, r1);
+			list_push_back(route, r2);
+			list_push_back(route, r3);
+		}
+	}
+	if (mode == 2)
+	{
+		t_room *r0, *r1, *r2, *r3, *r42, *r21;
+		r0 = r42 = NULL;
+		if (hashtab_get(self->rooms, "0", (void **)&r0) &&
+			hashtab_get(self->rooms, "1", (void **)&r1) &&
+			hashtab_get(self->rooms, "2", (void **)&r2) &&
+			hashtab_get(self->rooms, "3", (void **)&r3) && 
+			hashtab_get(self->rooms, "42", (void **)&r42) &&
+			hashtab_get(self->rooms, "21", (void **)&r21))
+		{
+			route = list_create();
+			list_push_back(route, r42);
+			list_push_back(route, r21);
+			list_push_back(route, r3);
+		}
+	}
+	return (route);
 }
 
-// t_queue		*get_route(t_app *self)
-// {
+static int	calc_apply(t_app *self, t_list *route)
+{
+	int		count;
 
-// }
+	count = self->capacity - route->size;
+	ft_printf("self->capacity = %d, route->size = %d\n", self->capacity, route->size);
+	while (count-- > 0)
+	{
+		if (self->id_ant < self->number)
+			list_push_back(self->ants, ant_create(++self->id_ant, route));
+		if (self->id_ant >= self->number)
+			return (LIST_FOREACH_STOP);
+	}
+	return (LIST_FOREACH_NEXT);	
+}
 
-// int		func2(t_app *self, t_queue *route, int count)
-// {
-	
-// }
+void		app_calc(t_app *self)
+{
+	int		count;
+	int		length;
+	int		max_size;
+	t_list	*route;
 
-// int		func1(t_app *self, int count)
-// {
-// 	t_queue		*route;
-// 	int			index;
-
-// 	queue_start(self->routes);
-// 	while (self->number > 0 && queue_next(self->routes, &route))
-// 	{
-// 		index = count;
-// 		while (self->number > 0 && index-- > 0)
-// 			queue_push_back(self->ants, ant_create(self->number--, route));
-// 	}
-// 	return (self->number > self->ants->size);
-// }
-
-// void	app_calc___(t_app *self)
-// {
-// 	t_queue		*route;
-// 	t_queue		*last;
-
-// 	last = get_route(self);
-// 	if (!last)
-// 		app_error(self);
-// 	if (self->number > 0)
-// 		queue_push_back(self->ants, ant_create(self->number--, last));
-// 	queue_push_back(self->routes, last);
-// 	while (self->number > 0 && (route = get_route(self)))
-// 	{
-// 		queue_push_back(self->ants, ant_create(self->number--, route));
-// 		func1(self, route->size - last->size);
-// 		queue_push_back(self->routes, route);
-// 	}
-// 	if (self->number > 0)
-// 		func1(self, 1 + (self->number / self->routes->size));
-// 	if (self->number != 0)
-// 		app_error(self);
-	
-// }
-
-// int		add_ant(t_app *self, t_queue *route)
-// {
-// 	if (self->number > 0)
-// 		queue_push_back(self->ants, ant_create(self->number--, route));
-			
-// 	return (0);
-
-// }
-
-// void	antfarm_is_full()
-// {
-
-// }
-
-// void			calc_add_route(t_app *self, t_queue *route)
-// {
-
-// }
-
-// static int		calc_is_maximum(t_app *self)
-// {
-// 	return (self->ant_id == self->number);
-// }
-
-// static void		calc_complete(t_app *self)
-// {
-// 	t_queue		*route;
-
-// 	if (calc_is_maximum(self))
-// 		return ;
-// 	while (queue_start(self->routes))
-// 	{
-// 		while (queue_next(self->routes, (void **)&route))
-// 		{
-// 			if (calc_is_maximum(self))
-// 				return ;
-// 			queue_push_back(self->ants, ant_create(++self->ant_id, route));
-// 		}
-// 	}
-// 	app_error(self);
-
-
-// 			if (ant_move(ant))
-// 			{
-// 				ant_print(ant, count++);
-// 				if (ant_finish(ant))
-// 					queue_remove(self->ants, &ant_destroy);
-// 			}
-// 		}
-// 		ft_printf("\n");
-// 		if (count == 0)
-// 			app_error(self);
-// 	}
-
-
-// 	// int		count_ants;
-// 	// int		count_routes;
-// 	// int		count;
-
-// 	// count_ants = self->number - self->ant_id;
-// 	// count_routes = self->routes->size;
-// 	// if (count_ants > 0 && count_routes > 0)
-// 	// {
-// 	// 	part = (count_ants + count_routes - 1) / count_routes;
-// // 	// 	ants_populate(self, self->number - self->ant_id);
-// // 	// }	 
-// // }
-
-// static int		calc_add_ants_all_routes(t_app *self, int count)
-// {
-// 	t_queue		*route;
-
-// 	while (queue_start(self->routes))
-// 	{
-// 		while (queue_next(self->routes, (void **)&route))
-// 		{
-// 			if (!calc_add_ants_route(self, route, count))
-// 				return (0);
-// 		}
-// 	}
-// 	return (1);
-// }
-
-// static int		calc_add_ants_route(t_app *self, t_queue *route, int count)
-// {
-	
-// }
-
-
-// static int		calc_while(t_app *self)
-// {
-// 	t_queue		*route;
-
-// 	if (antfarm_full(self))
-// 		return ;
-// 	route = get_route(self);
-// 	if (route)
-// 	{
-// 		if (self->last_route)
-// 			ants_add_all_routes(self, route->size - self->last_route->size);
-// 		queue_push_back(self->routes, route);
-// 		ants_add_route(self, route, 1);
-// 		self->last_route = route;
-// 	}
-// }
-
-// static void		calc_complete(t_app *self)
-// {
-// 	t_queue		*route;
-
-// 	while (queue_start(self->routes))
-// 	{
-// 		while (queue_next(self->routes, (void **)&route))
-// 		{
-// 			if (!calc_add_ant(self, route, 1))
-// 				return ;
-// 		}
-// 	}
-// 	app_error(self);
-// }
-
-// void			app_calc(t_app *self)
-// {
-// 	// t_queue		*route;
-// 	// t_queue		*last;
-
-// 	// route = get_route(self);
-// 	// while (route)
-// 	// {
-// 	// 	if (last)
-// 	// 		antfarm_add(self, route->size - self->last_route->size);
-		
-// 	// 	last = route;
-// 	// 	route = get_route(self);
-// 	// }
-	
-
-// 	// while (calc_while(self))
-// 	// 	;
-// 	// calc_complete(self);
-// }
-
-
-	// t_queue		*last;
-
-	// last = get_route(self);
-	// if (!last)
-	// 	app_error(self);
-	// if (self->number > 0)
-	// 	queue_push_back(self->ants, ant_create(self->number--, last));
-	// queue_push_back(self->routes, last);
-	// while (self->number > 0 && (route = get_route(self)))
-	// {
-	// 	queue_push_back(self->ants, ant_create(self->number--, route));
-	// 	func1(self, route->size - last->size);
-	// 	queue_push_back(self->routes, route);
-	// }
-	// if (self->number > 0)
-	// 	func1(self, 1 + (self->number / self->routes->size));
-	// if (self->number != 0)
-	// 	app_error(self);
-	// if (self)
-	// {
-	// 	ft_printf("### CALC\n");
-
-	// 	t_room *r0, *r1, *r2, *r3, *r42, *r21;
-	// 	r0 = r42 = NULL;
-	// 	if (hashtab_get(self->rooms, "0", (void **)&r0) &&
-	// 		hashtab_get(self->rooms, "1", (void **)&r1) &&
-	// 		hashtab_get(self->rooms, "2", (void **)&r2) &&
-	// 		hashtab_get(self->rooms, "3", (void **)&r3) && 
-	// 		hashtab_get(self->rooms, "42", (void **)&r42) &&
-	// 		hashtab_get(self->rooms, "21", (void **)&r21))
-	// 	{
-	// 		r0->path = r1;
-	// 		r1->path = r2;
-	// 		r2->path = r3;
-	// 		r42->path = r21;
-	// 		r21->path = r3;
-	// 	}
-	// 	self->ants = queue_create();
-	// 	while (self->number)
-	// 	{
-	// 		if (self->number)
-	// 			queue_push_back(self->ants, ant_create(self->number--, r0));
-	// 		if (self->number)
-	// 			queue_push_back(self->ants, ant_create(self->number--, r42));
-	// 	}
-
-	// }
-// }
+	self->routes = list_create();
+	self->ants = list_create();
+	count = 0;
+	length = 0;
+	max_size = 0;
+	while (count < self->number && (route = calc_route(self)))
+	{
+		list_push_back(self->routes, route);
+		ft_printf("route->size = %d\n", route->size);
+		length += route->size;
+		max_size = ft_max(max_size, route->size);
+		count = self->routes->size * (max_size + 1) - length;
+	}
+	if (self->routes->size == 0)
+		app_error(self);
+	self->capacity = (self->number + length + self->routes->size - 1);
+	self->capacity /= self->routes->size;
+	list_foreach(self->routes, &calc_apply, self);
+}

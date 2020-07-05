@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/03 19:23:51 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/05 04:46:54 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,14 +29,6 @@ HEADERS		= deque.h \
 			  queue.h \
 
 SOURCES		= \
-	$(addprefix bonus/, \
-		ft_lstnew.c \
-		ft_lstdelone.c \
-		ft_lstdel.c \
-		ft_lstadd.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
-	) \
 	$(addprefix deque/, \
 		deque_clean.c \
 		deque_create.c \
@@ -53,8 +45,6 @@ SOURCES		= \
 		ft_memdup.c \
 		ft_strnlen.c \
 		ft_strndup.c \
-		ft_lstlen.c \
-		ft_lstrev.c \
 		ft_index.c \
 		ft_max.c \
 		ft_min.c \

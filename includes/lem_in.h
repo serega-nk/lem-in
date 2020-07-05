@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/04 00:45:02 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/05 04:54:49 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "parse.h"
 # include "queue.h"
 # include "hashtab.h"
-# include "heap.h"
+# include "list.h"
 
 typedef struct s_room	t_room;
 typedef struct s_ant	t_ant;
@@ -48,7 +48,7 @@ struct	s_ant
 struct	s_app
 {
 	t_gnl		*gnl;
-	t_queue		*lines;
+	t_list		*lines;
 	char		*line;
 	char		*key;
 	int			state;
@@ -68,7 +68,7 @@ struct	s_app
 void	app_error(t_app *self);
 void	app_load(t_app *self);
 void	app_calc(t_app *self);
-void	app_print(t_app *self);
+void	app_output(t_app *self);
 void	app_free(t_app *self);
 
 int		load_signal(t_app *self);

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_play.c                                         :+:      :+:    :+:   */
+/*   app_output.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/03 20:19:48 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/05 04:55:35 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void		print_lines(t_app *self)
+static void		output_lines(t_app *self)
 {
-	while (queue_pop_front(self->lines, (void **)&self->line))
+	while (list_pop_front(self->lines, (void **)&self->line))
 	{
 		ft_printf("%s", self->line);
 		ft_strdel(&self->line);
 	}
 }
 
-static void		print_steps_ants(t_app *self)
+static void		output_steps(t_app *self)
 {
 	t_ant	*ant;
 	int		count;
@@ -44,9 +44,9 @@ static void		print_steps_ants(t_app *self)
 	}
 }
 
-void			app_play(t_app *self)
+void			app_output(t_app *self)
 {
-	print_lines(self);
+	output_lines(self);
 	ft_printf("\n");
-	print_steps_ants(self);
+	output_steps(self);
 }

@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   list_item_create.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 07:58:22 by bconchit          #+#    #+#             */
-/*   Updated: 2019/09/08 09:27:02 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/04 13:45:56 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/04 13:46:11 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "list.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+t_list_item	*list_item_create(void)
 {
-	t_list	*ptr;
+	t_list_item		*self;
 
-	if (alst && new)
-	{
-		ptr = new;
-		while (ptr->next)
-			ptr = ptr->next;
-		ptr->next = *alst;
-		*alst = new;
-	}
+	self = (t_list_item *)ft_xmemalloc(sizeof(t_list_item));
+	return (self);
 }

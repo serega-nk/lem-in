@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   list_clean.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 07:58:39 by bconchit          #+#    #+#             */
-/*   Updated: 2019/09/09 05:07:17 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/04 13:38:08 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/04 13:38:52 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "list.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	list_clean(t_list *self, void (*delf)())
 {
-	if (f)
+	void	*data;
+
+	while (list_pop_front(self, &data))
 	{
-		while (lst)
-		{
-			(*f)(lst);
-			lst = lst->next;
-		}
+		if (delf)
+			(*delf)(&data);
 	}
 }

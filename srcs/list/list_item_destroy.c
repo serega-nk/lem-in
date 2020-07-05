@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlen.c                                        :+:      :+:    :+:   */
+/*   list_item_destroy.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 05:21:28 by bconchit          #+#    #+#             */
-/*   Updated: 2019/09/09 05:24:31 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/04 13:46:18 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/04 13:46:27 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "list.h"
 
-size_t	ft_lstlen(t_list *lst)
+void	list_item_destroy(t_list_item **aself)
 {
-	size_t	len;
-
-	len = 0;
-	while (lst)
+	if (aself && *aself)
 	{
-		lst = lst->next;
-		len++;
+		ft_memdel((void **)aself);
 	}
-	return (len);
 }

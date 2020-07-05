@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   list_pop_front.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 20:26:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/05 04:41:13 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/04 14:23:23 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/04 14:24:02 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "list.h"
 
-int		main(void)
+int		list_pop_front(t_list *self, void **adata)
 {
-	t_app	app;
+	t_list_item	*item;
 
-	ft_bzero(&app, sizeof(t_app));
-	ft_on_xexit(&app_free, &app);
-	app_load(&app);
-	app_calc(&app);
-	app_output(&app);
-	app_free(&app);
-	return (EXIT_SUCCESS);
+	if (self && self->size > 0)
+	{
+		item = self->head;
+		self->head = item->next;
+		self->size--;
+		if (self->size == 0)
+			self->tail = NULL;
+		if (adata)
+			*adata = item->data;
+		list_item_destroy(&item);
+		return (1);
+	}
+	return (0);
 }

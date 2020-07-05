@@ -6,16 +6,22 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/04 01:23:07 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/05 04:49:29 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-t_queue		*get_route(t_app *self)
+void	app_calc(t_app *self)
 {
-
+	if (self)
+		self = NULL;
 }
+
+// t_queue		*get_route(t_app *self)
+// {
+
+// }
 
 // int		func2(t_app *self, t_queue *route, int count)
 // {
@@ -125,83 +131,83 @@ t_queue		*get_route(t_app *self)
 // 	// if (count_ants > 0 && count_routes > 0)
 // 	// {
 // 	// 	part = (count_ants + count_routes - 1) / count_routes;
-// 	// 	ants_populate(self, self->number - self->ant_id);
-// 	// }	 
+// // 	// 	ants_populate(self, self->number - self->ant_id);
+// // 	// }	 
+// // }
+
+// static int		calc_add_ants_all_routes(t_app *self, int count)
+// {
+// 	t_queue		*route;
+
+// 	while (queue_start(self->routes))
+// 	{
+// 		while (queue_next(self->routes, (void **)&route))
+// 		{
+// 			if (!calc_add_ants_route(self, route, count))
+// 				return (0);
+// 		}
+// 	}
+// 	return (1);
 // }
 
-static int		calc_add_ants_all_routes(t_app *self, int count)
-{
-	t_queue		*route;
-
-	while (queue_start(self->routes))
-	{
-		while (queue_next(self->routes, (void **)&route))
-		{
-			if (!calc_add_ants_route(self, route, count))
-				return (0);
-		}
-	}
-	return (1);
-}
-
-static int		calc_add_ants_route(t_app *self, t_queue *route, int count)
-{
+// static int		calc_add_ants_route(t_app *self, t_queue *route, int count)
+// {
 	
-}
+// }
 
 
-static int		calc_while(t_app *self)
-{
-	t_queue		*route;
+// static int		calc_while(t_app *self)
+// {
+// 	t_queue		*route;
 
-	if (antfarm_full(self))
-		return ;
-	route = get_route(self);
-	if (route)
-	{
-		if (self->last_route)
-			ants_add_all_routes(self, route->size - self->last_route->size);
-		queue_push_back(self->routes, route);
-		ants_add_route(self, route, 1);
-		self->last_route = route;
-	}
-}
+// 	if (antfarm_full(self))
+// 		return ;
+// 	route = get_route(self);
+// 	if (route)
+// 	{
+// 		if (self->last_route)
+// 			ants_add_all_routes(self, route->size - self->last_route->size);
+// 		queue_push_back(self->routes, route);
+// 		ants_add_route(self, route, 1);
+// 		self->last_route = route;
+// 	}
+// }
 
-static void		calc_complete(t_app *self)
-{
-	t_queue		*route;
+// static void		calc_complete(t_app *self)
+// {
+// 	t_queue		*route;
 
-	while (queue_start(self->routes))
-	{
-		while (queue_next(self->routes, (void **)&route))
-		{
-			if (!calc_add_ant(self, route, 1))
-				return ;
-		}
-	}
-	app_error(self);
-}
+// 	while (queue_start(self->routes))
+// 	{
+// 		while (queue_next(self->routes, (void **)&route))
+// 		{
+// 			if (!calc_add_ant(self, route, 1))
+// 				return ;
+// 		}
+// 	}
+// 	app_error(self);
+// }
 
-void			app_calc(t_app *self)
-{
-	t_queue		*route;
-	t_queue		*last;
+// void			app_calc(t_app *self)
+// {
+// 	// t_queue		*route;
+// 	// t_queue		*last;
 
-	route = get_route(self);
-	while (route)
-	{
-		if (last)
-			antfarm_add(self, route->size - self->last_route->size);
+// 	// route = get_route(self);
+// 	// while (route)
+// 	// {
+// 	// 	if (last)
+// 	// 		antfarm_add(self, route->size - self->last_route->size);
 		
-		last = route;
-		route = get_route(self);
-	}
+// 	// 	last = route;
+// 	// 	route = get_route(self);
+// 	// }
 	
 
-	while (calc_while(self))
-		;
-	calc_complete(self);
-}
+// 	// while (calc_while(self))
+// 	// 	;
+// 	// calc_complete(self);
+// }
 
 
 	// t_queue		*last;

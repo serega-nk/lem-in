@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/03 19:37:41 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/05 04:49:47 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= lem_in.h
+HEADERS		= lem_in.h list.h
 SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix ant/, \
@@ -43,7 +43,18 @@ SOURCES		= \
 		app_error.c \
 		app_free.c \
 		app_load.c \
-		app_print.c \
+		app_output.c \
+	) \
+	$(addprefix list/, \
+		list_apply.c \
+		list_clean.c \
+		list_create.c \
+		list_destroy.c \
+		list_item_create.c \
+		list_item_destroy.c \
+		list_pop_front.c \
+		list_push_back.c \
+		list_push_front.c \
 	) \
 	main.c \
 

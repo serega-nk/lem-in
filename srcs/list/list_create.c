@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   list_create.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 07:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2019/09/08 09:17:46 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/04 08:01:34 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/04 08:01:57 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "list.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+t_list	*list_create(void)
 {
-	if (alst && del)
-	{
-		while (*alst)
-			ft_lstdelone(alst, del);
-	}
+	t_list		*self;
+
+	self = (t_list *)ft_xmemalloc(sizeof(t_list));
+	return (self);
 }

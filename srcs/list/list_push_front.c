@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   list_push_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 20:26:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/05 04:41:13 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/04 14:22:52 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/04 14:23:08 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "list.h"
 
-int		main(void)
+void	list_push_front(t_list *self, void *data)
 {
-	t_app	app;
+	t_list_item	*item;
 
-	ft_bzero(&app, sizeof(t_app));
-	ft_on_xexit(&app_free, &app);
-	app_load(&app);
-	app_calc(&app);
-	app_output(&app);
-	app_free(&app);
-	return (EXIT_SUCCESS);
+	if (self)
+	{
+		item = list_item_create();
+		item->data = data;
+		if (self->size == 0)
+		{
+			self->head = item;
+			self->tail = item;
+		}
+		else
+		{
+			item->next = self->head;
+			self->head = item;
+		}
+		self->size++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/05 15:55:56 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/07 22:14:37 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,12 @@ struct	s_room
 	t_hashtab	*links;
 	int			level;
 	int			lock;
-	t_room		*path;
 };
 
 struct	s_ant
 {
 	int				id;
-	t_list_item		*walk;
+	t_list_iter		*iter;
 	t_room			*room;
 	t_room			*next;
 };
@@ -84,6 +83,8 @@ void	load_check(t_app *self);
 
 t_room	*room_create(void);
 void	room_destroy(t_room **aself);
+int		room_lock(t_room *self);
+void	room_unlock(t_room *self);
 
 t_ant	*ant_create(int id, t_list *route);
 void	ant_destroy(t_ant **aself);

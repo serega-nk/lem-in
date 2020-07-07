@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ant_create.c                                       :+:      :+:    :+:   */
+/*   list_iter_create.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/02 00:28:49 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/07 22:12:51 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/07 22:00:13 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/07 22:01:17 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "list.h"
 
-t_ant	*ant_create(int id, t_list *route)
+t_list_iter		*list_iter_create(t_list *list)
 {
-	t_ant	*self;
+	t_list_iter		*self;
 
-	self = (t_ant *)ft_xmemalloc(sizeof(t_ant));
-	self->id = id;
-	self->iter = list_iter_create(route);
-	self->room = list_iter_next2(self->iter);
-	self->next = list_iter_next2(self->iter);
+	self = (t_list_iter *)ft_xmemalloc(sizeof(t_list_item));
+	self->list = list;
 	return (self);
 }

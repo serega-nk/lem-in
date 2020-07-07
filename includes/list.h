@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 08:04:39 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/05 15:03:07 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/07 22:12:23 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,9 @@
 # include "libft.h"
 # include "ft_xexit.h"
 
-# define LIST_FOREACH_REMOVE -1
-# define LIST_FOREACH_STOP 0
-# define LIST_FOREACH_NEXT 1
-
-typedef struct s_list_item	t_list_item;
 typedef struct s_list		t_list;
-
-struct			s_list_item
-{
-	t_list_item		*next;
-	void			*data;
-};
+typedef struct s_list_item	t_list_item;
+typedef struct s_list_iter	t_list_iter;
 
 struct			s_list
 {
@@ -36,8 +27,18 @@ struct			s_list
 	size_t			size;
 };
 
-t_list_item		*list_item_create(void);
-void			list_item_destroy(t_list_item **aself);
+struct			s_list_item
+{
+	t_list_item		*next;
+	void			*data;
+};
+
+struct			s_list_iter
+{
+	t_list			*list;
+	t_list_item		**awalk;
+	int				remove;
+};
 
 t_list			*list_create(void);
 void			list_destroy(t_list **aself);
@@ -48,6 +49,14 @@ int				list_pop_front(t_list *self, void **adata);
 void			list_push_back(t_list *self, void *data);
 void			list_push_front(t_list *self, void *data);
 
-int				list_foreach(t_list *self, int (*foreachf)(), void *context);
+t_list_item		*list_item_create(void);
+void			list_item_destroy(t_list_item **aself);
+
+t_list_iter		*list_iter_create(t_list *list);
+void			list_iter_destroy(t_list_iter **aself);
+
+int				list_iter_next(t_list_iter *self, void **adata);
+int				list_iter_remove(t_list_iter *self, void (*delf)());
+void			*list_iter_next2(t_list_iter *self);
 
 #endif

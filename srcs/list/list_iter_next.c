@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ant_create.c                                       :+:      :+:    :+:   */
+/*   list_iter_next.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/02 00:28:49 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/07 22:12:51 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/07 21:42:13 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/07 22:12:01 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "list.h"
 
-t_ant	*ant_create(int id, t_list *route)
+int		list_iter_next(t_list_iter *self, void **adata)
 {
-	t_ant	*self;
-
-	self = (t_ant *)ft_xmemalloc(sizeof(t_ant));
-	self->id = id;
-	self->iter = list_iter_create(route);
-	self->room = list_iter_next2(self->iter);
-	self->next = list_iter_next2(self->iter);
-	return (self);
+	if (self && self->list)
+	{
+		if (self->awalk == NULL)
+			self->awalk = &self->list->head;
+		else if (self->remove == 0)
+			self->awalk = &(*self->awalk)->next;
+		self->remove = 0;
+		if (*self->awalk)
+		{
+			*adata = (*self->awalk)->data;
+			return (1);
+		}
+	}
+	return (0);
 }

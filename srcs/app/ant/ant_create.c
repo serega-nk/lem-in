@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 00:28:49 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/07 22:12:51 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/09 22:41:39 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_ant	*ant_create(int id, t_list *route)
 	self = (t_ant *)ft_xmemalloc(sizeof(t_ant));
 	self->id = id;
 	self->iter = list_iter_create(route);
-	self->room = list_iter_next2(self->iter);
-	self->next = list_iter_next2(self->iter);
+	self->room = (t_room *)list_iter_next2(self->iter);
+	self->next = (t_room *)list_iter_next2(self->iter);
 	return (self);
 }

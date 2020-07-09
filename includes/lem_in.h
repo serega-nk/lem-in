@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/07 22:14:37 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/09 22:41:45 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ struct	s_app
 	int			id_ant;
 	int			capacity;
 	int			count;
+	t_list_iter		*iter;
 };
 
 void	app_error(t_app *self);

@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/07 22:12:29 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/09 20:53:07 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,8 +67,8 @@ SOURCES		= \
 LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-CC			= gcc
-WFLAGS		= -Wall -Wextra -Werror
+CC			= gcc -g
+#WFLAGS		= -Wall -Wextra -Werror
 IFLAGS		= -I$(INC_DIR)/ -I$(LIBFT_DIR)/includes/
 LFLAGS		= -L$(LIBFT_DIR)/ -lft
 
@@ -107,6 +107,6 @@ test: $(NAME)
 	./$(NAME) < _maps/1
 
 vv: $(NAME)
-	valgrind --leak-check=full ./$(NAME) < _maps/big-superposition
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) < _maps/big-superposition
 
 .PHONY: all clean fclean re norm test vv

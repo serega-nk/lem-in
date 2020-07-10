@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/05 04:46:54 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/10 20:26:26 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ HEADERS		= deque.h \
 			  hashtab.h \
 			  heap.h \
 			  libft.h \
+			  list.h \
 			  parse.h \
-			  queue.h \
 
 SOURCES		= \
 	$(addprefix deque/, \
@@ -130,6 +130,21 @@ SOURCES		= \
 		heap_sift_down.c \
 		heap_sift_up.c \
 	) \
+	$(addprefix list/, \
+		list_clean.c \
+		list_create.c \
+		list_destroy.c \
+		list_item_create.c \
+		list_item_destroy.c \
+		list_iter_create.c \
+		list_iter_destroy.c \
+		list_iter_next.c \
+		list_iter_next2.c \
+		list_iter_remove.c \
+		list_pop_front.c \
+		list_push_back.c \
+		list_push_front.c \
+	) \
 	$(addprefix parse/, \
 		parse_goto.c \
 		parse_int.c \
@@ -192,19 +207,6 @@ SOURCES		= \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
-	) \
-	$(addprefix queue/, \
-		queue_clean.c \
-		queue_create.c \
-		queue_destroy.c \
-		queue_item_create.c \
-		queue_item_destroy.c \
-		queue_next.c \
-		queue_pop_front.c \
-		queue_push_back.c \
-		queue_push_front.c \
-		queue_remove.c \
-		queue_start.c \
 	) \
 
 CC			= gcc

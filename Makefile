@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/09 20:53:07 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/10 20:24:38 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC_DIR		= ./includes
 SRC_DIR		= ./srcs
 OBJ_DIR		= ./objs
 
-HEADERS		= lem_in.h list.h
+HEADERS		= lem_in.h
 SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix ant/, \
@@ -47,28 +47,13 @@ SOURCES		= \
 		app_load.c \
 		app_output.c \
 	) \
-	$(addprefix list/, \
-		list_clean.c \
-		list_create.c \
-		list_destroy.c \
-		list_item_create.c \
-		list_item_destroy.c \
-		list_iter_create.c \
-		list_iter_destroy.c \
-		list_iter_next.c \
-		list_iter_next2.c \
-		list_iter_remove.c \
-		list_pop_front.c \
-		list_push_back.c \
-		list_push_front.c \
-	) \
 	main.c \
 
 LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-CC			= gcc -g
-#WFLAGS		= -Wall -Wextra -Werror
+CC			= gcc
+WFLAGS		= -Wall -Wextra -Werror
 IFLAGS		= -I$(INC_DIR)/ -I$(LIBFT_DIR)/includes/
 LFLAGS		= -L$(LIBFT_DIR)/ -lft
 

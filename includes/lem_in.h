@@ -34,6 +34,7 @@ struct	s_room
 	t_hashtab	*links;
 	int			level;
 	int			lock;
+	t_room		*path;
 };
 
 struct	s_ant

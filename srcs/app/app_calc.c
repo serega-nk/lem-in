@@ -5,8 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jremarqu <jremarqu@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+<<<<<<< HEAD
 /*   Created: 2020/07/11 00:55:11 by jremarqu          #+#    #+#             */
 /*   Updated: 2020/07/11 00:55:22 by jremarqu         ###   ########.fr       */
+=======
+/*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/11 05:44:41 by bconchit         ###   ########.fr       */
+>>>>>>> 51c0c0ed75e1d896ddbecb008aeed4b37cb9ecae
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +32,7 @@ void	room_unlink(t_room *room1, t_room *room2)
 {
 	// if (self->room_start == room1 || self->room_start == room2 || self->room_end == room1 || self->room_end == room2)
 	// 	return ;
-	ft_printf("UNLINK %s -- %s\n", room1->name, room2->name);
+	//ft_printf("UNLINK %s -- %s\n", room1->name, room2->name);
 	hashtab_remove(room1->links, room2->name, NULL);
 	hashtab_remove(room2->links, room1->name, NULL);
 }
@@ -66,6 +71,7 @@ void	app_bfs_algo(t_app *self)
 			}	
 		}
 	}
+	list_destroy(&order);
 	// ft_printf("end level = %d\n", self->room_end->level);
 }
 
@@ -79,8 +85,7 @@ t_list	*test(t_app *self)
 	room = self->room_end;
 	while (room)
 	{
-		
-		// ft_printf("TEST %s (%d)\n", room->name, room->level);
+		//ft_printf("TEST %s (%d)\n", room->name, room->level);
 		hashtab_start(room->links);
 		while (hashtab_next_kv(room->links, NULL, (void **)&link_room))
 		{
@@ -91,7 +96,8 @@ t_list	*test(t_app *self)
 		list_push_front(route, room);
 		room = room->path;
 	}
-	if (route->size == 0)
+	//ft_printf("ROUTE %d\n", route->size);
+	if (route->size == 1)
 		list_destroy(&route);
 	return (route);
 }
@@ -99,14 +105,14 @@ t_list	*test(t_app *self)
 static t_list	*calc_route(t_app *self)
 {
 	t_list *route;
-	static int mode = 0;
+	// static int mode = 0;
 
-	route = NULL;
-	++mode;
-	if (mode == 1)
-	{
-		app_bfs_algo(self);
-		route = test(self);
+	// route = NULL;
+	// ++mode;
+	// if (mode == 1)
+	// {
+	// 	app_bfs_algo(self);
+	// 	route = test(self);
 		// t_room *r0, *r1, *r2, *r3, *r42, *r21;
 		// r0 = r42 = NULL;
 		// if (hashtab_get(self->rooms, "0", (void **)&r0) &&
@@ -122,9 +128,9 @@ static t_list	*calc_route(t_app *self)
 		// 	list_push_back(route, r2);
 		// 	list_push_back(route, r3);
 		// }
-	}
-	if (mode == 2)
-	{
+	// }
+	// if (mode == 2)
+	// {
 		t_room	*room;
 		hashtab_start(self->rooms);
 		while (hashtab_next_kv(self->rooms, NULL, (void **)&room))
@@ -149,7 +155,7 @@ static t_list	*calc_route(t_app *self)
 	// 		list_push_back(route, r21);
 	// 		list_push_back(route, r3);
 	// 	}
-	}
+	// }
 	return (route);
 }
 

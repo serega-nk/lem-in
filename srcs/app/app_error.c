@@ -15,6 +15,6 @@
 void	app_error(t_app *self)
 {
 	if (self)
-		ft_printf("ERROR\n");
+		ft_printf_fd(STDERR_FILENO, "ERROR\n");
 	ft_xexit(EXIT_FAILURE);
 }

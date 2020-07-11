@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app_calc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: jremarqu <jremarqu@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/09 22:49:18 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/11 00:55:11 by jremarqu          #+#    #+#             */
+/*   Updated: 2020/07/11 00:55:22 by jremarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

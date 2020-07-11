@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/10 20:27:20 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/11 21:16:52 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,24 +47,22 @@ struct	s_ant
 
 struct	s_app
 {
-	t_gnl		*gnl;
-	t_list		*lines;
-	char		*line;
-	char		*key;
-	int			state;
-	int			signal_start;
-	int			signal_end;
-	t_room		*room_start;
-	t_room		*room_end;
-	int			number;
-	t_hashtab	*rooms;
-	t_hashtab	*coords;
-	t_list		*routes;
-	t_list		*ants;
-	int			id_ant;
-	int			capacity;
-	int			count;
-	t_list_iter		*iter;
+	t_gnl			*gnl;
+	t_list			*lines;
+	char			*line;
+	char			*key;
+	int				state;
+	int				signal_start;
+	int				signal_end;
+	t_room			*room_start;
+	t_room			*room_end;
+	int				number;
+	t_hashtab		*rooms;
+	t_hashtab		*coords;
+	t_list			*routes;
+	t_list			*ants;
+	int				capacity;
+	int				step;
 };
 
 void	app_error(t_app *self);

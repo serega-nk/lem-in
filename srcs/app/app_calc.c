@@ -3,15 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app_calc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jremarqu <jremarqu@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-<<<<<<< HEAD
-/*   Created: 2020/07/11 00:55:11 by jremarqu          #+#    #+#             */
-/*   Updated: 2020/07/11 00:55:22 by jremarqu         ###   ########.fr       */
-=======
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/11 05:44:41 by bconchit         ###   ########.fr       */
->>>>>>> 51c0c0ed75e1d896ddbecb008aeed4b37cb9ecae
+/*   Updated: 2020/07/11 21:18:24 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,12 +160,15 @@ static void		calc_routes(t_app *self)
 	int			effective_amount;
 	int			total_length;
 	int			max_length;
+	int			max_routes;
 
 	self->routes = list_create();
 	effective_amount = 0;
 	total_length = 0;
 	max_length = 0;
-	while (effective_amount < self->number && (route = calc_route(self)))
+	max_routes = ft_min(self->room_start->links->count, self->room_end->links->count);
+	ft_printf("# max_routes = %d\n", max_routes);
+	while (max_routes-- > 0 && effective_amount < self->number && (route = calc_route(self)))
 	{
 		list_push_back(self->routes, route);
 		total_length += route->size;
@@ -178,9 +176,13 @@ static void		calc_routes(t_app *self)
 		effective_amount = self->routes->size * (max_length + 1) - total_length;
 	}
 	if (self->routes->size == 0)
-		app_error(self);
+		app_error(self);	
 	self->capacity = self->number + total_length + self->routes->size - 1;
 	self->capacity /= self->routes->size;
+	ft_printf("# routes->size = %d\n", self->routes->size);
+	ft_printf("# capacity = %d\n", self->capacity);
+	ft_printf("# max_length = %d\n", max_length);
+	ft_printf("# total_length = %d\n", total_length);
 }
 
 static void		calc_ants(t_app *self)

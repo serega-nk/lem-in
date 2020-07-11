@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/09 22:46:30 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/11 21:17:44 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ static void		output_steps(t_app *self)
 		list_iter_destroy(&iter);
 		if (count == 0)
 			app_error(self);
+		self->step++;
 	}
+	ft_printf("# step = %d\n", self->step);
 }
 
 void			app_output(t_app *self)

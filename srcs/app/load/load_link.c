@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:38 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 18:23:58 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/11 22:03:54 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int			load_link(t_app *self)
 
 	if (self->signal_start || self->signal_end)
 		app_error(self);
+	name1 = NULL;
+	name2 = NULL;
 	if (!load_link_parse(self, &name1, &name2) ||
 		!hashtab_get(self->rooms, name1, (void **)&room1) ||
 		!hashtab_get(self->rooms, name2, (void **)&room2) ||

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/11 21:18:24 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/11 21:50:26 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ static void		calc_routes(t_app *self)
 	total_length = 0;
 	max_length = 0;
 	max_routes = ft_min(self->room_start->links->count, self->room_end->links->count);
-	ft_printf("# max_routes = %d\n", max_routes);
+	//ft_printf("# max_routes = %d\n", max_routes);
 	while (max_routes-- > 0 && effective_amount < self->number && (route = calc_route(self)))
 	{
 		list_push_back(self->routes, route);
@@ -179,10 +179,12 @@ static void		calc_routes(t_app *self)
 		app_error(self);	
 	self->capacity = self->number + total_length + self->routes->size - 1;
 	self->capacity /= self->routes->size;
-	ft_printf("# routes->size = %d\n", self->routes->size);
-	ft_printf("# capacity = %d\n", self->capacity);
-	ft_printf("# max_length = %d\n", max_length);
-	ft_printf("# total_length = %d\n", total_length);
+
+	// ft_printf("# routes->size = %d\n", self->routes->size);
+	// ft_printf("# capacity = %d\n", self->capacity);
+	// ft_printf("# max_length = %d\n", max_length);
+	// ft_printf("# total_length = %d\n", total_length);
+	// ft_printf("# number = %d\n", self->number);
 }
 
 static void		calc_ants(t_app *self)
@@ -197,9 +199,12 @@ static void		calc_ants(t_app *self)
 	iter = list_iter_create(self->routes);
 	while (number < self->number && list_iter_next(iter, (void **)&route))
 	{
+		//ft_printf("# number = %d\n", number);
 		count = self->capacity - route->size;
+		//ft_printf("# self->capacity - route->size = %d\n", count);
 		while (number < self->number && count-- > 0)
 			list_push_back(self->ants, (void *)ant_create(++number, route));
+		
 	}
 	list_iter_destroy(&iter);
 	if (number != self->number)
@@ -208,6 +213,9 @@ static void		calc_ants(t_app *self)
 
 void			app_calc(t_app *self)
 {
+	//ft_printf("#1\n");
 	calc_routes(self);
+	//ft_printf("#2\n");
 	calc_ants(self);
+	//ft_printf("#3\n");
 }

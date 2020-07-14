@@ -115,17 +115,17 @@ def algo_bhandari_step2(self):
 
 def algo_bellman_ford(self):
 	self.room_start.path = True
-	print("=====")
-	for room in self.rooms.values():
-		if room.path:
-			print(f'{room} steps == {room.steps}')
-	print("=====")
+	# print("=====")
+	# for room in self.rooms.values():
+	# 	if room.path:
+	# 		print(f'{room} steps == {room.steps}')
+	# print("=====")
 	count = 0
 	flag = True
 	n = len(self.links)
 	while flag and count < n:
 		count += 1
-		print(count)
+		# print(count)
 		flag = False
 		for link in self.links:
 			if link.room1.path:
@@ -139,11 +139,11 @@ def algo_bellman_ford(self):
 					link.room2.steps = value
 					link.room2.path = link.room1
 					flag = True			
-	print("=====")
-	for room in self.rooms.values():
-		if room.path:
-			print(f'{room} steps == {room.steps}')
-	print("=====")
+	# print("=====")
+	# for room in self.rooms.values():
+	# 	if room.path:
+			# print(f'{room} steps == {room.steps}')
+	# print("=====")
 
 def route_print(self):
 
@@ -164,16 +164,31 @@ def route_print(self):
 
 
 def solve(self):
+# first way
 	route_clear(self)
 	algo_bfs(self)
-	
+
+#second way	
 	algo_bhandari_step2(self)
 	route_clear(self)
 	algo_bellman_ford(self)
-	
 	algo_bhandari_step2(self)
+	#route_print(self)
 	route_clear(self)
+	algo_bellman_ford(self)
+	algo_bhandari_step2(self)
 	route_print(self)
+
+#therd way
+
+# #therd way
+# 	algo_bhandari_step2(self)
+# 	route_clear(self)
+# 	algo_bellman_ford(self)
+
+# 	algo_bhandari_step2(self)
+# 	route_clear(self)
+# 	route_print(self)
 
 	#algo_bhandari_step2(self)
 	# for room in self.rooms.values():

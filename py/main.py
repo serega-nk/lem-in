@@ -100,14 +100,10 @@ def algo_bhandari_step2(self):
 		room = walk.path
 		if room.name in walk.links:
 			link = walk.links[room.name]
-			link.weight = -1
-			link = room.links[walk.name]
-			self.links.remove(link)
-			del room.links[walk.name]
-		else:
-			link = room.links[walk.name]
-			self.links.remove(link)
-			del room.links[walk.name]
+			link.weight = -2
+		link = room.links[walk.name]
+		self.links.remove(link)
+		del room.links[walk.name]
 		walk = walk.path
 		if (walk == self.room_start):
 			break
@@ -157,13 +153,29 @@ def route_print(self):
 			walk = links[0].room2 if links else None
 	
 	for link in self.room_end.links.values():
-		if link.weight == -1:
+		if link.weight == -2:
 			route = test(link.room2)
 			print(route)
 	return None
 
 
+def algo_pre(self):
+	def pre_remove(point):
+		for link in point.links.values():
+			link_room = link.room2
+			for name in point.links.keys():
+				if name in link_room.links:
+					print("algo_pre remove", link_room.links[name])
+					self.links.remove(link_room.links[name])
+					del link_room.links[name]
+	pre_remove(self.room_start)
+	pre_remove(self.room_end)
+
+
 def solve(self):
+	# удаляем связи между дочерними узлами start и end 
+	algo_pre(self)
+
 # first way
 	route_clear(self)
 	algo_bfs(self)

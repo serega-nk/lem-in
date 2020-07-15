@@ -89,12 +89,9 @@ def algo_bfs(self):
 			if link.room2.path is None:
 				link.room2.path = room
 				queue.append(link.room2)
-	# route = route_get(self)
-	# print(route)
+
 
 def algo_bhandari_step2(self):
-	print('route = ', route_get(self))
-
 	walk = self.room_end
 	while walk and walk.path:
 		room = walk.path
@@ -185,10 +182,9 @@ def solve(self):
 	route_clear(self)
 	algo_bellman_ford(self)
 	algo_bhandari_step2(self)
-	#route_print(self)
 	route_clear(self)
 	algo_bellman_ford(self)
-	algo_bhandari_step2(self)
+	#algo_bhandari_step2(self)
 	route_print(self)
 
 #therd way
@@ -204,7 +200,7 @@ def solve(self):
 
 	#algo_bhandari_step2(self)
 	# for room in self.rooms.values():
-	# 	print(room, f'links = {len(self.links)}')
+	# 	print(room, room.path)
 	# for link in self.links:
 	# 	print(link)
 

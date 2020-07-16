@@ -17,7 +17,7 @@ class Room:
 	
 	def __repr__(self):
 		return f'Room("{self.name}")'
-	
+
 class Link:
 	def __init__(self, room1, room2):
 		self.room1 = room1
@@ -134,64 +134,55 @@ def print_routes(self):
 		print(route)
 
 
+
 def algo_suurballe(self):
+	
+	def remove_link(self, room1, room2):
+		if room2.name in room1.links:
+			link = room1.links[room2.name]
+			del room1.links[room2.name]
+			self.links.remove(link)
+
+	def split_room(self, room):
+		room.type = RoomType.room_in
+		room_out = Room(room.name + '_out', RoomType.room_out)
+		self.rooms[room_out.name] = room_out
+		for name, link in room.links.items():
+			link.room1 = room_out
+			room_out.links[name] = link
+		room.links.clear()
+		return room_out
+
+	def append_link(self, room1, room2, weight):
+		link = Link(room1, room2)
+		link.weight = weight
+		room1.links[room2.name] = link
+		self.links.append(link)
+
 	walk = self.room_end
 	if not walk.path:
-		return	
+		return
+
 	self.routes.append(walk.path)
 	while walk and walk.path:
 		room = walk.path
-		if room.name in walk.links:
-			link = walk.links[room.name]
-			#print('remove # 1', link)
-			del walk.links[room.name]
-			self.links.remove(link)
-		#
-		if walk.name in room.links:
-			link = room.links[walk.name]
-			#print('remove', link)
-			del room.links[walk.name]
-			self.links.remove(link)
-		#
-		if room.type == RoomType.room_one:
-			# split room
-			room_in = room
-			room_in.type = RoomType.room_in
-			room_out = Room(room.name + '_out')
-			room_out.type = RoomType.room_out
-			self.rooms[room_out.name] = room_out
-			# swap links
-			room_in.links, room_out.links = room_out.links, room_in.links 
-			for link in room_out.links.values():
-				link.room1 = room_out
-			# -> -1 -> out
-			link = Link(walk, room_out)
-			link.weight = -1
-			walk.links[room_out.name] = link
-			self.links.append(link)
-			# out -> 0 -> in
-			link = Link(room_out, room_in)
-			link.weight = 0
-			room_out.links[room_in.name] = link
-			self.links.append(link)
+		
+		remove_link(self, walk, room)
+		remove_link(self, room, walk)
+
+		if room.type == RoomType.room_one:			
+			room_out = split_room(self, room)
+			append_link(self, walk, room_out, -1)
+			append_link(self, room_out, room, 0)
 			#route
-			room_in.route = None
-			room_out.route = room_in
+			room.route = None
+			room_out.route = room
 			walk.route = room_out
-		elif room.type == RoomType.room_in:			
-			#print("IN", room, room.route, walk)
-			#walk.route = room
-			#room.route = None
+		elif room.type == RoomType.room_in:
 			pass
-		elif room.type == RoomType.room_out:
-			#print("OUT", room, room.route, walk)
-			walk.route = room
-			#room.route = None
 		else:
 			walk.route = room
-			#print(walk, room)
-			#raise Exception("EEEEE")
-		# 
+		
 		walk = walk.path
 		if (walk == self.room_start):
 			break

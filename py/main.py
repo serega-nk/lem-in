@@ -3,7 +3,7 @@ class Room:
 	def __init__(self, name):
 		self.name = name
 		self.links = {}
-	
+
 	def __repr__(self):
 		return f'Room("{self.name}")'
 
@@ -14,7 +14,7 @@ class Link:
 		self.weight = 1
 
 	def __repr__(self):
-		return f'Link({self.room1}, {self.room2}, weight={self.weight})' 
+		return f'Link({self.room1}, {self.room2}, weight={self.weight})'
 
 class AntFarm:
 	def _add_room(self, name, flag_start, flag_end):

@@ -1,6 +1,14 @@
 
+class RoomType:
+	room_start = 1
+	room_end = 2
+	room_one = 3
+	room_in = 4
+	room_out = 5
+
 class Room:
-	def __init__(self, name):
+	def __init__(self, name, room_type=RoomType.room_one):
+		self.type = room_type
 		self.name = name
 		self.links = {}
 		self.level = 0
@@ -10,8 +18,6 @@ class Room:
 	def __repr__(self):
 		return f'Room("{self.name}")'
 	
-
-
 class Link:
 	def __init__(self, room1, room2):
 		self.room1 = room1
@@ -59,17 +65,15 @@ class AntFarm:
 				self._add_link(*line.split('-'))
 
 	def __init__(self, fn):
+		self.routes = []
 		self.rooms = {}
 		self.links = []
 		self._load(fn)
 		assert (self.number > 0)
 		assert (self.room_start)
 		assert (self.room_end)
-
-def algo_clean(self):
-	for room in self.rooms.values():
-		room.level = 0
-		room.path = None
+		self.room_start.type = RoomType.room_start
+		self.room_end.type = RoomType.room_end
 
 def route_get(self):
 	route = []
@@ -81,59 +85,137 @@ def route_get(self):
 		walk = walk.path
 	return None
 
+def algo_clean(self):
+	for room in self.rooms.values():
+		room.level = 0
+		room.path = None
 
-def algo_bfs_priority(self):
-	
-	def gen_id(save=[0,]):
-		save[0]	+= 1
-		return save[0]
-	
-	import heapq
-	
-	queue = []
-	heapq.heappush(queue, (1, gen_id(), self.room_start))
-	while (queue):
-		level, _, room = heapq.heappop(queue)
-		for link in room.links.values():
+def algo_pre(self):
+	def pre_remove(point):
+		for link in point.links.values():
 			link_room = link.room2
-			if link_room != self.room_start and (link_room.path is None or link_room.level > level):
-				link_room.level = level
-				link_room.path = room
-				heapq.heappush(queue, (level + 1, gen_id(), link_room))
+			for name in point.links.keys():
+				if name in link_room.links:
+					#print("algo_pre remove", link_room.links[name])
+					self.links.remove(link_room.links[name])
+					del link_room.links[name]
+	pre_remove(self.room_start)
+	pre_remove(self.room_end)
+
+def algo_bellman_ford(self):
+	algo_clean(self)
+	self.room_start.path = True
+	#
+	flag = True
+	index, count = 0, len(self.links)
+	while flag and index < count:
+		flag = False
+		for link in self.links:
+			if link.room1.path:
+				value = link.room1.level + link.weight
+				if not link.room2.path or (value < link.room2.level):
+					link.room2.level = value
+					link.room2.path = link.room1
+					flag = True
+		index += 1
+	#print(index)
+	#for room in self.rooms.values():
+	#	print(room.name, room.level, room.path)
+
+def print_routes(self):
+	
+	for walk in self.routes:
+		route = []
+		route.insert(0, self.room_end)
+		while walk:
+			if walk.type != RoomType.room_out:
+				route.insert(0, walk)
+			walk = walk.route
+		print(route)
 
 
-def algo_bhandari_step2(self):
+def algo_suurballe(self):
 	walk = self.room_end
+	if not walk.path:
+		return	
+	self.routes.append(walk.path)
 	while walk and walk.path:
-		# комната откуда пришли
 		room = walk.path
-		# 
 		if room.name in walk.links:
 			link = walk.links[room.name]
-			self.links.remove(link)
+			#print('remove # 1', link)
 			del walk.links[room.name]
-			#
-			if walk not in (self.room_start, self.room_end):
-				walk.route = room
-				print("ROUTE ", walk, room)
-		# 
+			self.links.remove(link)
+		#
 		if walk.name in room.links:
 			link = room.links[walk.name]
-			self.links.remove(link)
+			#print('remove', link)
 			del room.links[walk.name]
+			self.links.remove(link)
 		#
+		if room.type == RoomType.room_one:
+			# split room
+			room_in = room
+			room_in.type = RoomType.room_in
+			room_out = Room(room.name + '_out')
+			room_out.type = RoomType.room_out
+			self.rooms[room_out.name] = room_out
+			# swap links
+			room_in.links, room_out.links = room_out.links, room_in.links 
+			for link in room_out.links.values():
+				link.room1 = room_out
+			# -> -1 -> out
+			link = Link(walk, room_out)
+			link.weight = -1
+			walk.links[room_out.name] = link
+			self.links.append(link)
+			# out -> 0 -> in
+			link = Link(room_out, room_in)
+			link.weight = 0
+			room_out.links[room_in.name] = link
+			self.links.append(link)
+			#route
+			room_in.route = None
+			room_out.route = room_in
+			walk.route = room_out
+		elif room.type == RoomType.room_in:			
+			#print("IN", room, room.route, walk)
+			#walk.route = room
+			#room.route = None
+			pass
+		elif room.type == RoomType.room_out:
+			#print("OUT", room, room.route, walk)
+			walk.route = room
+			#room.route = None
+		else:
+			walk.route = room
+			#print(walk, room)
+			#raise Exception("EEEEE")
+		# 
 		walk = walk.path
 		if (walk == self.room_start):
 			break
 
 
 def solve(self):
-	algo_clean(self)
-	algo_bfs_priority(self)
-	algo_bhandari_step2(self)
+	algo_pre(self)
 
-	# for link in self.links:
-	# 	print(link)
+	value = min(len(self.room_start.links), len(self.room_end.links))
+
+	count = 0
+	while True:
+		algo_clean(self)
+		algo_bellman_ford(self)
+		algo_suurballe(self)
+		if self.room_end.path is None:
+			break
+		count += 1
+
+	print_routes(self)
+	print("routes =", count, "({})".format(value))
+
+	# for room in self.rooms.values():
+	# 	print(room, room.route)
 
 
 if __name__ == '__main__':

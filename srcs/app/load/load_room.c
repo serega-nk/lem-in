@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/30 04:06:01 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/17 22:06:00 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static int	load_room_insert(t_app *self, t_room *room)
 {
 	if (self->signal_start && self->signal_end)
 		return (0);
-	if (!self->key)
-		self->key = (char *)ft_xmemalloc(100 * sizeof(char));
 	ft_sprintf(self->key, "x = %d, y = %d", room->coord_x, room->coord_y);
 	if (room->name[0] != 'L' &&
 		room->coord_x >= 0 &&

@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/17 20:15:43 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/17 20:43:12 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,7 +100,7 @@ norm:
 	@norminette $(INCS) $(SRCS)
 
 test: $(NAME)
-	./$(NAME) < _maps/1
+	./$(NAME) < _maps/1.txt
 
 vv: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) < _maps/big-superposition

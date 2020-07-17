@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:56 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 20:07:09 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/17 20:50:43 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	calc_suurballe(t_app *self)
 {
-	if (self)
-	{
-		return ;
-	}
+	ft_printf("%p\n", self->room_start->path);
+	ft_printf("%p\n", self->room_end->path);
+	app_error(self);
 }
 
 

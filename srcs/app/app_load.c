@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 18:22:38 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/17 21:43:35 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	app_load(t_app *self)
 {
+	self->key = (char *)ft_xmemalloc(100 * sizeof(char));
 	self->lines = list_create();
 	self->rooms = hashtab_create();
 	self->coords = hashtab_create();

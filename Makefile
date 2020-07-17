@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/10 20:24:38 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/17 20:15:43 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,20 @@ SOURCES		= \
 			ant_move.c \
 			ant_print.c \
 		) \
+		$(addprefix calc/, \
+			calc_bellman_ford.c \
+			calc_excess.c \
+			calc_populate.c \
+			calc_preparation.c \
+			calc_suurballe.c \
+		) \
+		$(addprefix link/, \
+			link_create.c \
+			link_destroy.c \
+		) \
 		$(addprefix load/, \
-			load_check.c \
 			load_comment.c \
+			load_final.c \
 			load_link.c \
 			load_number.c \
 			load_room.c \

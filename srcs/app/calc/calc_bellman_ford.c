@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_check.c                                       :+:      :+:    :+:   */
+/*   calc_bellman_ford.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 04:13:11 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 22:33:09 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/17 19:59:47 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/17 20:26:03 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	load_check(t_app *self)
+static void		calc_bellman_ford_clean(t_app *self)
 {
-	if (self->state != 2)
-		app_error(self);
-	if (self->number <= 0)
-		app_error(self);
-	if (self->signal_start || self->signal_end)
-		app_error(self);
-	if (self->room_start == NULL || self->room_end == NULL)
-		app_error(self);
+	t_room	*room;
+
+	hashtab_start(self->rooms);
+	while (hashtab_next_kv(self->rooms, NULL, (void **)&room))
+	{
+		room->level = 0;
+		room->path = NULL;
+	}
+}
+
+void			calc_bellman_ford(t_app *self)
+{
+	calc_bellman_ford_clean(self);
 }

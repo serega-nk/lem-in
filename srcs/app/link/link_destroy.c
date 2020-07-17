@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_calc.c                                         :+:      :+:    :+:   */
+/*   link_destroy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 20:16:27 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/17 18:26:08 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/17 18:26:19 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_calc(t_app *self)
+void	link_destroy(t_link **aself)
 {
-	calc_preparation(self);
-	while (1)
+	if (aself && *aself)
 	{
-		calc_bellman_ford(self);
-		calc_suurballe(self);
-		if (calc_excess(self))
-			break ;
+		ft_memdel((void **)aself);
 	}
-	calc_populate(self);
 }

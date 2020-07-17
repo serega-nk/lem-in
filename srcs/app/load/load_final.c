@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_calc.c                                         :+:      :+:    :+:   */
+/*   load_final.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 20:16:27 by bconchit         ###   ########.fr       */
+/*   Created: 2020/06/27 04:13:11 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/17 18:22:15 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_calc(t_app *self)
+void	load_final(t_app *self)
 {
-	calc_preparation(self);
-	while (1)
-	{
-		calc_bellman_ford(self);
-		calc_suurballe(self);
-		if (calc_excess(self))
-			break ;
-	}
-	calc_populate(self);
+	if (self->state != 2)
+		app_error(self);
+	if (self->number <= 0)
+		app_error(self);
+	if (self->signal_start || self->signal_end)
+		app_error(self);
+	if (self->room_start == NULL || self->room_end == NULL)
+		app_error(self);
+	self->room_start->type = TYPE_START;
+	self->room_end->type = TYPE_END;
 }

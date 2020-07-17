@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_calc.c                                         :+:      :+:    :+:   */
+/*   calc_excess.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 20:16:27 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/17 20:04:19 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/17 20:15:33 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_calc(t_app *self)
+int		calc_excess(t_app *self)
 {
-	calc_preparation(self);
-	while (1)
+	if (self)
 	{
-		calc_bellman_ford(self);
-		calc_suurballe(self);
-		if (calc_excess(self))
-			break ;
+		return (1);
 	}
-	calc_populate(self);
+	return (1);
 }

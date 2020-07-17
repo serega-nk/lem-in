@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_calc.c                                         :+:      :+:    :+:   */
+/*   calc_preparation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 20:16:27 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/17 20:10:35 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/17 20:10:57 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_calc(t_app *self)
+void	calc_preparation(t_app *self)
 {
-	calc_preparation(self);
-	while (1)
-	{
-		calc_bellman_ford(self);
-		calc_suurballe(self);
-		if (calc_excess(self))
-			break ;
-	}
-	calc_populate(self);
+	if (self)
+		return ;
 }

@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_calc.c                                         :+:      :+:    :+:   */
+/*   link_create.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 20:16:27 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/17 18:25:07 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/17 18:25:42 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_calc(t_app *self)
+t_link	*link_create(t_room *room1, t_room *room2, int weight)
 {
-	calc_preparation(self);
-	while (1)
-	{
-		calc_bellman_ford(self);
-		calc_suurballe(self);
-		if (calc_excess(self))
-			break ;
-	}
-	calc_populate(self);
+	t_link	*self;
+
+	self = (t_link *)ft_xmemalloc(sizeof(t_link));
+	self->room1 = room1;
+	self->room2 = room2;
+	self->weight = weight;
+	return (self);
 }

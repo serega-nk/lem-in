@@ -85,11 +85,6 @@ def route_get(self):
 		walk = walk.path
 	return None
 
-def algo_clean(self):
-	for room in self.rooms.values():
-		room.level = 0
-		room.path = None
-
 def algo_pre(self):
 	def pre_remove(point):
 		for link in point.links.values():
@@ -103,6 +98,11 @@ def algo_pre(self):
 	pre_remove(self.room_end)
 
 def algo_bellman_ford(self):
+	def algo_clean(self):
+		for room in self.rooms.values():
+			room.level = 0
+			room.path = None
+	
 	algo_clean(self)
 	self.room_start.path = True
 	#
@@ -132,7 +132,6 @@ def print_routes(self):
 				route.insert(0, walk)
 			walk = walk.route
 		print(route)
-
 
 
 def algo_suurballe(self):
@@ -188,21 +187,71 @@ def algo_suurballe(self):
 			break
 
 
+def algo_routes(self):
+	routes = []
+	for walk in self.routes:
+		route = []
+		route.insert(0, self.room_end)
+		while walk:
+			if walk.type != RoomType.room_out:
+				route.insert(0, walk)
+			walk = walk.route
+		routes.append(route)
+	return routes
+	
+def test(routes):
+	max_length = 0
+	all_length = 0
+
+	for r in routes:
+		length = len(r) - 1
+		max_length = max(length, max_length)
+		all_length += length
+
+	full_length = max_length * len(routes)
+	
+	#print('max_length', max_length)
+	# print('all_length =', all_length)
+	# print('full_length =', full_length)
+	# print('full_length - all_length =', full_length - all_length)
+	effective = (full_length - all_length) + len(routes)
+	print('effective =', effective)
+		
+
+	for r in routes:
+		print(r)
+
+	return max_length, effective
+
+
+def check_routes(routes, new_routes):
+	if not routes:
+		return True
+	
+
+
 def solve(self):
+
 	algo_pre(self)
 
 	value = min(len(self.room_start.links), len(self.room_end.links))
-
+	
+	routes = []
 	count = 0
 	while True:
-		algo_clean(self)
 		algo_bellman_ford(self)
-		algo_suurballe(self)
+		algo_suurballe(self)		
 		if self.room_end.path is None:
 			break
+		
+		print("routes =", count, "({})".format(value))
+		new_routes = algo_routes(self)
+		if not check_routes(routes, new_routes):
+			break
+		routes = new_routes
 		count += 1
 
-	print_routes(self)
+	# test(routes)
 	print("routes =", count, "({})".format(value))
 
 	# for room in self.rooms.values():

@@ -199,63 +199,65 @@ def algo_routes(self):
 		routes.append(route)
 	return routes
 	
-def test(routes):
-	max_length = 0
-	all_length = 0
-
-	for r in routes:
-		length = len(r) - 1
-		max_length = max(length, max_length)
-		all_length += length
-
-	full_length = max_length * len(routes)
-	
-	#print('max_length', max_length)
-	# print('all_length =', all_length)
-	# print('full_length =', full_length)
-	# print('full_length - all_length =', full_length - all_length)
-	effective = (full_length - all_length) + len(routes)
-	print('effective =', effective)
-		
-
-	for r in routes:
-		print(r)
-
-	return max_length, effective
 
 
-def check_routes(routes, new_routes):
-	if not routes:
-		return True
-	
-
+def get_info_routes(routes):
+	longest_length = 0
+	total_length = 0
+	number_routes = len(routes)
+	for route in routes:
+		route_length = len(route) - 1
+		longest_length = max(longest_length, route_length)
+		total_length += route_length
+	info_routes = {
+		'longest_length': longest_length,
+		'total_length': total_length,
+		'number_routes': number_routes,
+	}
+	return info_routes
 
 def solve(self):
 
 	algo_pre(self)
 
-	value = min(len(self.room_start.links), len(self.room_end.links))
+	possible_count = min(len(self.room_start.links), len(self.room_end.links))
 	
+	number = 5
+	info = None
+
 	routes = []
 	count = 0
+
 	while True:
 		algo_bellman_ford(self)
 		algo_suurballe(self)		
 		if self.room_end.path is None:
 			break
 		
-		print("routes =", count, "({})".format(value))
+		#print("routes =", count, "({})".format(value))
+		
 		new_routes = algo_routes(self)
-		if not check_routes(routes, new_routes):
+		new_info = get_info_routes(new_routes)
+		effective = 0
+		if info:
+			effective = new_info['longest_length'] * info['number_routes'] - info['total_length'] + info['number_routes']
+		new_effective = new_info['longest_length'] * new_info['number_routes'] - new_info['total_length'] + new_info['number_routes']
+		if number <= effective:
 			break
+	
 		routes = new_routes
+		info = new_info
 		count += 1
 
-	# test(routes)
-	print("routes =", count, "({})".format(value))
+		if effective >= new_effective:
+			break
 
-	# for room in self.rooms.values():
-	# 	print(room, room.route)
+		if count == possible_count:
+			print("possible_count")
+			break
+
+	for route in routes:
+		print(route)
 
 
 if __name__ == '__main__':

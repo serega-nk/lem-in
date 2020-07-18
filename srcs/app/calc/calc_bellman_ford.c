@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:47 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 17:49:13 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 17:50:02 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static void		calc_bellman_ford_clean(t_app *self)
 
 static int		calc_bellman_ford_update(t_app *self)
 {
-	t_list_iter		*iter;
-	t_link			*link;
-	int				level;	
-	int				update;
+	t_list_iter	*iter;
+	t_link		*link;
+	int			level;	
+	int			update;
 
 	update = 0;
 	iter = list_iter_create(self->links);
@@ -56,7 +56,7 @@ static int		calc_bellman_ford_update(t_app *self)
 	return (update);
 }
 
-int		calc_bellman_ford(t_app *self)
+int				calc_bellman_ford(t_app *self)
 {
 	size_t		index;
 

@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_xexit.h                                         :+:      :+:    :+:   */
+/*   ft_xstrdup2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/16 02:50:47 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 16:31:41 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/18 16:31:10 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/18 16:31:51 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_XEXIT_H
-# define FT_XEXIT_H
+#include "ft_xexit_private.h"
 
-# include <stdlib.h>
+char		*ft_xstrdup2(const char *s1, const char *s2)
+{
+	size_t	len1;
+	size_t	len2;
+	char	*res;
 
-void	ft_on_xexit(void (*function)(), void *arg);
-void	ft_xexit(int status);
-void	*ft_xmalloc(size_t size);
-void	*ft_xmemalloc(size_t size);
-void	*ft_xcheck(void *ptr);
-char	*ft_xstrdup(const char *s1);
-char	*ft_xstrdup2(const char *s1, const char *s2);
-
-#endif
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	res = (char *)ft_xcheck((void *)ft_strnew(len1 + len2));
+	ft_strncpy(res, s1, len1);
+	ft_strncpy(res + len1, s2, len2);
+	return (res);
+}

@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/10 20:26:26 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/18 16:32:47 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,6 +98,7 @@ SOURCES		= \
 		ft_xmalloc.c \
 		ft_xmemalloc.c \
 		ft_xstrdup.c \
+		ft_xstrdup2.c \
 	) \
 	$(addprefix gnl/, \
 		gnl_create.c \

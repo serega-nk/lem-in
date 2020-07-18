@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 17:58:08 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 20:24:14 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void		output_steps(t_app *self)
 		step++;
 	}
 	ft_printf("# step = %d\n", step);
+	ft_printf("# self->number = %d, self->routes->size = %d, longest_length = %d, total_length = %d\n", self->number, self->routes->size, self->longest_length, self->total_length);
 }
 
 void			app_output(t_app *self)

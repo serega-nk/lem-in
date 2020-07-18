@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:56 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 04:37:55 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 05:29:15 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,8 @@
 
 void	calc_suurballe(t_app *self)
 {
-	int		poss;
-
-	poss = ft_min(self->room_start->links->count, self->room_end->links->count);
-	while (poss > 0)
-	{
-		// if (!calc_bellman_ford(self))
-		// 	break ;		
-		// calc_suurballe_step2(self);
-		// if (calc_excess(self))
-		// 	break ;
-		poss--;
-	}
-	// if (self->routes == NULL || self->routes->size == 0)
-	// 	app_error(self);
+	if (self)
+		self = NULL;
 }
 
 // // // def bfs(starting_room):

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:04:16 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 04:23:42 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 05:23:06 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 
 void	calc_populate(t_app *self)
 {
-	if (self->ants == NULL)
-		self->ants = list_create();
+	t_list_iter		*iter;
+	t_list			*route;
+	int				number;
+	int				count;
+
+	self->ants = list_create();
+	number = 0;
+	iter = list_iter_create(self->routes);
+	while (number < self->number && list_iter_next(iter, (void **)&route))
+	{
+		count = self->capacity - route->size;
+		while (number < self->number && count-- > 0)
+			list_push_back(self->ants, (void *)ant_create(++number, route));
+	}
+	list_iter_destroy(&iter);
+	if (number != self->number)
+		app_error(self);
 }

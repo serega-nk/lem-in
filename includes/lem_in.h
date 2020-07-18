@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 03:51:33 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 05:30:16 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ struct	s_app
 	t_room			*room_start;
 	t_room			*room_end;
 	int				number;
+	int				capacity;
 	t_gnl			*gnl;
 	t_list			*lines;
 	t_hashtab		*rooms;
@@ -111,7 +112,9 @@ void	load_while(t_app *self);
 void	load_check(t_app *self);
 
 void	calc_prepare(t_app *self);
+int		calc_bellman_ford(t_app *self);
 void	calc_suurballe(t_app *self);
+int		calc_excess(t_app *self);
 void	calc_populate(t_app *self);
 
 #endif

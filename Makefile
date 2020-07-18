@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/18 03:48:31 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/18 05:28:23 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ HEADERS		= lem_in.h
 SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix calc/, \
+			calc_bellman_ford.c \
+			calc_excess.c \
 			calc_populate.c \
 			calc_prepare.c \
 			calc_suurballe.c \

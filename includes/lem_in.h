@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 05:30:16 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 05:45:20 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ struct	s_app
 	t_list			*lines;
 	t_hashtab		*rooms;
 	t_list			*links;
+	t_list			*paths;
 	t_list			*routes;
 	t_list			*ants;
 };

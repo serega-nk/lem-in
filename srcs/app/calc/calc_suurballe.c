@@ -6,17 +6,192 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:56 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 05:29:15 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 15:27:09 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	calc_suurballe(t_app *self)
+
+void			calc_suurballe(t_app *self)
 {
-	if (self)
-		self = NULL;
+	
+	{
+		
+	}
+
+	{
+		t_room	*room;
+
+		hashtab_start(self->rooms);
+		while (hashtab_next_kv(self->rooms, NULL, (void **)&room))
+		{
+			ft_printf("ROOM %s\n", room->name);
+		}
+	}
+
+	{
+		t_list_iter		*iter;
+		t_link			*link;
+
+		iter = list_iter_create(self->links);
+		while (list_iter_next(iter, (void **)&link))
+		{
+			ft_printf("LINK %s -> %s = %d\n", link->room1->name, link->room2->name, link->weight);
+		}
+		list_iter_destroy(&iter);
+	}
+
+	app_error(self);
 }
+
+// static void		remove_link(t_room *room1, t_room *room2)
+// {
+// 	t_link	*link;
+
+// 	if (hashtab_remove(room1->links, room2->name, (void **)&link))
+// 		link->remove = 1;
+// }
+
+// // static void		insert_link(t_app *self, t_room *room1, t_room *room2, int w)
+// // {
+// // 	t_link	*link;
+
+// // 	link = link_create(room1, room2, w);
+// // 	list_push_back(self->links, link);
+// // 	ft_printf("INSERT LINK %s -> %s = %d\n", room1->name, room2->name, w);
+// // 	if (!hashtab_insert(room1->links, room2->name, link))
+// // 	{
+// // 		hashtab_start(room1->links);
+// // 		while (hashtab_next_kv(room1->links, NULL, (void **)&link))
+// // 		{
+// // 			ft_printf("ERR %s -> %s = %d\n", link->room1->name, link->room2->name, link->weight);
+// // 		}
+// // 		app_error(self);
+		
+// // 	}
+		
+// // }
+
+// static t_room	*split_room(t_app *self, t_room *walk, const char *suffix)
+// {
+// 	t_link		*link2;
+// 	t_room		*room;
+// 	size_t		len;
+// 	// t_hashtab	*temp;
+
+// 	len = ft_strlen(walk->path->name) + ft_strlen(suffix);
+// 	room = room_create();
+// 	room->type = TYPE_OUT;
+// 	room->name = ft_xcheck(ft_strnew(len));
+// 	ft_strncpy(room->name, walk->path->name, len);
+// 	ft_strncat(room->name, suffix, len);
+// 	if (!hashtab_insert(self->rooms, room->name, (void *)room))
+// 	{
+// 		room_destroy(&room);
+// 		app_error(self);
+// 	}
+
+// 	walk->path->type = TYPE_IN;
+// 	// temp = room->links;
+// 	// room->links = walk->path->links;
+// 	// walk->path->links = temp;
+
+// 	hashtab_start(walk->path->links);
+// 	const char 	*name;
+// 	while (hashtab_next_kv(walk->path->links, &name, (void **)&link2))
+// 	{
+// 		ft_printf("NAME %s, \n", link2->room2->name);
+// 		//ft_printf("TEST %s -> %s = %d\n", link2->room1->name, link2->room2->name, link2->weight);
+// 	}
+	
+
+// 	ft_printf("CREATE ROOM  %s\n", room->name);
+// 	return (room);
+// // 	ft_strncpy(room->name, walk->path->name, len);
+// // 	ft_strncat(room->name, suffix, len);
+// // 	ft_printf("#3_1\n");	
+// // 	if (!hashtab_insert(self->rooms, room->name, (void *)room))
+// // 	{
+// // 		room_destroy(&room);
+// // 		app_error(self);
+// // 	}
+// // 	ft_printf("#3_2\n");	
+// // 	hashtab_start(walk->path->links);
+// // 	const char *name;
+// // 	while (hashtab_next_kv(walk->path->links, &name, (void **)&link))
+// // 	{
+// // 		ft_printf("#3_3\n");
+// // 		link->room1 = room;
+// // 		ft_printf("#3_4 %s %s\n", link->room1->name,  name);
+// // 		ft_printf("#3_4_! %s \n", link->room2->name);
+// // 		if (!hashtab_insert(room->links, link->room2->name, (void *)link))
+// // 			app_error(self);
+// // 	}
+// // 	ft_printf("#3_5\n");
+// // 	//hashtab_clean(walk->path->links, NULL);
+// // 	insert_link(self, walk, room, -1);
+// // 	insert_link(self, room, walk->path, 0);
+// // 	walk->path->route = NULL;
+// // 	room->route = walk->path;
+// // 	walk->route = room;
+// // 	ft_printf("CREATE ROOM %s\n", room->name);
+// }
+
+// void			calc_suurballe(t_app *self)
+// {
+
+	
+	
+// 	t_room	*walk;
+// 	t_room	*room;
+
+// 	walk = self->room_end;
+// 	list_push_back(self->paths, walk->path);
+// 	while (walk->type != TYPE_START)
+// 	{
+// 		ft_printf("WALK %s PATH %s\n", walk->name, walk->path->name);
+// 		remove_link(walk, walk->path);
+// 		remove_link(walk->path, walk);
+// 		if (walk->path->type == TYPE_START || walk->path->type == TYPE_OUT)
+// 			walk->route = walk->path;
+// 		else if (walk->path->type == TYPE_ROOM)
+// 		{
+// 			room = split_room(self, walk, "_out");
+// 			// insert_link(self, walk, room, -1);
+// 			// insert_link(self, room, walk->path, 0);
+// 			walk->path->route = NULL;
+// 			room->route = walk->path;
+// 			walk->route = room;
+// 			ft_printf("@\n");
+// 		}
+// 		walk = walk->path;
+// 	}
+// 	calc_bellman_ford(self);
+// 	ft_printf("###\n");
+
+// 	t_list_iter		*iter;
+// 	t_link			*link;
+
+// 	iter = list_iter_create(self->links);
+// 	while (list_iter_next(iter, (void **)&link))
+// 	{
+// 		//if (link->remove)
+// 		ft_printf("LINK %s -> %s = %d\n", link->room1->name, link->room2->name, link->weight);
+// 	}
+// 	list_iter_destroy(&iter);
+
+// 	const char	*name;
+// 	hashtab_start(self->rooms);
+// 	while (hashtab_next_kv(self->rooms, &name, (void **)&room))
+// 	{
+// 		ft_printf("ROOM %s ==  %s\n", name, room->name);
+// 	}
+// // 	const char *name;
+// // 	while (hashtab_next_kv(walk->path->links, &name, (void **)&link))
+
+// 	app_error(self);
+// }
 
 // // // def bfs(starting_room):
 // // //     starting_room.level = 1

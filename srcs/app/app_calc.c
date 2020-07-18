@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 05:26:22 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 05:51:10 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	app_calc(t_app *self)
 {
 	int		poss;
 
+	self->paths = list_create();
+	self->routes = list_create();
+	self->ants = list_create();
 	calc_prepare(self);
 	poss = ft_min(self->room_start->links->count, self->room_end->links->count);
 	while (poss-- > 0)

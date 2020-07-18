@@ -177,9 +177,7 @@ def algo_suurballe(self):
 			room.route = None
 			room_out.route = room
 			walk.route = room_out
-		elif room.type == RoomType.room_in:
-			pass
-		else:
+		elif (room.type == RoomType.room_start or room.type == RoomType.room_out):
 			walk.route = room
 		
 		walk = walk.path

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 03:30:20 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 05:46:38 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	app_free(t_app *self)
 	list_destroy(&self->ants);
 	list_clean(self->routes, &list_destroy);
 	list_destroy(&self->routes);
+	list_destroy(&self->paths);
 	list_clean(self->links, &link_destroy);
 	list_destroy(&self->links);
 	hashtab_clean(self->rooms, &room_destroy);

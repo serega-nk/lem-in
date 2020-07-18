@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:56 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 17:39:42 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 17:45:04 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void		remove_link(t_room *room1, t_room *room2)
+static void		calc_suurballe_remove_link(t_room *room1, t_room *room2)
 {
 	t_link	*link;
 
@@ -22,7 +22,7 @@ static void		remove_link(t_room *room1, t_room *room2)
 	}
 }
 
-static void		insert_link(t_app *self, t_link *link)
+static void		calc_suurballe_insert_link(t_app *self, t_link *link)
 {
 	list_push_back(self->links, link);
 	if (!hashtab_insert(link->room1->links, link->room2->name, link))
@@ -31,7 +31,7 @@ static void		insert_link(t_app *self, t_link *link)
 	}
 }
 
-static void		swap_links(t_room *room1, t_room *room2)
+static void		calc_suurballe_swap_links(t_room *room1, t_room *room2)
 {
 	t_hashtab	*temp;
 	t_link		*link;
@@ -47,7 +47,7 @@ static void		swap_links(t_room *room1, t_room *room2)
 		link->room1 = room2;
 }
 
-static t_room	*split_room(t_app *self, t_room *path)
+static t_room	*calc_suurballe_split_room(t_app *self, t_room *path)
 {
 	t_room		*room;
 
@@ -60,7 +60,7 @@ static t_room	*split_room(t_app *self, t_room *path)
 	}
 	room->type = TYPE_OUT;
 	path->type = TYPE_IN;
-	swap_links(room, path);
+	calc_suurballe_swap_links(room, path);
 	return (room);
 }
 
@@ -73,17 +73,17 @@ void			calc_suurballe(t_app *self)
 	list_push_back(self->paths, walk->path);
 	while (walk->type != TYPE_START)
 	{
-		remove_link(walk, walk->path);
-		remove_link(walk->path, walk);
+		calc_suurballe_remove_link(walk, walk->path);
+		calc_suurballe_remove_link(walk->path, walk);
 		if (walk->path->type == TYPE_START || walk->path->type == TYPE_OUT)
 		{
 			walk->route = walk->path;
 		}
 		else if (walk->path->type == TYPE_ROOM)
 		{
-			room = split_room(self, walk->path);
-			insert_link(self, link_create(walk, room, -1));
-			insert_link(self, link_create(room, walk->path, 0));
+			room = calc_suurballe_split_room(self, walk->path);
+			calc_suurballe_insert_link(self, link_create(walk, room, -1));
+			calc_suurballe_insert_link(self, link_create(room, walk->path, 0));
 			walk->path->route = NULL;
 			room->route = walk->path;
 			walk->route = room;

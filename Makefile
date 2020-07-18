@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/18 23:06:00 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/18 23:25:51 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,14 +102,9 @@ norm:
 	@norminette $(INCS) $(SRCS)
 
 test: $(NAME)
-	./$(NAME) < _maps/map20k-m
-
-test2: $(NAME)
-	cd ../42_lem-in_tools-master/
-	pwd
-	./comparator.sh 10 big ../lem-in/lem-in
+	./$(NAME) < 1.txt
 
 vv: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) < _maps/big-superposition
 
-.PHONY: all clean fclean re norm test test2 vv
+.PHONY: all clean fclean re norm test vv

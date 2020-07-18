@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:04:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 20:04:36 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 01:04:53 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,29 @@ int				calc_excess(t_app *self)
 	iter = list_iter_create(routes);
 	while (list_iter_next(iter, (void **)&route))
 	{
-		longest_length = ft_max(longest_length, (int)route->size);
-		total_length += (int)route->size;
+		longest_length = ft_max(longest_length, (int)route->size - 1);
+		total_length += (int)route->size - 1;
 	}
 	list_iter_destroy(&iter);
 
-	effective0 = longest_length * (int)self->routes->size - self->total_length + (int)self->routes->size;
-	effective1 = longest_length * (int)routes->size - total_length + (int)routes->size;
-	ft_printf("# effective0 = %d, effective1 = %d, number = %d\n", effective0, effective1, self->number);
-	if (self->number <= effective0) // || (effective0 > 0 && effective0 < effective1))
-	{
-		list_clean(routes, &list_destroy);
-		list_destroy(&routes);
-		return (1);
-	}
+	effective0 = (longest_length + 1) * (int)self->routes->size - self->total_length;
+	effective1 = (longest_length + 1) * (int)routes->size - total_length;
+	ft_printf("effective0 = %d, effective1 = %d\n", effective0, effective1);
+	//if (effective0 > effective1)
+
+
+	//longest_length;
+
+	// effective0 = longest_length * (int)self->routes->size - self->total_length + (int)self->routes->size;
+	// effective1 = longest_length * (int)routes->size - total_length + (int)routes->size;
+	// ft_printf("# effective0 = %d, effective1 = %d, number = %d\n", effective0, effective1, self->number);
+	// if (routes->size > 6)
+	// //if (self->number <= effective0) // || (effective0 > 0 && effective0 < effective1))
+	// {
+	// 	list_clean(routes, &list_destroy);
+	// 	list_destroy(&routes);
+	// 	return (1);
+	// }
 
 	list_clean(self->routes, &list_destroy);
 	list_destroy(&self->routes);
@@ -77,10 +86,15 @@ int				calc_excess(t_app *self)
 	self->longest_length = longest_length;
 	self->total_length = total_length;
 
-	if (self->number <= effective1)
-	{
-		return (1);
-	}
+	// if (self->routes->size == 9)
+	// 	return (1);
+
+
+
+	// if (self->number <= effective1)
+	// {
+	// 	return (1);
+	// }
 	
 	// ft_printf("\n");
 	// ft_printf("count = %d, total = %d, max_length = %d, min_length = %d\n", count, total, max_length, min_length);

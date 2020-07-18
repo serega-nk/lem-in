@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 03:38:11 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 23:18:50 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	app_load(t_app *self)
 {
 	self->gnl = gnl_create(STDIN_FILENO);
 	self->lines = list_create();
+	self->coords = hashtab_create();
 	self->rooms = hashtab_create();
 	self->links = list_create();
 	while (gnl_readline(self->gnl, &self->line) > 0)

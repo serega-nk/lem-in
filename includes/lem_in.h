@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 19:34:55 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 23:57:47 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ struct	s_app
 	int				longest_length;
 	t_gnl			*gnl;
 	t_list			*lines;
+	char			key[100];
+	t_hashtab		*coords;
 	t_hashtab		*rooms;
 	t_list			*links;
 	t_list			*paths;

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:04:16 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 20:06:35 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 04:23:42 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	calc_populate(t_app *self)
 {
-	self->ants = list_create();
+	if (self->ants == NULL)
+		self->ants = list_create();
 }

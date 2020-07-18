@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/17 20:43:12 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/18 03:48:31 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,27 @@ OBJ_DIR		= ./objs
 HEADERS		= lem_in.h
 SOURCES		= \
 	$(addprefix app/, \
+		$(addprefix calc/, \
+			calc_populate.c \
+			calc_prepare.c \
+			calc_suurballe.c \
+		) \
+		$(addprefix load/, \
+			load_check.c \
+			load_comment.c \
+			load_link.c \
+			load_number.c \
+			load_room.c \
+			load_signal.c \
+			load_while.c \
+		) \
+		app_calc.c \
+		app_error.c \
+		app_free.c \
+		app_load.c \
+		app_output.c \
+	) \
+	$(addprefix classes/, \
 		$(addprefix ant/, \
 			ant_create.c \
 			ant_destroy.c \
@@ -26,25 +47,9 @@ SOURCES		= \
 			ant_move.c \
 			ant_print.c \
 		) \
-		$(addprefix calc/, \
-			calc_bellman_ford.c \
-			calc_excess.c \
-			calc_populate.c \
-			calc_preparation.c \
-			calc_suurballe.c \
-		) \
 		$(addprefix link/, \
 			link_create.c \
 			link_destroy.c \
-		) \
-		$(addprefix load/, \
-			load_comment.c \
-			load_final.c \
-			load_link.c \
-			load_number.c \
-			load_room.c \
-			load_signal.c \
-			load_while.c \
 		) \
 		$(addprefix room/, \
 			room_create.c \
@@ -52,11 +57,6 @@ SOURCES		= \
 			room_lock.c \
 			room_unlock.c \
 		) \
-		app_calc.c \
-		app_error.c \
-		app_free.c \
-		app_load.c \
-		app_output.c \
 	) \
 	main.c \
 

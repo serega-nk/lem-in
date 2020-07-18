@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/17 20:15:49 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 03:51:33 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ struct	s_link
 	t_room			*room1;
 	t_room			*room2;
 	int				weight;
+	int				remove;
 };
 
 struct	s_ant
@@ -66,18 +67,16 @@ struct	s_ant
 
 struct	s_app
 {
-	t_gnl			*gnl;
-	t_list			*lines;
 	char			*line;
-	char			*key;
 	int				state;
 	int				signal_start;
 	int				signal_end;
 	t_room			*room_start;
 	t_room			*room_end;
 	int				number;
+	t_gnl			*gnl;
+	t_list			*lines;
 	t_hashtab		*rooms;
-	t_hashtab		*coords;
 	t_list			*links;
 	t_list			*routes;
 	t_list			*ants;
@@ -109,12 +108,10 @@ int		load_number(t_app *self);
 int		load_room(t_app *self);
 int		load_link(t_app *self);
 void	load_while(t_app *self);
-void	load_final(t_app *self);
+void	load_check(t_app *self);
 
-void	calc_preparation(t_app *self);
-void	calc_bellman_ford(t_app *self);
+void	calc_prepare(t_app *self);
 void	calc_suurballe(t_app *self);
-int		calc_excess(t_app *self);
 void	calc_populate(t_app *self);
 
 #endif

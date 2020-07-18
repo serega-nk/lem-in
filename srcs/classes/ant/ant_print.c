@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 00:31:01 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/05 17:27:54 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 03:52:37 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ant_print(t_ant *self)
 {
-	if (self && self->room)
-		ft_printf("L%d-%s", self->id, self->room->name);
+	ft_printf("L%d-%s", self->id, self->room->name);
 }

@@ -6,36 +6,100 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:04:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 17:41:21 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 18:42:11 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		calc_excess(t_app *self)
+static t_list	*calc_excess_routes(t_app *self)
 {
+	t_list		*routes;
+	t_list_iter	*iter;
+	t_room		*walk;
+	t_list		*route;
 
+	routes = list_create();
+	iter = list_iter_create(self->paths);
+	while (list_iter_next(iter, (void **)&walk))
 	{
-		t_room	*room;
-
-		hashtab_start(self->rooms);
-		while (hashtab_next_kv(self->rooms, NULL, (void **)&room))
+		route = list_create();
+		list_push_front(route, self->room_end);
+		while (walk)
 		{
-			ft_printf("# ROOM %s\n", room->name);
+			if (walk->type != TYPE_OUT)
+			{
+				list_push_front(route, walk);
+			}
+			walk = walk->route;
 		}
+		list_push_back(routes, route);
 	}
+	list_iter_destroy(&iter);
+	return (routes);
+}
 
+int				calc_excess(t_app *self)
+{
+	t_list		*routes;
+	t_list_iter	*iter;
+	t_list		*route;
+
+	ft_printf("======\n");
+
+	int count = 0;
+	int total = 0;
+	int max_length = 0;
+
+	routes = calc_excess_routes(self);
+	iter = list_iter_create(routes);
+	while (list_iter_next(iter, (void **)&route))
 	{
-		t_list_iter		*iter;
-		t_link			*link;
+		ft_printf("%d, ", route->size);
+		t_list_iter	*iter2;
+		t_room		*room;
 
-		iter = list_iter_create(self->links);
-		while (list_iter_next(iter, (void **)&link))
+		iter2 = list_iter_create(route);
+		while (list_iter_next(iter2, (void **)&room))
 		{
-			ft_printf("# LINK %s -> %s = %d\n", link->room1->name, link->room2->name, link->weight);
+			//ft_printf(" Room(%s)", room->name);
+			
 		}
-		list_iter_destroy(&iter);
+		list_iter_destroy(&iter2);
+		//ft_printf("\n");
+		count++;
+		max_length = ft_max(max_length, route->size);
+		total += route->size;
 	}
+	ft_printf("\n");
+	ft_printf("count = %d, total = %d, max_length = %d\n", count, total, max_length);
+	list_iter_destroy(&iter);
+	list_clean(routes, &list_destroy);
+	list_destroy(&routes);
+
+	if (count < 20)
+		return (0);
+	// {
+	// 	t_room	*room;
+
+	// 	hashtab_start(self->rooms);
+	// 	while (hashtab_next_kv(self->rooms, NULL, (void **)&room))
+	// 	{
+	// 		ft_printf("# ROOM %s\n", room->name);
+	// 	}
+	// }
+
+	// {
+	// 	t_list_iter		*iter;
+	// 	t_link			*link;
+
+	// 	iter = list_iter_create(self->links);
+	// 	while (list_iter_next(iter, (void **)&link))
+	// 	{
+	// 		ft_printf("# LINK %s -> %s = %d\n", link->room1->name, link->room2->name, link->weight);
+	// 	}
+	// 	list_iter_destroy(&iter);
+	// }
 
 	if (self)
 	{
@@ -116,73 +180,7 @@ int		calc_excess(t_app *self)
 // // 		app_error(self);
 		
 // // 	}
-		
-// // }
 
-// static t_room	*split_room(t_app *self, t_room *walk, const char *suffix)
-// {
-// 	t_link		*link2;
-// 	t_room		*room;
-// 	size_t		len;
-// 	// t_hashtab	*temp;
-
-// 	len = ft_strlen(walk->path->name) + ft_strlen(suffix);
-// 	room = room_create();
-// 	room->type = TYPE_OUT;
-// 	room->name = ft_xcheck(ft_strnew(len));
-// 	ft_strncpy(room->name, walk->path->name, len);
-// 	ft_strncat(room->name, suffix, len);
-// 	if (!hashtab_insert(self->rooms, room->name, (void *)room))
-// 	{
-// 		room_destroy(&room);
-// 		app_error(self);
-// 	}
-
-// 	walk->path->type = TYPE_IN;
-// 	// temp = room->links;
-// 	// room->links = walk->path->links;
-// 	// walk->path->links = temp;
-
-// 	hashtab_start(walk->path->links);
-// 	const char 	*name;
-// 	while (hashtab_next_kv(walk->path->links, &name, (void **)&link2))
-// 	{
-// 		ft_printf("NAME %s, \n", link2->room2->name);
-// 		//ft_printf("TEST %s -> %s = %d\n", link2->room1->name, link2->room2->name, link2->weight);
-// 	}
-	
-
-// 	ft_printf("CREATE ROOM  %s\n", room->name);
-// 	return (room);
-// // 	ft_strncpy(room->name, walk->path->name, len);
-// // 	ft_strncat(room->name, suffix, len);
-// // 	ft_printf("#3_1\n");	
-// // 	if (!hashtab_insert(self->rooms, room->name, (void *)room))
-// // 	{
-// // 		room_destroy(&room);
-// // 		app_error(self);
-// // 	}
-// // 	ft_printf("#3_2\n");	
-// // 	hashtab_start(walk->path->links);
-// // 	const char *name;
-// // 	while (hashtab_next_kv(walk->path->links, &name, (void **)&link))
-// // 	{
-// // 		ft_printf("#3_3\n");
-// // 		link->room1 = room;
-// // 		ft_printf("#3_4 %s %s\n", link->room1->name,  name);
-// // 		ft_printf("#3_4_! %s \n", link->room2->name);
-// // 		if (!hashtab_insert(room->links, link->room2->name, (void *)link))
-// // 			app_error(self);
-// // 	}
-// // 	ft_printf("#3_5\n");
-// // 	//hashtab_clean(walk->path->links, NULL);
-// // 	insert_link(self, walk, room, -1);
-// // 	insert_link(self, room, walk->path, 0);
-// // 	walk->path->route = NULL;
-// // 	room->route = walk->path;
-// // 	walk->route = room;
-// // 	ft_printf("CREATE ROOM %s\n", room->name);
-// }
 
 // void			calc_suurballe(t_app *self)
 // {

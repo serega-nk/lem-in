@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:04:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 18:42:11 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 18:49:48 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,16 @@ int				calc_excess(t_app *self)
 		iter2 = list_iter_create(route);
 		while (list_iter_next(iter2, (void **)&room))
 		{
-			//ft_printf(" Room(%s)", room->name);
+			ft_printf(" Room(%s)", room->name);
 			
 		}
 		list_iter_destroy(&iter2);
-		//ft_printf("\n");
+		ft_printf("\n");
 		count++;
 		max_length = ft_max(max_length, route->size);
 		total += route->size;
 	}
-	ft_printf("\n");
+	//ft_printf("\n");
 	ft_printf("count = %d, total = %d, max_length = %d\n", count, total, max_length);
 	list_iter_destroy(&iter);
 	list_clean(routes, &list_destroy);

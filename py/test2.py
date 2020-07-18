@@ -220,7 +220,7 @@ def solve(self):
 
 	possible_count = min(len(self.room_start.links), len(self.room_end.links))
 	
-	number = 5
+	number = self.number
 	info = None
 
 	routes = []

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 05:45:20 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 19:34:55 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ struct	s_app
 	t_room			*room_start;
 	t_room			*room_end;
 	int				number;
-	int				capacity;
+	int				number_routes;
+	int				total_length;
+	int				longest_length;
 	t_gnl			*gnl;
 	t_list			*lines;
 	t_hashtab		*rooms;

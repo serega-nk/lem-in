@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:04:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 16:54:52 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/18 17:41:21 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		calc_excess(t_app *self)
 		hashtab_start(self->rooms);
 		while (hashtab_next_kv(self->rooms, NULL, (void **)&room))
 		{
-			ft_printf("ROOM %s\n", room->name);
+			ft_printf("# ROOM %s\n", room->name);
 		}
 	}
 
@@ -32,7 +32,7 @@ int		calc_excess(t_app *self)
 		iter = list_iter_create(self->links);
 		while (list_iter_next(iter, (void **)&link))
 		{
-			ft_printf("LINK %s -> %s = %d\n", link->room1->name, link->room2->name, link->weight);
+			ft_printf("# LINK %s -> %s = %d\n", link->room1->name, link->room2->name, link->weight);
 		}
 		list_iter_destroy(&iter);
 	}

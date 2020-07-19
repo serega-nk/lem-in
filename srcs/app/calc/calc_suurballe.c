@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:56 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 17:45:04 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 19:59:32 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void			calc_suurballe(t_app *self)
 			walk->path->route = NULL;
 			room->route = walk->path;
 			walk->route = room;
-		}			
+		}
 		walk = walk->path;
 	}
 }

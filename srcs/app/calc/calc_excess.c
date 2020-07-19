@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:04:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 07:54:18 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 20:00:50 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static size_t	calc_excess_steps(t_app *self, t_heap *routes)
 		{
 			heap_destroy(&heap);
 			app_error(self);
-		}			
+		}
 		size++;
 		if (steps < size - 2)
 			steps = size - 2;
@@ -80,6 +80,7 @@ int				calc_excess(t_app *self)
 
 	routes = calc_excess_routes(self);
 	steps = calc_excess_steps(self, routes);
+	//
 	ft_printf("# routes->count = %d, steps = %d\n", routes->count, steps);
 	if (self->steps == 0 || self->steps > steps)
 	{
@@ -91,6 +92,8 @@ int				calc_excess(t_app *self)
 	}
 	heap_clean(routes, &list_destroy);
 	heap_destroy(&routes);
-	ft_printf("# USE routes->count = %d, steps = %d\n", self->routes->count,  self->steps);
+	//
+	ft_printf("# USE routes->count = %d, steps = %d\n",
+		self->routes->count, self->steps);
 	return (1);
 }

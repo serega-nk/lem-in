@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 06:29:12 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 19:57:03 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	app_calc(t_app *self)
 	while (poss-- > 0)
 	{
 		if (!calc_bellman_ford(self))
-			break ;		
+			break ;
 		calc_suurballe(self);
 		if (calc_excess(self))
 			break ;

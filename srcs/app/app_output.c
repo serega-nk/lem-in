@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 07:42:33 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 19:57:51 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void		output_steps(t_app *self)
 			if (ant_move(ant))
 			{
 				if (count++)
-				 	ft_printf(" ");
+					ft_printf(" ");
 				ant_print(ant);
 				if (ant_finish(ant))
 					list_iter_remove(iter, &ant_destroy);

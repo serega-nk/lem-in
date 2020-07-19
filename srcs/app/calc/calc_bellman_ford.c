@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:47 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 06:53:27 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 19:58:40 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int		calc_bellman_ford_update(t_app *self)
 {
 	t_list_iter	*iter;
 	t_link		*link;
-	int			level;	
+	int			level;
 	int			update;
 
 	update = 0;
@@ -37,9 +37,7 @@ static int		calc_bellman_ford_update(t_app *self)
 	while (list_iter_next(iter, (void *)&link))
 	{
 		if (link->remove)
-		{
 			list_iter_remove(iter, &link_destroy);
-		}
 		else if (link->room1->path)
 		{
 			level = link->room1->level + link->weight;

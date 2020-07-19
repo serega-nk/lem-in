@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/19 06:38:49 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/19 17:01:30 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,6 +97,7 @@ SOURCES		= \
 		ft_xexit.c \
 		ft_xmalloc.c \
 		ft_xmemalloc.c \
+		ft_xmemdup.c \
 		ft_xstrdup.c \
 		ft_xstrdup2.c \
 	) \

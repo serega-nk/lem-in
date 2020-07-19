@@ -6,11 +6,28 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:04:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 07:08:19 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 07:54:18 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+static t_list	*calc_excess_route(t_app *self, t_room *walk)
+{
+	t_list		*route;
+
+	route = list_create();
+	list_push_front(route, self->room_end);
+	while (walk)
+	{
+		if (walk->type != TYPE_OUT)
+		{
+			list_push_front(route, walk);
+		}
+		walk = walk->route;
+	}
+	return (route);
+}
 
 static t_heap	*calc_excess_routes(t_app *self)
 {
@@ -23,16 +40,7 @@ static t_heap	*calc_excess_routes(t_app *self)
 	iter = list_iter_create(self->paths);
 	while (list_iter_next(iter, (void **)&walk))
 	{
-		route = list_create();
-		list_push_front(route, self->room_end);
-		while (walk)
-		{
-			if (walk->type != TYPE_OUT)
-			{
-				list_push_front(route, walk);
-			}
-			walk = walk->route;
-		}
+		route = calc_excess_route(self, walk);
 		heap_insert(routes, route->size, route);
 	}
 	list_iter_destroy(&iter);
@@ -72,7 +80,7 @@ int				calc_excess(t_app *self)
 
 	routes = calc_excess_routes(self);
 	steps = calc_excess_steps(self, routes);
-	//ft_printf("# routes->count = %d, steps = %d\n", routes->count, steps);
+	ft_printf("# routes->count = %d, steps = %d\n", routes->count, steps);
 	if (self->steps == 0 || self->steps > steps)
 	{
 		heap_clean(self->routes, &list_destroy);
@@ -83,6 +91,6 @@ int				calc_excess(t_app *self)
 	}
 	heap_clean(routes, &list_destroy);
 	heap_destroy(&routes);
-	//ft_printf("# USE routes->count = %d, steps = %d\n", self->routes->count,  self->steps);
+	ft_printf("# USE routes->count = %d, steps = %d\n", self->routes->count,  self->steps);
 	return (1);
 }

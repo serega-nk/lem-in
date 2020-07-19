@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 01:05:18 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 07:08:04 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 static void		output_lines(t_app *self)
 {
 	char	*line;
-	
-	// self->line = NULL;
+
 	while (list_pop_front(self->lines, (void **)&line))
 	{
-		//ft_printf("%s", line);
-		// ft_strdel(&self->line);
-		// self->line = line;
+		ft_printf("%s", line);
 		ft_strdel(&line);
 	}
 }
@@ -31,9 +28,9 @@ static void		output_steps(t_app *self)
 	t_list_iter		*iter;
 	t_ant			*ant;
 	int				count;
-	int				step;
+	//int				step;
 
-	step = 0;
+	//step = 0;
 	while (self->ants->size > 0)
 	{
 		count = 0;
@@ -42,9 +39,8 @@ static void		output_steps(t_app *self)
 		{
 			if (ant_move(ant))
 			{
-				// count++;
 				if (count++)
-				  	ft_printf(" ");
+				 	ft_printf(" ");
 				ant_print(ant);
 				if (ant_finish(ant))
 					list_iter_remove(iter, &ant_destroy);
@@ -54,16 +50,9 @@ static void		output_steps(t_app *self)
 		list_iter_destroy(&iter);
 		if (count == 0)
 			app_error(self);
-		step++;
+		//step++;
 	}
-	// if (self->line)
-	// {
-	//  	ft_printf(self->line);
-	// 	ft_strdel(&self->line);
-	// }
-		
-	ft_printf("# step = %d\n", step);
-	ft_printf("# self->number = %d, self->routes->size = %d, longest_length = %d, total_length = %d\n", self->number, self->routes->size, self->longest_length, self->total_length);
+	//ft_printf("# step = %d\n", step);
 }
 
 void			app_output(t_app *self)

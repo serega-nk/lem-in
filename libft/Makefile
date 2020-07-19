@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/18 16:32:47 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/19 06:38:49 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,6 +122,7 @@ SOURCES		= \
 	) \
 	$(addprefix heap/, \
 		heap_clean.c \
+		heap_copy.c \
 		heap_create.c \
 		heap_destroy.c \
 		heap_extract.c \

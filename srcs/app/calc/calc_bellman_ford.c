@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:47 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 18:27:18 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 06:53:27 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static int		calc_bellman_ford_update(t_app *self)
 	{
 		if (link->remove)
 		{
-			// ft_printf("# REMOVE LINK   %s => %s == %d\n", link->room1->name, link->room2->name, link->weight);
 			list_iter_remove(iter, &link_destroy);
 		}
 		else if (link->room1->path)

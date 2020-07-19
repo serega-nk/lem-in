@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_calc.c                                         :+:      :+:    :+:   */
+/*   heap_copy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 06:29:12 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/19 06:38:19 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/19 06:38:34 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "heap.h"
 
-void	app_calc(t_app *self)
+t_heap		*heap_copy(t_heap *heap)
 {
-	int		poss;
+	t_heap	*self;
 
-	self->paths = list_create();
-	self->routes = heap_create();
-	self->ants = list_create();
-	calc_prepare(self);
-	poss = ft_min(self->room_start->links->count, self->room_end->links->count);
-	while (poss-- > 0)
-	{
-		if (!calc_bellman_ford(self))
-			break ;		
-		calc_suurballe(self);
-		if (calc_excess(self))
-			break ;
-	}
-	calc_populate(self);
+	self = (t_heap *)ft_xmemalloc(sizeof(t_heap));
+	self->size = heap->size;
+	self->count = heap->count;
+	self->table = (t_heap_item *)ft_xmalloc(self->size * sizeof(t_heap_item));
+	ft_memcpy(self->table, heap->table, self->size * sizeof(t_heap_item));
+	return (self);
 }

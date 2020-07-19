@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 23:57:47 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 06:30:19 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "gnl.h"
 # include "parse.h"
 # include "hashtab.h"
+# include "heap.h"
 # include "list.h"
 
 typedef enum e_type		t_type;
@@ -74,9 +75,7 @@ struct	s_app
 	t_room			*room_start;
 	t_room			*room_end;
 	int				number;
-	int				number_routes;
-	int				total_length;
-	int				longest_length;
+	size_t			steps;
 	t_gnl			*gnl;
 	t_list			*lines;
 	char			key[100];
@@ -84,7 +83,7 @@ struct	s_app
 	t_hashtab		*rooms;
 	t_list			*links;
 	t_list			*paths;
-	t_list			*routes;
+	t_heap			*routes;
 	t_list			*ants;
 };
 

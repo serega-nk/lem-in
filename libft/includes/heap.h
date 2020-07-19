@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:04:45 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 23:10:41 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/19 06:39:52 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		heap_item_swap(t_heap_item *item_a, t_heap_item *item_b);
 t_heap		*heap_create(void);
 void		heap_destroy(t_heap **aself);
 void		heap_clean(t_heap *self, void (*delf)());
+t_heap		*heap_copy(t_heap *heap);
 
 void		heap_resize(t_heap *self);
 void		heap_sift_up(t_heap *self, size_t index);

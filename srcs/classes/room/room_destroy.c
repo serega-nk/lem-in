@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 05:58:54 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/30 04:18:54 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 05:05:23 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	room_destroy(t_room **aself)
 {
 	if (aself && *aself)
 	{
-		hashtab_destroy(&(*aself)->links);
 		ft_strdel(&(*aself)->name);
 		ft_memdel((void **)aself);
 	}

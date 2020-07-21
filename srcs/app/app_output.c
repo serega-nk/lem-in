@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 19:57:51 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 14:12:14 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void		output_steps(t_app *self)
 	int				step;
 
 	step = 0;
-	while (self->ants->size > 0)
+	while (self->ants->count > 0)
 	{
 		count = 0;
 		iter = list_iter_create(self->ants);

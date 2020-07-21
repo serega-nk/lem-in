@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 06:30:19 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 15:12:19 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,58 @@
 # define LEM_IN_H
 
 # include <stdlib.h>
-# include "libft.h"
 # include "ft_printf.h"
 # include "gnl.h"
-# include "parse.h"
 # include "hashtab.h"
 # include "heap.h"
+# include "libft.h"
 # include "list.h"
+# include "parse.h"
 
 typedef enum e_type		t_type;
-typedef struct s_room	t_room;
+
 typedef struct s_link	t_link;
+typedef struct s_save	t_save;
+typedef struct s_room	t_room;
+typedef struct s_option	t_option;
 typedef struct s_ant	t_ant;
 typedef struct s_app	t_app;
 
 enum	e_type
 {
-	TYPE_ROOM,
-	TYPE_IN,
-	TYPE_OUT,
-	TYPE_START,
-	TYPE_END
+	LINK_EDGE,
+	LINK_REVERSE,
+	LINK_NONE
+};
+
+struct	s_link
+{
+	t_type			type;
+	t_room			*room1;
+	t_room			*room2;
+};
+
+struct	s_save
+{
+	t_link			*link;
+	int				level;
 };
 
 struct	s_room
 {
 	char			*name;
-	t_type			type;
 	int				coord_x;
 	int				coord_y;
-	t_hashtab		*links;
-	int				level;
-	t_room			*path;
-	t_room			*route;
 	int				lock;
+	t_room			*path;
+	t_save			in;
+	t_save			out;	
 };
 
-struct	s_link
+struct	s_option
 {
-	t_room			*room1;
-	t_room			*room2;
-	int				weight;
-	int				remove;
+	int				steps;
+	t_heap			*routes;
 };
 
 struct	s_ant
@@ -75,50 +85,56 @@ struct	s_app
 	t_room			*room_start;
 	t_room			*room_end;
 	int				number;
-	size_t			steps;
 	t_gnl			*gnl;
 	t_list			*lines;
-	char			key[100];
+	char			coord[100];
 	t_hashtab		*coords;
 	t_hashtab		*rooms;
+	t_hashtab		*pairs;
 	t_list			*links;
 	t_list			*paths;
-	t_heap			*routes;
+	t_heap			*options;
 	t_list			*ants;
 };
 
-t_room	*room_create(void);
-void	room_destroy(t_room **aself);
-int		room_lock(t_room *self);
-void	room_unlock(t_room *self);
+t_link		*link_create(t_room *room1, t_room *room2);
+void		link_destroy(t_link **aself);
 
-t_link	*link_create(t_room *room1, t_room *room2, int weight);
-void	link_destroy(t_link **aself);
+t_room		*room_create(void);
+void		room_destroy(t_room **aself);
+void		room_reset(t_room *self);
+int			room_lock(t_room *self);
+void		room_unlock(t_room *self);
 
-t_ant	*ant_create(int id, t_list *route);
-void	ant_destroy(t_ant **aself);
-int		ant_move(t_ant *self);
-void	ant_print(t_ant *self);
-int		ant_finish(t_ant *self);
+t_option	*option_create(int steps, t_heap *routes);
+void		option_destroy(t_option **aself);
 
-void	app_error(t_app *self);
-void	app_load(t_app *self);
-void	app_calc(t_app *self);
-void	app_output(t_app *self);
-void	app_free(t_app *self);
+t_ant		*ant_create(int id, t_list *route);
+void		ant_destroy(t_ant **aself);
+int			ant_move(t_ant *self);
+void		ant_print(t_ant *self);
+int			ant_finish(t_ant *self);
 
-int		load_signal(t_app *self);
-int		load_comment(t_app *self);
-int		load_number(t_app *self);
-int		load_room(t_app *self);
-int		load_link(t_app *self);
-void	load_while(t_app *self);
-void	load_check(t_app *self);
+void		app_error(t_app *self);
+void		app_load(t_app *self);
+void		app_calc(t_app *self);
+void		app_output(t_app *self);
+void		app_free(t_app *self);
 
-void	calc_prepare(t_app *self);
-int		calc_bellman_ford(t_app *self);
-void	calc_suurballe(t_app *self);
-int		calc_excess(t_app *self);
-void	calc_populate(t_app *self);
+int			load_signal(t_app *self);
+int			load_comment(t_app *self);
+int			load_number(t_app *self);
+int			load_room(t_app *self);
+int			load_link(t_app *self);
+void		load_while(t_app *self);
+void		load_check(t_app *self);
+
+t_bool		calc_shortest_path(t_app *self);
+
+// void		calc_prepare(t_app *self);
+// int			calc_bellman_ford(t_app *self);
+// void		calc_suurballe(t_app *self);
+// int			calc_excess(t_app *self);
+// void		calc_populate(t_app *self);
 
 #endif

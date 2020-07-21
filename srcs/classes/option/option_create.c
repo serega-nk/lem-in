@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_load.c                                         :+:      :+:    :+:   */
+/*   option_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 15:17:36 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/21 05:10:42 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/21 05:17:58 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_load(t_app *self)
+t_option	*option_create(int steps, t_heap *routes)
 {
-	self->gnl = gnl_create(STDIN_FILENO);
-	self->lines = list_create();
-	self->coords = hashtab_create();
-	self->rooms = hashtab_create();
-	self->pairs = hashtab_create();
-	self->links = list_create();
-	while (gnl_readline(self->gnl, &self->line) > 0)
-	{
-		list_push_back(self->lines, self->line);
-		load_while(self);
-	}
-	load_check(self);
+	t_option	*self;
+
+	self = (t_option *)ft_xmemalloc(sizeof(t_option));
+	self->routes = routes;
+	self->steps = steps;
+	return (self);
 }

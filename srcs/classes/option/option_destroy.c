@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app_load.c                                         :+:      :+:    :+:   */
+/*   option_destroy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 21:47:17 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 15:17:36 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/21 05:12:11 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/21 05:18:14 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	app_load(t_app *self)
+void	option_destroy(t_option **aself)
 {
-	self->gnl = gnl_create(STDIN_FILENO);
-	self->lines = list_create();
-	self->coords = hashtab_create();
-	self->rooms = hashtab_create();
-	self->pairs = hashtab_create();
-	self->links = list_create();
-	while (gnl_readline(self->gnl, &self->line) > 0)
+	if (aself && *aself)
 	{
-		list_push_back(self->lines, self->line);
-		load_while(self);
+		heap_clean((*aself)->routes, &list_destroy);
+		heap_destroy(&(*aself)->routes);
+		ft_memdel((void **)aself);
 	}
-	load_check(self);
 }

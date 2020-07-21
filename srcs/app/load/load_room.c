@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 23:58:30 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 05:05:59 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,20 @@ static int	load_room_insert(t_app *self, t_room *room)
 {
 	if (self->signal_start && self->signal_end)
 		return (0);
-	if (ft_sprintf(self->key, "x=%d, y=%d", room->coord_x, room->coord_y) &&
+	if (ft_sprintf(self->coord, "x=%d, y=%d", room->coord_x, room->coord_y) &&
 		room->name[0] != 'L' &&
 		room->coord_x >= 0 &&
 		room->coord_y >= 0 &&
-		hashtab_insert(self->coords, self->key, NULL) &&
+		hashtab_insert(self->coords, self->coord, NULL) &&
 		hashtab_insert(self->rooms, room->name, room))
 	{
 		if (self->signal_start)
 		{
-			room->type = TYPE_START;
 			self->room_start = room;
 			self->signal_start = 0;
 		}
 		if (self->signal_end)
 		{
-			room->type = TYPE_END;
 			self->room_end = room;
 			self->signal_end = 0;
 		}

@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:38 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 23:58:42 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 05:03:34 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,24 @@ static int	load_link_attach(t_app *self, char *name1, char *name2)
 {
 	t_room	*room1;
 	t_room	*room2;
-	t_link	*link1;
-	t_link	*link2;
+	char	*pair1;
+	char	*pair2;
+	int		ret;
 
-	if (hashtab_get(self->rooms, name1, (void **)&room1) &&
+	ret = 0;
+	pair1 = ft_xstrdup3(name1, " ", name2);
+	pair2 = ft_xstrdup3(name2, " ", name1);
+	if (hashtab_insert(self->pairs, pair1, NULL) &&
+		hashtab_insert(self->pairs, pair2, NULL) &&
+		hashtab_get(self->rooms, name1, (void **)&room1) &&
 		hashtab_get(self->rooms, name2, (void **)&room2))
 	{
-		link1 = link_create(room1, room2, 1);
-		link2 = link_create(room2, room1, 1);
-		list_push_back(self->links, link1);
-		list_push_back(self->links, link2);
-		if (hashtab_insert(room1->links, name2, link1) &&
-			hashtab_insert(room2->links, name1, link2))
-		{
-			return (1);
-		}
+		list_push_back(self->links, link_create(room1, room2));
+		ret = 1;
 	}
-	return (0);
+	ft_strdel(&pair2);
+	ft_strdel(&pair1);
+	return (ret);
 }
 
 int			load_link(t_app *self)

@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 00:31:28 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/05 17:23:28 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 17:52:39 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		ant_finish(t_ant *self)
+t_bool	ant_finish(t_ant *self)
 {
 	return (self && self->next == NULL);
 }

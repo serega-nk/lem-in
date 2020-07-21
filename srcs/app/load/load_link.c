@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:38 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 05:03:34 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 17:59:02 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static int	load_link_parse(t_app *self, char **aname1, char **aname2)
+static t_bool	load_link_parse(t_app *self, char **aname1, char **aname2)
 {
 	char	*line;
 
@@ -25,20 +25,20 @@ static int	load_link_parse(t_app *self, char **aname1, char **aname2)
 		parse_skip(&line, "\n") &&
 		parse_none(&line))
 	{
-		return (1);
+		return (TRUE);
 	}
-	return (0);
+	return (FALSE);
 }
 
-static int	load_link_attach(t_app *self, char *name1, char *name2)
+static t_bool	load_link_attach(t_app *self, char *name1, char *name2)
 {
 	t_room	*room1;
 	t_room	*room2;
 	char	*pair1;
 	char	*pair2;
-	int		ret;
+	t_bool	ret;
 
-	ret = 0;
+	ret = FALSE;
 	pair1 = ft_xstrdup3(name1, " ", name2);
 	pair2 = ft_xstrdup3(name2, " ", name1);
 	if (hashtab_insert(self->pairs, pair1, NULL) &&
@@ -47,14 +47,14 @@ static int	load_link_attach(t_app *self, char *name1, char *name2)
 		hashtab_get(self->rooms, name2, (void **)&room2))
 	{
 		list_push_back(self->links, link_create(room1, room2));
-		ret = 1;
+		ret = TRUE;
 	}
 	ft_strdel(&pair2);
 	ft_strdel(&pair1);
 	return (ret);
 }
 
-int			load_link(t_app *self)
+t_bool			load_link(t_app *self)
 {
 	char	*name1;
 	char	*name2;
@@ -72,5 +72,5 @@ int			load_link(t_app *self)
 	}
 	ft_strdel(&name2);
 	ft_strdel(&name1);
-	return (1);
+	return (TRUE);
 }

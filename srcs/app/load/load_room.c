@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 05:05:59 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 18:01:02 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static int	load_room_parse(t_app *self, t_room *room)
+static t_bool	load_room_parse(t_app *self, t_room *room)
 {
 	char	*line;
 
@@ -24,14 +24,14 @@ static int	load_room_parse(t_app *self, t_room *room)
 		parse_int(&line, &room->coord_y) &&
 		parse_skip(&line, "\n") &&
 		parse_none(&line))
-		return (1);
-	return (0);
+		return (TRUE);
+	return (FALSE);
 }
 
-static int	load_room_insert(t_app *self, t_room *room)
+static t_bool	load_room_insert(t_app *self, t_room *room)
 {
 	if (self->signal_start && self->signal_end)
-		return (0);
+		return (FALSE);
 	if (ft_sprintf(self->coord, "x=%d, y=%d", room->coord_x, room->coord_y) &&
 		room->name[0] != 'L' &&
 		room->coord_x >= 0 &&
@@ -49,12 +49,12 @@ static int	load_room_insert(t_app *self, t_room *room)
 			self->room_end = room;
 			self->signal_end = 0;
 		}
-		return (1);
+		return (TRUE);
 	}
-	return (0);
+	return (FALSE);
 }
 
-int			load_room(t_app *self)
+t_bool			load_room(t_app *self)
 {
 	t_room	*room;
 
@@ -62,12 +62,12 @@ int			load_room(t_app *self)
 	if (!load_room_parse(self, room))
 	{
 		room_destroy(&room);
-		return (0);
+		return (FALSE);
 	}
 	if (!load_room_insert(self, room))
 	{
 		room_destroy(&room);
 		app_error(self);
 	}
-	return (1);
+	return (TRUE);
 }

@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:16:36 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 05:19:09 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 18:00:10 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static int	load_number_parse(t_app *self)
+static t_bool	load_number_parse(t_app *self)
 {
 	char	*line;
 
@@ -20,11 +20,11 @@ static int	load_number_parse(t_app *self)
 	if (parse_int(&line, &self->number) &&
 		parse_skip(&line, "\n") &&
 		parse_none(&line))
-		return (1);
-	return (0);
+		return (TRUE);
+	return (FALSE);
 }
 
-int			load_number(t_app *self)
+t_bool			load_number(t_app *self)
 {
 	if (self->signal_start || self->signal_end)
 		app_error(self);
@@ -32,5 +32,5 @@ int			load_number(t_app *self)
 		app_error(self);
 	if (self->number <= 0)
 		app_error(self);
-	return (1);
+	return (TRUE);
 }

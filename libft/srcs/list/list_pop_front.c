@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:23:23 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/04 14:24:02 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 14:07:46 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ int		list_pop_front(t_list *self, void **adata)
 {
 	t_list_item	*item;
 
-	if (self && self->size > 0)
+	if (self && self->count > 0)
 	{
 		item = self->head;
 		self->head = item->next;
-		self->size--;
-		if (self->size == 0)
+		self->count--;
+		if (self->count == 0)
 			self->tail = NULL;
 		if (adata)
 			*adata = item->data;

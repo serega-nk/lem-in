@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 21:51:49 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/11 04:21:50 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 14:07:45 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int		list_iter_remove(t_list_iter *self, void (*delf)())
 {
 	t_list_item		*item;
 
-	if (self && self->list && self->list->size && self->awalk && *self->awalk)
+	if (self && self->list && self->list->count && self->awalk && *self->awalk)
 	{
 		item = *self->awalk;
 		*self->awalk = (*self->awalk)->next;
-		self->list->size--;
+		self->list->count--;
 		if (delf)
 			(*delf)(&item->data);
 		list_item_destroy(&item);

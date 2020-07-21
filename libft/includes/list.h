@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 08:04:39 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/07 22:12:23 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 14:07:44 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ struct			s_list
 {
 	t_list_item		*head;
 	t_list_item		*tail;
-	size_t			size;
+	size_t			count;
 };
 
 struct			s_list_item

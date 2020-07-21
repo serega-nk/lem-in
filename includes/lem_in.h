@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 17:57:17 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 18:05:40 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "list.h"
 # include "parse.h"
 
+typedef enum e_state	t_state;
 typedef enum e_type		t_type;
 
 typedef struct s_link	t_link;
@@ -30,6 +31,13 @@ typedef struct s_room	t_room;
 typedef struct s_option	t_option;
 typedef struct s_ant	t_ant;
 typedef struct s_app	t_app;
+
+enum		e_state
+{
+	LOAD_NUMBER,
+	LOAD_ROOM,
+	LOAD_LINK
+};
 
 enum		e_type
 {
@@ -79,7 +87,7 @@ struct		s_ant
 struct		s_app
 {
 	char			*line;
-	int				state;
+	t_state			state;
 	t_bool			signal_start;
 	t_bool			signal_end;
 	t_room			*room_start;

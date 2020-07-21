@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 04:13:11 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/18 03:35:04 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 18:05:42 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	load_check(t_app *self)
 {
-	if (self->state != 2)
+	if (self->state != LOAD_LINK)
 		app_error(self);
 	if (self->number <= 0)
 		app_error(self);

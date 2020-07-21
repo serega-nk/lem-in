@@ -14,7 +14,7 @@ class Save:
 class Room:
     def __init__(self, name):
         self.name = name
-        self.route = None
+        self.path = None
         self.save_in = Save()
         self.save_out = Save()
 
@@ -32,6 +32,7 @@ class Link:
         self.type = LINK_EDGE
         self.room1 = room1
         self.room2 = room2
+        self.delete = False
 
     def __repr__(self):
         type_name = ("LINK_EDGE", "LINK_REVERSE", "LINK_NONE")[self.type]
@@ -220,6 +221,13 @@ class App:
 #             print(link)
 
 
+def calc_shortest_path_clean(self):
+    for room in self.rooms.values():
+        room.save_in.link = None
+        room.save_in.level = 0
+        room.save_out.link = None
+        room.save_out.level = 0
+
 def calc_shortest_path(self):
 
     # CLEAN
@@ -243,27 +251,37 @@ def calc_shortest_path(self):
 
         for link in self.links:
             
-            def _update(self, save1, save2, link, weight):
-                if save1.link:
-                    level = save1.level + weight
-                    if not save2.link or save2.level > level:
-                        save2.level = level
-                        save2.link = link
-                        self.update = True
+
             
             if link.type == LINK_EDGE:
+
+                def _update(self, save1, save2, link, weight):
+                    if save1.link:
+                        level = save1.level + weight
+                        if not save2.link or save2.level > level:
+                            save2.level = level
+                            save2.link = link
+                            self.update = True
                 
-                if link.room1.route:
+                if link.room1.path:
                     _update(self, link.room1.save_out, link.room2.save_in, link, 1)
                 else:
                     _update(self, link.room1.save_in, link.room2.save_in, link, 1)
 
-                if link.room2.route:
+                if link.room2.path:
                     _update(self, link.room2.save_out, link.room1.save_in, link, 1)
                 else:
                     _update(self, link.room2.save_in, link.room1.save_in, link, 1)
             
             elif link.type == LINK_REVERSE:
+
+                def _update(self, save1, save2, link, weight):
+                    if save1.link:
+                        level = save1.level + weight
+                        if not save2.link or save2.level > level:
+                            save2.level = level
+                            save2.link = link
+                            self.update = True
                 
                 _update(self, link.room1.save_in, link.room2.save_out, link, -1)
                 _update(self, link.room2.save_out, link.room2.save_in, link, 0)
@@ -281,14 +299,22 @@ def calc_shortest_path(self):
     #print('# index =', index)
     return bool(self.room_end.save_in.link)
 
-def calc_disjoint_path(self):
+def calc_disjoint_path(self, debug=False):
+    print("++++")
+    link = self.room_end.save_in.link
+    room = link.room2 if link.room1 == self.room_end else link.room1
+    self.paths.append(room)
 
     room = self.room_end
     
     while room != self.room_start:
         
-        link = room.save_in.link
-        print(room, link)
+        if room.path and room.save_in.link and room.save_out.link and room.save_in.level >= room.save_out.level:
+            link = room.save_out.link
+        else:
+            link = room.save_in.link
+        if debug:
+            print("#", room, link)
 
         if link.type == LINK_EDGE:
             
@@ -297,47 +323,136 @@ def calc_disjoint_path(self):
             
             link.type = LINK_REVERSE
             if room not in (self.room_start, self.room_end):
-                room.route = link.room2
+                if room.path and debug:
+                    print("PATH", room, room.path)
+                room.path = link.room2
+                    
+                
             room = link.room2            
         
         elif link.type == LINK_REVERSE:
-            print(room)
-            print(link)
+            # print(room)
+            # print(link)
             
-            # if mode == 2:
-            #     print("EDGE")
-            #     link.type = LINK_EDGE
-            #     print(link)
-            #     raise Exception("LINK_REVERSE")
-            # else:
-            print("NONE")
-            link.type = LINK_NONE
-            link.room1.route = None
+            # # if mode == 2:
+            # #     print("EDGE")
+            # #     link.type = LINK_EDGE
+            # #     print(link)
+            # #     raise Exception("LINK_REVERSE")
+            # # else:
+            # print("NONE")
             
-            room = link.room1
 
+            print(link, link.room1, link.room1.path)
+            link.type = LINK_NONE
+            link.room1.path = None
+            room = link.room1
         else:
             raise Exception("STOP")
 
-    print("EEEE")
+    print("????")
     pass
+
+
+def calc_print(self):
+    routes = []
+    for walk in self.paths:
+        route = []
+        route.insert(0, self.room_end)
+        while walk:
+            route.insert(0, walk)
+            walk = walk.path
+        routes.append(route)
+
+    print("=====")
+    for route in routes:
+        print(" -> ".join(room.name for room in route))
+
+
+# def calc_restore(self):
+#     delete = []
+#     for link in self.links:
+#         if link.type == LINK_NONE:
+#             delete.append(link)
+#         else:
+#             link.type = LINK_EDGE
+#     for link in delete:
+#         print("DELETE", link)
+#         self.links.remove(link)
+
+# def calc_links_delete(self):
+#     delete = []
+#     for link in self.links:
+#         if link.type == LINK_NONE:
+#             delete.append(link)
+#         else:
+#             link.type = LINK_EDGE
+#     for link in delete:
+#         print("DELETE", link)
+#         self.links.remove(link)
 
 
 def app_calc(self):
     
+    # step1
     calc_shortest_path(self)
+
+    # step2 and step3
     calc_disjoint_path(self)
+    calc_shortest_path(self)
+    
+    calc_disjoint_path(self)
+
+    calc_print(self)
     
     calc_shortest_path(self)
-    calc_disjoint_path(self)
-    print(self.paths)
 
-    for room in self.rooms.values():
-        print(room, room.route)
+
+    # calc_print(self)
     
-    for link in self.links:
-        print(link)
+    # calc_disjoint_path(self)
+    # calc_shortest_path(self)
+    # calc_disjoint_path(self)
 
+    # calc_links_delete(self)
+    # calc_shortest_path(self)
+    # calc_disjoint_path(self)
+    # # step2 and step3
+    # calc_disjoint_path(self)
+    # calc_shortest_path(self)
+
+    # # calc_print(self)
+    
+    # calc_shortest_path(self)
+    # calc_disjoint_path(self)
+
+
+    # calc_print(self)
+    # calc_restore(self)
+    
+    # calc_shortest_path(self)
+    # calc_disjoint_path(self)
+    # # calc_print(self)
+    
+
+    # calc_shortest_path(self)
+    # calc_disjoint_path(self)
+    # calc_print(self)
+
+    # calc_shortest_path(self)
+    # calc_disjoint_path(self)
+    # calc_print(self)
+
+    # calc_shortest_path_clean(self)
+
+    # calc_shortest_path_clean(self)
+    # for room in self.rooms.values():
+    #     print(room, "->", room.path, room.save_in.link, sep="\t")
+    # for link in self.links:
+    #     print(link)
+    calc_disjoint_path(self, True)
+
+    calc_print(self)
 
 if __name__ == '__main__':
     fn = '1.txt'

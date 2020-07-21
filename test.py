@@ -300,7 +300,7 @@ def calc_shortest_path(self):
     return bool(self.room_end.save_in.link)
 
 def calc_disjoint_path(self, debug=False):
-    print("++++")
+
     link = self.room_end.save_in.link
     room = link.room2 if link.room1 == self.room_end else link.room1
     self.paths.append(room)
@@ -331,26 +331,13 @@ def calc_disjoint_path(self, debug=False):
             room = link.room2            
         
         elif link.type == LINK_REVERSE:
-            # print(room)
-            # print(link)
-            
-            # # if mode == 2:
-            # #     print("EDGE")
-            # #     link.type = LINK_EDGE
-            # #     print(link)
-            # #     raise Exception("LINK_REVERSE")
-            # # else:
-            # print("NONE")
-            
-
-            print(link, link.room1, link.room1.path)
+            if debug:
+                print("REV", link, link.room1, link.room1.path)
             link.type = LINK_NONE
             link.room1.path = None
             room = link.room1
         else:
             raise Exception("STOP")
-
-    print("????")
     pass
 
 
@@ -364,98 +351,36 @@ def calc_print(self):
             walk = walk.path
         routes.append(route)
 
-    print("=====")
-    for route in routes:
-        print(" -> ".join(room.name for room in route))
-
-
-# def calc_restore(self):
-#     delete = []
-#     for link in self.links:
-#         if link.type == LINK_NONE:
-#             delete.append(link)
-#         else:
-#             link.type = LINK_EDGE
-#     for link in delete:
-#         print("DELETE", link)
-#         self.links.remove(link)
-
-# def calc_links_delete(self):
-#     delete = []
-#     for link in self.links:
-#         if link.type == LINK_NONE:
-#             delete.append(link)
-#         else:
-#             link.type = LINK_EDGE
-#     for link in delete:
-#         print("DELETE", link)
-#         self.links.remove(link)
-
+    # print("=====")
+    # for route in routes:
+    #     print(" -> ".join(room.name for room in route))
+    return routes
 
 def app_calc(self):
     
-    # step1
-    calc_shortest_path(self)
-
-    # step2 and step3
-    calc_disjoint_path(self)
-    calc_shortest_path(self)
     
-    calc_disjoint_path(self)
+    while calc_shortest_path(self):
+        calc_disjoint_path(self)
+        routes = calc_print(self)
 
-    calc_print(self)
-    
-    calc_shortest_path(self)
-
-
-    # calc_print(self)
-    
-    # calc_disjoint_path(self)
-    # calc_shortest_path(self)
-    # calc_disjoint_path(self)
-
-    # calc_links_delete(self)
-    # calc_shortest_path(self)
-    # calc_disjoint_path(self)
-    # # step2 and step3
-    # calc_disjoint_path(self)
-    # calc_shortest_path(self)
-
-    # # calc_print(self)
-    
-    # calc_shortest_path(self)
-    # calc_disjoint_path(self)
-
-
-    # calc_print(self)
-    # calc_restore(self)
-    
-    # calc_shortest_path(self)
-    # calc_disjoint_path(self)
-    # # calc_print(self)
-    
-
-    # calc_shortest_path(self)
-    # calc_disjoint_path(self)
-    # calc_print(self)
-
-    # calc_shortest_path(self)
-    # calc_disjoint_path(self)
-    # calc_print(self)
-
-    # calc_shortest_path_clean(self)
+        s = str(list(sorted(len(route)-1 for route in routes)))
+        s = s.replace("[", "( ").replace("]", ")").replace(", ", " ")
+        print(len(routes), s)
+        # if len(routes) == 10:
+        #     for route
+        #     print(routes)
+        #     break
 
     # calc_shortest_path_clean(self)
     # for room in self.rooms.values():
     #     print(room, "->", room.path, room.save_in.link, sep="\t")
     # for link in self.links:
     #     print(link)
-    calc_disjoint_path(self, True)
 
-    calc_print(self)
+
 
 if __name__ == '__main__':
-    fn = '1.txt'
+    fn = '2.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

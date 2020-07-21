@@ -181,10 +181,10 @@ def calc_disjoint_path(self, debug=False):
                 link.room1, link.room2 = link.room2, link.room1
             
             link.type = LINK_REVERSE
-            if room not in (self.room_start, self.room_end):
-                if room.path and debug:
-                    print("PATH", room, room.path)
-                room.path = link.room2
+            # if room not in (self.room_start, self.room_end):
+            #     if room.path and debug:
+            #         print("PATH", room, room.path)
+            room.path = link.room2
                     
                 
             room = link.room2            
@@ -239,7 +239,7 @@ def app_calc(self):
 
 
 if __name__ == '__main__':
-    fn = '2.txt'
+    fn = '11.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

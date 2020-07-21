@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   option_create.c                                    :+:      :+:    :+:   */
+/*   calc_populate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 05:10:42 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 19:00:15 by bconchit         ###   ########.fr       */
+/*   Created: 2020/07/17 20:04:16 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/21 19:36:04 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-t_option	*option_create(void)
+void		calc_populate(t_app *self, t_heap *routes)
 {
-	t_option	*self;
+	int		number;
+	size_t	size;
+	t_list	*route;
 
-	self = (t_option *)ft_xmemalloc(sizeof(t_option));
-	return (self);
+	number = 0;
+	while (number++ < self->number)
+	{
+		if (!heap_extract(routes, &size, (void **)&route))
+		{
+			app_error(self);
+		}
+		list_push_back(self->ants, (void *)ant_create(number, route));
+		heap_insert(routes, size + 1, (void *)route);
+	}
 }

@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/21 15:13:58 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/21 19:32:58 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ HEADERS		= lem_in.h
 SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix calc/, \
-			calc_shortest_path.c \
+			calc_disjoint.c \
+			calc_option.c \
+			calc_populate.c \
+			calc_shortest.c \
 		) \
 		$(addprefix load/, \
 			load_check.c \
@@ -103,7 +106,7 @@ norm:
 	@norminette $(INCS) $(SRCS)
 
 test: $(NAME)
-	./$(NAME) < 1.txt
+	./$(NAME) < 1.txt | grep "#"
 
 vv: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) < 1.txt

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calc_shortest_path.c                               :+:      :+:    :+:   */
+/*   calc_shortest.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 15:10:56 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 15:16:48 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 19:09:45 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void		calc_shortest_path_clean(t_app *self)
+static void		calc_shortest_clean(t_app *self)
 {
 	t_room	*room;
 
@@ -21,9 +21,10 @@ static void		calc_shortest_path_clean(t_app *self)
 	{
 		room_reset(room);
 	}
+	self->room_start->in.link = (t_link *)TRUE;
 }
 
-static t_bool	calc_shortest_path_update(t_save *source, t_save *dest,
+static t_bool	calc_shortest_update(t_save *source, t_save *dest,
 	t_link *link, int weight)
 {
 	int			level;
@@ -41,7 +42,7 @@ static t_bool	calc_shortest_path_update(t_save *source, t_save *dest,
 	return (FALSE);
 }
 
-static t_bool	calc_shortest_path_while(t_link *link)
+static t_bool	calc_shortest_while(t_link *link)
 {
 	t_bool		update;
 	t_save		*source;
@@ -50,25 +51,23 @@ static t_bool	calc_shortest_path_while(t_link *link)
 	if (link->type == LINK_EDGE)
 	{
 		source = link->room1->path ? &link->room1->out : &link->room1->in;
-		if (calc_shortest_path_update(source, &link->room2->in, link, 1))
+		if (calc_shortest_update(source, &link->room2->in, link, 1))
 			update = TRUE;
 		source = link->room2->path ? &link->room2->out : &link->room2->in;
-		if (calc_shortest_path_update(source, &link->room1->in, link, 1))
+		if (calc_shortest_update(source, &link->room1->in, link, 1))
 			update = TRUE;
 	}
 	else if (link->type == LINK_REVERSE)
 	{
-		source = &link->room1->in;
-		if (calc_shortest_path_update(source, &link->room2->out, link, -1))
+		if (calc_shortest_update(&link->room1->in, &link->room2->out, link, -1))
 			update = TRUE;
-		source = &link->room2->out;
-		if (calc_shortest_path_update(source, &link->room2->in, link, 0))
+		if (calc_shortest_update(&link->room1->in, &link->room2->in, link, 0))
 			update = TRUE;
 	}
 	return (update);
 }
 
-static t_bool	calc_shortest_path_result(t_app *self)
+static t_bool	calc_shortest_result(t_app *self)
 {
 	t_link		*link;
 	t_room		*path;
@@ -83,14 +82,14 @@ static t_bool	calc_shortest_path_result(t_app *self)
 	return (FALSE);
 }
 
-t_bool			calc_shortest_path(t_app *self)
+t_bool			calc_shortest(t_app *self)
 {
 	size_t		index;
 	t_bool		update;
 	t_list_iter	*iter;
 	t_link		*link;
 
-	calc_shortest_path_clean(self);
+	calc_shortest_clean(self);
 	index = 0;
 	update = TRUE;
 	while (update)
@@ -99,7 +98,7 @@ t_bool			calc_shortest_path(t_app *self)
 		iter = list_iter_create(self->links);
 		while (list_iter_next(iter, (void *)&link))
 		{
-			if (calc_shortest_path_while(link))
+			if (calc_shortest_while(link))
 				update = TRUE;
 		}
 		list_iter_destroy(&iter);
@@ -107,5 +106,5 @@ t_bool			calc_shortest_path(t_app *self)
 			app_error(self);
 		index++;
 	}
-	return (calc_shortest_path_result(self));
+	return (calc_shortest_result(self));
 }

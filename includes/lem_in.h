@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 18:05:40 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 19:27:33 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ struct		s_room
 
 struct		s_option
 {
-	int				steps;
+	size_t			steps;
 	t_heap			*routes;
 };
 
@@ -114,7 +114,7 @@ void		room_reset(t_room *self);
 t_bool		room_lock(t_room *self);
 void		room_unlock(t_room *self);
 
-t_option	*option_create(int steps, t_heap *routes);
+t_option	*option_create(void);
 void		option_destroy(t_option **aself);
 
 t_ant		*ant_create(int id, t_list *route);
@@ -137,6 +137,9 @@ t_bool		load_link(t_app *self);
 void		load_while(t_app *self);
 void		load_check(t_app *self);
 
-t_bool		calc_shortest_path(t_app *self);
+t_bool		calc_shortest(t_app *self);
+void		calc_disjoint(t_app *self);
+t_option	*calc_option(t_app *self);
+void		calc_populate(t_app *self, t_heap *routes);
 
 #endif

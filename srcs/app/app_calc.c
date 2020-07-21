@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 20:45:11 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/21 21:09:53 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,29 @@ void			app_calc(t_app *self)
 	option = (t_option *)self->options->table->data;
 	ft_printf("## routes %d = %d steps\n", option->routes->count, option->steps);
 
-	// t_heap	*heap;
-	// t_list	*route;
+	t_heap	*heap;
+	t_list	*route;
 
-	// heap = heap_copy(option->routes);
-	// while (heap_extract(heap, NULL, (void **)&route))
-	// {
-	// 	ft_printf("# %d = [", route->count);
+	heap = heap_copy(option->routes);
+	while (heap_extract(heap, NULL, (void **)&route))
+	{
+		ft_printf("# %d = [", route->count);
 		
-	// 	t_list_iter	*iter;
-	// 	t_room		*room;
-	// 	int 		count;
+		t_list_iter	*iter;
+		t_room		*room;
+		int 		count;
 		
-	// 	count = 0;
-	// 	iter = list_iter_create(route);
-	// 	while (list_iter_next(iter, (void **)&room))
-	// 	{
-	// 		if (count > 0)
-	// 			ft_printf(", ");
-	// 		ft_printf("\"%s\"", room->name);
-	// 		count += 1;
-	// 	}
-	// 	ft_printf("]\n");
-	// }
+		count = 0;
+		iter = list_iter_create(route);
+		while (list_iter_next(iter, (void **)&room))
+		{
+			if (count > 0)
+				ft_printf(", ");
+			ft_printf("\"%s\"", room->name);
+			count += 1;
+		}
+		ft_printf("]\n");
+	}
 	calc_populate(self, option->routes);
 	//app_error(self);
 }

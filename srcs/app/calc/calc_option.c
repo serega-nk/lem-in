@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 19:14:06 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 21:00:24 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/22 05:06:33 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static t_heap	*calc_option_routes(t_app *self)
 		{
 			ft_printf("# ERROR ROUTE\n");
 			list_destroy(&route);
-			app_error(self);
+			//app_error(self);
 		}
 		else
 		{

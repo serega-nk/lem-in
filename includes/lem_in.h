@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 19:27:33 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/22 00:18:13 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ struct		s_room
 	int				coord_y;
 	int				lock;
 	t_room			*path;
+	t_room			*path2;
 	t_save			in;
 	t_save			out;
 };

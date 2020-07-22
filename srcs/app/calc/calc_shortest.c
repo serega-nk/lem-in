@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 15:10:56 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 19:09:45 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/22 05:05:39 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ static t_bool	calc_shortest_update(t_save *source, t_save *dest,
 		level = source->level + weight;
 		if (dest->link == NULL || dest->level > level)
 		{
+			// if (link->type == LINK_REVERSE)
+			// {
+			// 	ft_printf("# UPDATE LINK_REVERSE %s, %s   weight = %d, level = %d\n", link->room1->name, link->room2->name, weight, level);
+			// }
+			// else
+			// {
+			// 	ft_printf("# UPDATE LINK_EDGE %s, %s   weight = %d, level = %d\n", link->room1->name, link->room2->name, weight, level);
+			// }
+					
 			dest->level = level;
 			dest->link = link;
 			return (TRUE);
@@ -42,7 +51,7 @@ static t_bool	calc_shortest_update(t_save *source, t_save *dest,
 	return (FALSE);
 }
 
-static t_bool	calc_shortest_while(t_link *link)
+static t_bool	calc_shortest_while(t_app *self, t_link *link)
 {
 	t_bool		update;
 	t_save		*source;
@@ -59,10 +68,19 @@ static t_bool	calc_shortest_while(t_link *link)
 	}
 	else if (link->type == LINK_REVERSE)
 	{
-		if (calc_shortest_update(&link->room1->in, &link->room2->out, link, -1))
+		if (calc_shortest_update(&link->room2->in, &link->room1->out, link, -1))
 			update = TRUE;
-		if (calc_shortest_update(&link->room1->in, &link->room2->in, link, 0))
+		if (calc_shortest_update(&link->room1->out, &link->room1->in, link, 0))
 			update = TRUE;
+	}
+	else if (link->type == LINK_NONE)
+	{
+
+	}
+	else
+	{
+		
+		app_error(self);
 	}
 	return (update);
 }
@@ -70,13 +88,14 @@ static t_bool	calc_shortest_while(t_link *link)
 static t_bool	calc_shortest_result(t_app *self)
 {
 	t_link		*link;
-	t_room		*path;
 
 	link = self->room_end->in.link;
 	if (link)
 	{
-		path = link->room1 == self->room_end ? link->room2 : link->room1;
-		list_push_back(self->paths, path);
+		if (link->room2 == self->room_end)
+			list_push_back(self->paths, link->room1);
+		else
+			list_push_back(self->paths, link->room2);
 		return (TRUE);
 	}
 	return (FALSE);
@@ -98,7 +117,7 @@ t_bool			calc_shortest(t_app *self)
 		iter = list_iter_create(self->links);
 		while (list_iter_next(iter, (void *)&link))
 		{
-			if (calc_shortest_while(link))
+			if (calc_shortest_while(self, link))
 				update = TRUE;
 		}
 		list_iter_destroy(&iter);

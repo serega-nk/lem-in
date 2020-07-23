@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 18:07:48 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/23 22:48:01 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ static t_bool	load_room_insert(t_app *self, t_room *room)
 			self->room_start = room;
 			self->signal_start = FALSE;
 		}
-		if (self->signal_end)
+		else if (self->signal_end)
 		{
 			self->room_end = room;
 			self->signal_end = FALSE;
 		}
+		else
+			list_push_back(self->links, link_create(&room->in, &room->out, 0));
 		return (TRUE);
 	}
 	return (FALSE);

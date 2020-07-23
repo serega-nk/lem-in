@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/23 22:37:57 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/23 22:42:31 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 void			app_calc(t_app *self)
 {
-	ft_printf("#\n");
+	if (calc_bellman_ford(self))
+	{
+		ft_printf("# YES\n");
+	}
+	else
+	{
+		ft_printf("# NO\n");
+	}
+	ft_printf("##\n");
 	app_error(self);
 	//t_option	*option;
 

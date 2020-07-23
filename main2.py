@@ -182,7 +182,7 @@ class App:
                 self._add_link(*line.split('-'))
 
 if __name__ == '__main__':
-    fn = '0.txt'
+    fn = '3.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

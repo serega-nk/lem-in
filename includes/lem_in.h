@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/23 22:01:29 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/23 22:58:28 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ struct		s_room
 	char			*name;
 	int				coord_x;
 	int				coord_y;
-	t_bool			lock;
 	t_part			in;
 	t_part			out;
+	t_room			*path;
+	t_bool			lock;
 };
 
 struct		s_link
@@ -125,6 +126,7 @@ t_bool		load_link(t_app *self);
 void		load_while(t_app *self);
 void		load_check(t_app *self);
 
+t_bool		calc_bellman_ford(t_app *self);
 // t_bool		calc_shortest(t_app *self);
 // void		calc_disjoint(t_app *self);
 // t_option	*calc_option(t_app *self);

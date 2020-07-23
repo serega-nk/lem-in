@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:47 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/23 22:03:01 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/23 22:51:31 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static int		calc_bellman_ford_update(t_app *self)
 			if (link->part2->link == NULL || link->part2->cost > cost)
 			{
 				link->part2->link = link;
-                link->part2->cost = cost;
-                update = TRUE;
+				link->part2->cost = cost;
+				update = TRUE;
 			}
 		}
 	}
@@ -61,7 +61,7 @@ t_bool			calc_bellman_ford(t_app *self)
 	index = 0;
 	while (TRUE)
 	{
-		if (FALSE == calc_bellman_ford_update(self))
+		if (!calc_bellman_ford_update(self))
 			break ;
 		if (index == self->links->count)
 			return (FALSE);

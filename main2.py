@@ -5,14 +5,14 @@ PART_OUT = 1
 
 class Part:
     def __init__(self, _type, room):
-        self._type = _type
+        self.type = _type
         self.room = room
         # bellman ford
         self.link = None
         self.level = 0
 
     def __repr__(self):
-        name = ('[IN]', '[OUT]')[self._type]
+        name = ('[IN]', '[OUT]')[self.type]
         return f'{name}{self.room}'
 
 class Room:
@@ -20,25 +20,110 @@ class Room:
         self.name = name
         self.part_in = Part(PART_IN, self)
         self.part_out = Part(PART_OUT, self)
+        self.path = None
+    
     def __repr__(self):
         return f'{self.name}'
 
 class Link:
-    def __init__(self, part1, part2, weigth):
+    def __init__(self, part1, part2, weight):
         self.part1 = part1
         self.part2 = part2
-        self.weigth = weigth
-    
-    def reverse(self):
-        self.part1, self.part2 = self.part2, self.part1
-        self.weigth -= self.weigth
-    
+        self.weight = weight
+   
     def __repr__(self):
-        return f'LINK ({self.part1} -> {self.part2} = {self.weigth})'
+        return f'LINK ({self.part1} -> {self.part2} = {self.weight})'
+
+
+def bellman_ford(self):
+    # clean
+    for room in self.rooms.values():
+        room.part_out.link = None
+        room.part_out.level = 0
+        room.part_in.link = None
+        room.part_in.level = 0
+    # open    
+    self.room_start.part_out.link = True
+    # 
+    index = 0
+    while True:
+        update = False
+        for link in self.links:
+            if link.part1.link:
+                level = link.part1.level + link.weight
+                if link.part2.link is None or link.part2.level > level:
+                    link.part2.link = link
+                    link.part2.level = level
+                    update = True
+        if not update:
+            break
+        if index == len(self.links):
+            raise Exception("WHILE -1")
+    return self.room_end.part_in.link is not None
+    ###
+
+
+def suurballe(self, debug=False):
+    walk = self.room_end.part_in.link
+    while walk != True:
+        # if debug:
+        #     print(walk)
+        
+        
+        link = walk.part1.link
+
+        #print(walk)
+
+        if walk.weight == -1:
+            #print('REMOVE', walk)
+            self.links.remove(walk)
+        else:
+            part = walk.part2
+            if walk.part2.type == PART_IN and walk.part1.type == PART_OUT and walk.part2.room != walk.part1.room:
+                room1 = walk.part2.room
+                room2 = walk.part1.room
+                room1.path = room2
+                print('###', walk, room1, room2)
+
+            walk.part1, walk.part2 = walk.part2, walk.part1
+            walk.weight = -walk.weight
+
+        walk = link
+
+    self.paths.append(self.room_end.path)
+    #
+
+def make_routes(self):
+    routes = []
+    for walk in self.paths:
+        route = []
+        route.insert(0, self.room_end)
+        while walk:
+            route.insert(0, walk)
+            walk = walk.path
+        routes.append(route)
+    return routes
+
 
 def app_calc(self):
-    for link in self.links:
-        print(link)
+    index = 0
+
+    routes = []
+    while bellman_ford(self):
+        suurballe(self)
+        routes = make_routes(self)
+        index += 1
+
+    rooms = set()
+    for route in routes:
+        for room in route:
+            assert (room not in rooms)
+
+    assert (index == len(routes))
+    print(index, routes)
+    
+    # for link in self.links:
+    #     print(link)
 
 
 class App:
@@ -49,6 +134,7 @@ class App:
         assert (self.number > 0)
         assert (self.room_start)
         assert (self.room_end)
+        self.paths = []
     
     def _add_room(self, name, flag_start, flag_end):
         assert (name not in self.rooms)
@@ -89,7 +175,7 @@ class App:
                 self._add_link(*line.split('-'))
 
 if __name__ == '__main__':
-    fn = '1_.txt'
+    fn = '0.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

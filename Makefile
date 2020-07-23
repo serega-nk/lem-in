@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/22 00:25:40 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/23 22:02:12 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,7 @@ HEADERS		= lem_in.h
 SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix calc/, \
-			calc_disjoint.c \
-			calc_option.c \
-			calc_populate.c \
-			calc_shortest.c \
+			calc_bellman_ford.c \
 		) \
 		$(addprefix load/, \
 			load_check.c \
@@ -52,15 +49,10 @@ SOURCES		= \
 			link_create.c \
 			link_destroy.c \
 		) \
-		$(addprefix option/, \
-			option_create.c \
-			option_destroy.c \
-		) \
 		$(addprefix room/, \
 			room_create.c \
 			room_destroy.c \
 			room_lock.c \
-			room_reset.c \
 			room_unlock.c \
 		) \
 	) \

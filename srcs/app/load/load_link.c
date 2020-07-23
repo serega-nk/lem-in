@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:38 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 17:59:02 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/23 21:46:56 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ static t_bool	load_link_attach(t_app *self, char *name1, char *name2)
 		hashtab_get(self->rooms, name1, (void **)&room1) &&
 		hashtab_get(self->rooms, name2, (void **)&room2))
 	{
-		list_push_back(self->links, link_create(room1, room2));
+		list_push_back(self->links, link_create(&room1->out, &room2->in, 1));
+		list_push_back(self->links, link_create(&room2->out, &room1->in, 1));
 		ret = TRUE;
 	}
 	ft_strdel(&pair2);

@@ -83,7 +83,7 @@ def suurballe(self, debug=False):
                 room1 = walk.part2.room
                 room2 = walk.part1.room
                 room1.path = room2
-                print('###', walk, room1, room2)
+                #print('###', walk, room1, room2)
 
             walk.part1, walk.part2 = walk.part2, walk.part1
             walk.weight = -walk.weight
@@ -105,6 +105,12 @@ def make_routes(self):
     return routes
 
 
+def print_test1(routes):
+    
+    line = ' '.join(str(len(route) - 1)  for route in routes)
+    print(len(routes), ' ( ', line, ')', sep='')
+
+
 def app_calc(self):
     index = 0
 
@@ -112,12 +118,13 @@ def app_calc(self):
     while bellman_ford(self):
         suurballe(self)
         routes = make_routes(self)
+        print_test1(routes)
         index += 1
 
-    rooms = set()
-    for route in routes:
-        for room in route:
-            assert (room not in rooms)
+    # rooms = set()
+    # for route in routes:
+    #     for room in route:
+    #         assert (room not in rooms)
 
     assert (index == len(routes))
     print(index, routes)

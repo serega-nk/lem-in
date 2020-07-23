@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/22 05:40:34 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/23 22:37:57 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,34 @@
 
 void			app_calc(t_app *self)
 {
-	t_option	*option;
+	ft_printf("#\n");
+	app_error(self);
+	//t_option	*option;
 
-	self->paths = list_create();
-	self->options = heap_create();
-	self->ants = list_create();
-	// int i = 0;
-	while (calc_shortest(self))
-	{
-		ft_printf("####\n");
-		calc_disjoint(self);
+	// self->paths = list_create();
+	// self->options = heap_create();
+	// self->ants = list_create();
+	// // int i = 0;
+	// while (calc_shortest(self))
+	// {
+	// 	ft_printf("####\n");
+	// 	calc_disjoint(self);
 				
-		option = calc_option(self);
-		ft_printf("#### routes %d = %d steps\n", option->routes->count, option->steps);
-		heap_insert(self->options, option->steps, option);
-		// if (option->steps == 79)
-		// 	break;
-		// i++;
-		// if (i == 20)
-		// 	break ;
-		ft_printf("####\n");
-	}
-	// app_error(self);
-	if (self->options->count == 0)
-		app_error(self);
-	option = (t_option *)self->options->table->data;
-	ft_printf("##### routes %d = %d steps\n", option->routes->count, option->steps);
+	// 	option = calc_option(self);
+	// 	ft_printf("#### routes %d = %d steps\n", option->routes->count, option->steps);
+	// 	heap_insert(self->options, option->steps, option);
+	// 	// if (option->steps == 79)
+	// 	// 	break;
+	// 	// i++;
+	// 	// if (i == 20)
+	// 	// 	break ;
+	// 	ft_printf("####\n");
+	// }
+	// // app_error(self);
+	// if (self->options->count == 0)
+	// 	app_error(self);
+	// option = (t_option *)self->options->table->data;
+	// ft_printf("##### routes %d = %d steps\n", option->routes->count, option->steps);
 
 	// t_heap	*heap;
 	// t_list	*route;
@@ -64,6 +66,6 @@ void			app_calc(t_app *self)
 	// 	}
 	// 	ft_printf("]\n");
 	// }
-	calc_populate(self, option->routes);
+	//calc_populate(self, option->routes);
 	//app_error(self);
 }

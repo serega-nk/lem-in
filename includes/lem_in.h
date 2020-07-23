@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/22 00:18:13 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/23 22:01:29 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@
 typedef enum e_state	t_state;
 typedef enum e_type		t_type;
 
-typedef struct s_link	t_link;
-typedef struct s_save	t_save;
+typedef struct s_part	t_part;
 typedef struct s_room	t_room;
-typedef struct s_option	t_option;
+typedef struct s_link	t_link;
 typedef struct s_ant	t_ant;
 typedef struct s_app	t_app;
 
@@ -41,22 +40,16 @@ enum		e_state
 
 enum		e_type
 {
-	LINK_EDGE,
-	LINK_REVERSE,
-	LINK_NONE
+	PART_IN,
+	PART_OUT
 };
 
-struct		s_link
+struct		s_part
 {
 	t_type			type;
-	t_room			*room1;
-	t_room			*room2;
-};
-
-struct		s_save
-{
+	t_room			*room;
 	t_link			*link;
-	int				level;
+	int				cost;
 };
 
 struct		s_room
@@ -64,17 +57,16 @@ struct		s_room
 	char			*name;
 	int				coord_x;
 	int				coord_y;
-	int				lock;
-	t_room			*path;
-	t_room			*path2;
-	t_save			in;
-	t_save			out;
+	t_bool			lock;
+	t_part			in;
+	t_part			out;
 };
 
-struct		s_option
+struct		s_link
 {
-	size_t			steps;
-	t_heap			*routes;
+	t_part			*part1;
+	t_part			*part2;
+	int				weight;
 };
 
 struct		s_ant
@@ -102,21 +94,16 @@ struct		s_app
 	t_hashtab		*pairs;
 	t_list			*links;
 	t_list			*paths;
-	t_heap			*options;
 	t_list			*ants;
 };
 
-t_link		*link_create(t_room *room1, t_room *room2);
-void		link_destroy(t_link **aself);
-
 t_room		*room_create(void);
 void		room_destroy(t_room **aself);
-void		room_reset(t_room *self);
 t_bool		room_lock(t_room *self);
 void		room_unlock(t_room *self);
 
-t_option	*option_create(void);
-void		option_destroy(t_option **aself);
+t_link		*link_create(t_part *part1, t_part *part2, int weight);
+void		link_destroy(t_link **aself);
 
 t_ant		*ant_create(int id, t_list *route);
 void		ant_destroy(t_ant **aself);
@@ -138,9 +125,9 @@ t_bool		load_link(t_app *self);
 void		load_while(t_app *self);
 void		load_check(t_app *self);
 
-t_bool		calc_shortest(t_app *self);
-void		calc_disjoint(t_app *self);
-t_option	*calc_option(t_app *self);
-void		calc_populate(t_app *self, t_heap *routes);
+// t_bool		calc_shortest(t_app *self);
+// void		calc_disjoint(t_app *self);
+// t_option	*calc_option(t_app *self);
+// void		calc_populate(t_app *self, t_heap *routes);
 
 #endif

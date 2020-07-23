@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 05:20:52 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/23 21:44:33 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	app_free(t_app *self)
 {
 	list_clean(self->ants, &ant_destroy);
 	list_destroy(&self->ants);
-	heap_clean(self->options, &option_destroy);
-	heap_destroy(&self->options);
 	list_destroy(&self->paths);
 	list_clean(self->links, &link_destroy);
 	list_destroy(&self->links);

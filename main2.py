@@ -64,6 +64,7 @@ def bellman_ford(self):
 
 
 def suurballe(self, debug=False):
+    last = None
     walk = self.room_end.part_in.link
     while walk != True:
         # if debug:
@@ -75,8 +76,13 @@ def suurballe(self, debug=False):
         #print(walk)
 
         if walk.weight == -1:
-            #print('REMOVE', walk)
-            self.links.remove(walk)
+            if (last and link and last.part1.room == last.part2.room and link.part1.room == link.part2.room):
+                print("AAA")
+                walk.part1, walk.part2 = walk.part2, walk.part1
+                walk.weight = -walk.weight
+            else:
+                print('REMOVE', walk)
+                self.links.remove(walk)
         else:
             #if walk.part2.type == PART_IN and walk.part1.type == PART_OUT and walk.part2.room != walk.part1.room:
             if walk.part2.room != walk.part1.room:
@@ -89,6 +95,7 @@ def suurballe(self, debug=False):
             walk.part1, walk.part2 = walk.part2, walk.part1
             walk.weight = -walk.weight
 
+        last = walk
         walk = link
 
     self.paths.append(self.room_end.path)
@@ -145,10 +152,8 @@ def app_calc(self):
             break
         last = value
         save = routes
-
-
-    for route in save:
-        print(route)
+        for route in save:
+            print(route)
     
     # for link in self.links:
     #     print(link)
@@ -206,7 +211,7 @@ class App:
                 self._add_link(*line.split('-'))
 
 if __name__ == '__main__':
-    fn = '99.txt'
+    fn = '5.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

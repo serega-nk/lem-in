@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/23 22:48:01 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/24 17:53:17 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static t_bool	load_room_insert(t_app *self, t_room *room)
 {
 	if (self->signal_start && self->signal_end)
 		return (FALSE);
-	if (ft_sprintf(self->coord, "x=%d, y=%d", room->coord_x, room->coord_y) &&
+	if (ft_snprintf(self->coord, sizeof(self->coord) - 1,
+		"x=%d, y=%d", room->coord_x, room->coord_y) &&
 		room->name[0] != 'L' &&
 		room->coord_x >= 0 &&
 		room->coord_y >= 0 &&

@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/24 16:12:21 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/24 17:07:24 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,7 +105,7 @@ norm:
 	@norminette $(INCS) $(SRCS)
 
 test: $(NAME)
-	./$(NAME) < 99.txt | grep "#"
+	./$(NAME) < 5.txt | grep "#"
 
 vv: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) < 1.txt

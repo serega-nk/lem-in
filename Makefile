@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/23 22:02:12 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/24 16:12:21 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ SOURCES		= \
 	$(addprefix app/, \
 		$(addprefix calc/, \
 			calc_bellman_ford.c \
+			calc_option.c \
+			calc_populate.c \
+			calc_suurballe.c \
 		) \
 		$(addprefix load/, \
 			load_check.c \
@@ -48,6 +51,10 @@ SOURCES		= \
 		$(addprefix link/, \
 			link_create.c \
 			link_destroy.c \
+		) \
+		$(addprefix option/, \
+			option_create.c \
+			option_destroy.c \
 		) \
 		$(addprefix room/, \
 			room_create.c \
@@ -98,7 +105,7 @@ norm:
 	@norminette $(INCS) $(SRCS)
 
 test: $(NAME)
-	./$(NAME) < 3.txt | grep "#"
+	./$(NAME) < 99.txt | grep "#"
 
 vv: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) < 1.txt

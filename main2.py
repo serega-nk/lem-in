@@ -119,7 +119,7 @@ def print_test1(self, routes):
             assert (room not in rooms)
             rooms.add(room)
     
-    routes = [len(route) - 1 for route in routes]
+    routes = [len(route) - 2 for route in routes]
     count = self.number
     value = 0
     while (count > 0): 
@@ -206,7 +206,7 @@ class App:
                 self._add_link(*line.split('-'))
 
 if __name__ == '__main__':
-    fn = '0.txt'
+    fn = '99.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

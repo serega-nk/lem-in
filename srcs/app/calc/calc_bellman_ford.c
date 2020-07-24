@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:47 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/23 22:51:31 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/24 15:18:30 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ static int		calc_bellman_ford_update(t_app *self)
 	iter = list_iter_create(self->links);
 	while (list_iter_next(iter, (void *)&link))
 	{
-		if (link->part1->link)
+		if (link->remove)
+			list_iter_remove(iter, &link_destroy);
+		else if (link->part1->link)
 		{
 			cost = link->part1->cost + link->weight;
 			if (link->part2->link == NULL || link->part2->cost > cost)

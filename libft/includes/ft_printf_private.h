@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 03:06:07 by bconchit          #+#    #+#             */
-/*   Updated: 2019/11/23 20:36:07 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/24 17:43:26 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ typedef struct	s_parse
 	int			result;
 	int			fd;
 	char		*str;
+	size_t		n;
 	const char	*format;
 	int			index;
 	va_list		ap;
 	char		buff[FT_PRINTF_BUFF_SIZE];
-	int			count;
+	size_t		count;
 	t_fmt		fmt;
 	char		temp[FT_PRINTF_TEMP_SIZE];
 }				t_parse;

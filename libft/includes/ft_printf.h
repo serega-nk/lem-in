@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 01:26:08 by bconchit          #+#    #+#             */
-/*   Updated: 2019/11/25 05:20:03 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/24 17:50:06 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		ft_printf(const char *format, ...);
 int		ft_printf_fd(int fd, const char *format, ...);
-int		ft_sprintf(char *str, const char *format, ...);
-char	*ft_printf_strnew(const char *format, ...);
+int		ft_snprintf(char *str, size_t n, const char *format, ...);
+
 
 #endif

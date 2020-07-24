@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_strnew.c                                 :+:      :+:    :+:   */
+/*   ft_snprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 05:06:30 by bconchit          #+#    #+#             */
-/*   Updated: 2019/11/25 05:20:10 by bconchit         ###   ########.fr       */
+/*   Created: 2019/10/29 01:37:39 by bconchit          #+#    #+#             */
+/*   Updated: 2020/07/24 17:45:06 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_private.h"
-#include "ft_printf.h"
 
-char	*ft_printf_strnew(const char *format, ...)
+int		ft_snprintf(char *str, size_t n, const char *format, ...)
 {
 	t_parse		self;
-	char		*res;
 
 	ft_bzero(&self, sizeof(t_parse));
 	if (format)
 	{
 		self.fd = -1;
-		self.str = NULL;
+		self.str = str;
+		self.n = n;
 		self.format = format;
 		va_start(self.ap, format);
 		ft_pf_parse_while(&self);
 		va_end(self.ap);
-		if ((res = ft_strnew(self.result)))
-		{
-			ft_bzero(&self, sizeof(t_parse));
-			self.fd = -1;
-			self.str = res;
-			self.format = format;
-			va_start(self.ap, format);
-			ft_pf_parse_while(&self);
-			va_end(self.ap);
-			return (res);
-		}
 	}
-	return (NULL);
+	return (self.result);
 }

@@ -78,7 +78,6 @@ def suurballe(self, debug=False):
             #print('REMOVE', walk)
             self.links.remove(walk)
         else:
-            part = walk.part2
             if walk.part2.type == PART_IN and walk.part1.type == PART_OUT and walk.part2.room != walk.part1.room:
                 room1 = walk.part2.room
                 room2 = walk.part1.room
@@ -111,6 +110,13 @@ def make_routes(self):
 #     print(len(routes), ' ( ', line, ')', sep='')
 
 def print_test1(self, routes):
+    
+    rooms = set()
+    for route in routes:
+        for room in route[1:-1]:
+            assert (room not in rooms)
+            rooms.add(room)
+    
     routes = [len(route) - 1 for route in routes]
     count = self.number
     value = 0
@@ -137,7 +143,7 @@ def app_calc(self):
     #         assert (room not in rooms)
 
     assert (index == len(routes))
-    print(index, routes)
+    #print(index, routes)
     
     # for link in self.links:
     #     print(link)
@@ -195,7 +201,7 @@ class App:
                 self._add_link(*line.split('-'))
 
 if __name__ == '__main__':
-    fn = '0.txt'
+    fn = '2.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

@@ -78,7 +78,9 @@ def suurballe(self, debug=False):
             #print('REMOVE', walk)
             self.links.remove(walk)
         else:
-            if walk.part2.type == PART_IN and walk.part1.type == PART_OUT and walk.part2.room != walk.part1.room:
+            #if walk.part2.type == PART_IN and walk.part1.type == PART_OUT and walk.part2.room != walk.part1.room:
+            if walk.part2.room != walk.part1.room:
+                assert (walk.part2.type == PART_IN and walk.part1.type == PART_OUT)
                 room1 = walk.part2.room
                 room2 = walk.part1.room
                 room1.path = room2
@@ -126,24 +128,27 @@ def print_test1(self, routes):
         value = max(value, routes[0])
         routes = sorted(routes)
     print(len(routes), '=', value, '/', self.required)
+    return value
+
 
 def app_calc(self):
+    last = 0
     index = 0
-
+    save = []
     routes = []
     while bellman_ford(self):
         suurballe(self)
         routes = make_routes(self)
-        print_test1(self, routes)
+        value = print_test1(self, routes)
         index += 1
+        if last and last < value:
+            break
+        last = value
+        save = routes
 
-    # rooms = set()
-    # for route in routes:
-    #     for room in route:
-    #         assert (room not in rooms)
 
-    assert (index == len(routes))
-    #print(index, routes)
+    for route in save:
+        print(route)
     
     # for link in self.links:
     #     print(link)
@@ -201,7 +206,7 @@ class App:
                 self._add_link(*line.split('-'))
 
 if __name__ == '__main__':
-    fn = '2.txt'
+    fn = '0.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

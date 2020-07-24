@@ -30,6 +30,8 @@ class Link:
         self.part1 = part1
         self.part2 = part2
         self.weight = weight
+        self.remove = False
+        self.pair = None
    
     def __repr__(self):
         return f'LINK ({self.part1} -> {self.part2} = {self.weight})'
@@ -49,7 +51,7 @@ def bellman_ford(self):
     while True:
         update = False
         for link in self.links:
-            if link.part1.link:
+            if not link.remove and link.part1.link:
                 level = link.part1.level + link.weight
                 if link.part2.link is None or link.part2.level > level:
                     link.part2.link = link
@@ -64,39 +66,27 @@ def bellman_ford(self):
 
 
 def suurballe(self, debug=False):
-    last = None
+
+    prev = None
     walk = self.room_end.part_in.link
     while walk != True:
-        # if debug:
-        #     print(walk)
-        
-        
-        link = walk.part1.link
+
+        _next = walk.part1.link
 
         #print(walk)
 
-        if walk.weight == -1:
-            if (last and link and last.part1.room == last.part2.room and link.part1.room == link.part2.room):
-                print("AAA")
-                walk.part1, walk.part2 = walk.part2, walk.part1
-                walk.weight = -walk.weight
-            else:
-                print('REMOVE', walk)
-                self.links.remove(walk)
-        else:
-            #if walk.part2.type == PART_IN and walk.part1.type == PART_OUT and walk.part2.room != walk.part1.room:
-            if walk.part2.room != walk.part1.room:
-                assert (walk.part2.type == PART_IN and walk.part1.type == PART_OUT)
-                room1 = walk.part2.room
-                room2 = walk.part1.room
-                room1.path = room2
-                #print('###', walk, room1, room2)
+        if walk.weight == 1 and walk.part2.room != walk.part1.room:
+            assert (walk.part2.type == PART_IN and walk.part1.type == PART_OUT)
+            room1 = walk.part2.room
+            room2 = walk.part1.room
+            room1.path = room2
+            #print('###', walk, room1, room2)
 
-            walk.part1, walk.part2 = walk.part2, walk.part1
-            walk.weight = -walk.weight
+        walk.part1, walk.part2 = walk.part2, walk.part1
+        walk.weight = -walk.weight
 
-        last = walk
-        walk = link
+        prev = walk
+        walk = _next
 
     self.paths.append(self.room_end.path)
     #
@@ -152,8 +142,10 @@ def app_calc(self):
             break
         last = value
         save = routes
-        for route in save:
-            print(route)
+
+
+    for route in save:
+        print(route)
     
     # for link in self.links:
     #     print(link)
@@ -185,10 +177,12 @@ class App:
     def _add_link(self, name1, name2):
         room1 = self.rooms[name1]
         room2 = self.rooms[name2]        
-        link = Link(room1.part_out, room2.part_in, 1)
-        self.links.append(link)
-        link = Link(room2.part_out, room1.part_in, 1)
-        self.links.append(link)
+        link1 = Link(room1.part_out, room2.part_in, 1)
+        self.links.append(link1)
+        link2 = Link(room2.part_out, room1.part_in, 1)
+        self.links.append(link2)
+        link1.pair = link2
+        link2.pair = link1
 
     def _load(self, fn):
         iterble = open(fn)
@@ -211,7 +205,7 @@ class App:
                 self._add_link(*line.split('-'))
 
 if __name__ == '__main__':
-    fn = '5.txt'
+    fn = '9.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

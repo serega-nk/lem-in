@@ -6,73 +6,37 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:56 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/24 17:06:47 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/24 23:35:54 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
+static void		calc_suurballe_reverse(t_link *link)
+{
+	t_part		*temp;
 
-// static t_link	*calc_suurballe_next(t_link *walk)
-// {
-// 	t_link		*next;
-// 	t_part		*temp;
-
-// 	next = walk->part1->link;
-// 	if (walk->weight == -1)
-// 	{
-// 		if ()
-// 		walk->remove = TRUE;
-// 	}
-// 	else
-// 	{
-// 		// if (walk->part2->type == PART_IN &&
-// 		// 	walk->part1->type == PART_OUT &&
-// 		// 	walk->part2->room != walk->part1->room)
-// 		if (walk->part2->room != walk->part1->room)
-// 		{
-// 			walk->part2->room->path = walk->part1->room;
-// 		}
-// 		temp = walk->part1;
-// 		walk->part1 = walk->part2;
-// 		walk->part2 = temp;
-//         walk->weight = -walk->weight;
-// 	}
-// 	return (next);
-// }
+	temp = link->part1;
+	link->part1 = link->part2;
+	link->part2 = temp;
+	link->weight = -link->weight;
+}
 
 void			calc_suurballe(t_app *self)
 {
-	t_link		*prev;
 	t_link		*walk;
-	t_link		*next;
-	t_part		*temp;
-	
-	prev = NULL;
+	t_link		*link;
+
 	walk = self->room_end->in.link;
 	while (walk != (t_link *)TRUE)
 	{
-		next = walk->part1->link;
-		if (walk->weight == -1)
+		link = walk->part1->link;
+		if (walk->weight == 1)
 		{
-			walk->remove = TRUE;
+			walk->part2->room->path = walk->part1->room;
 		}
-		else
-		{
-			if (walk->part2->room != walk->part1->room)
-			{
-				walk->part2->room->path = walk->part1->room;
-			}
-			temp = walk->part1;
-			walk->part1 = walk->part2;
-			walk->part2 = temp;
-			walk->weight = -walk->weight;
-		}
-		//ft_printf("### walk %p, %s ---> %s\n", walk, walk->part1->room->name, walk->part2->room->name);
-		//walk = calc_suurballe_next(walk);
-		prev = walk;
-		walk = next;
+		calc_suurballe_reverse(walk);
+		walk = link;
 	}
-	//ft_printf("### path == %s\n", self->room_end->path->name);
 	list_push_back(self->paths, self->room_end->path);
 }

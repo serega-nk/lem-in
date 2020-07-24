@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 19:14:06 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/24 15:56:00 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/24 23:43:18 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,60 +26,19 @@ static t_list	*calc_option_route(t_app *self, t_room *walk)
 	return (route);
 }
 
-static int		__check(t_app *self, t_hashtab *check, t_list *route)
-{
-	t_list_iter		*iter;
-	t_room			*room;
-
-	iter = list_iter_create(route);
-	while (list_iter_next(iter, (void **)&room))
-	{
-		if (room != self->room_start && room != self->room_end)
-		{
-			if (hashtab_get(check, room->name, NULL))
-			{
-				list_iter_destroy(&iter);
-				return (0);
-			}
-		}
-	}
-	list_iter_destroy(&iter);
-	iter = list_iter_create(route);
-	while (list_iter_next(iter, (void **)&room))
-	{
-		hashtab_insert(check, room->name, NULL);
-	}
-	list_iter_destroy(&iter);
-	return (1);
-}
-
 static t_heap	*calc_option_routes(t_app *self)
 {
 	t_heap		*routes;
 	t_list_iter	*iter;
 	t_room		*walk;
 	t_list		*route;
-	// 
-	t_hashtab	*check;
-	//
 
-	//
-	check = hashtab_create();
 	routes = heap_create();
 	iter = list_iter_create(self->paths);
 	while (list_iter_next(iter, (void **)&walk))
 	{
 		route = calc_option_route(self, walk);
-		if (!__check(self, check, route))
-		{
-			ft_printf("# ERROR ROUTE\n");
-			list_destroy(&route);
-			app_error(self);
-		}
-		else
-		{
-			heap_insert(routes, route->count, route);
-		}
+		heap_insert(routes, route->count, route);
 	}
 	return (routes);
 }

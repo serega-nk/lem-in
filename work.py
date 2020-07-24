@@ -67,16 +67,17 @@ def bellman_ford(self):
 
 def suurballe(self, debug=False):
 
-    prev = None
     walk = self.room_end.part_in.link
     while walk != True:
 
-        _next = walk.part1.link
+        link = walk.part1.link
 
         #print(walk)
 
-        if walk.weight == 1 and walk.part2.room != walk.part1.room:
-            assert (walk.part2.type == PART_IN and walk.part1.type == PART_OUT)
+        if walk.weight == 1: # and walk.part2.room != walk.part1.room
+            #if walk.part2.room == walk.part1.room:
+            #    print("==", walk)
+            #assert (walk.part2.type == PART_IN and walk.part1.type == PART_OUT)
             room1 = walk.part2.room
             room2 = walk.part1.room
             room1.path = room2
@@ -85,8 +86,7 @@ def suurballe(self, debug=False):
         walk.part1, walk.part2 = walk.part2, walk.part1
         walk.weight = -walk.weight
 
-        prev = walk
-        walk = _next
+        walk = link
 
     self.paths.append(self.room_end.path)
     #

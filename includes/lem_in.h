@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/24 15:55:38 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/24 23:39:07 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ struct		s_link
 	t_part			*part1;
 	t_part			*part2;
 	int				weight;
-	t_bool			remove;
 };
 
 struct		s_option

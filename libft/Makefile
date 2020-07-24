@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/21 04:22:01 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/24 17:49:49 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,8 +54,7 @@ SOURCES		= \
 	$(addprefix ft_printf/, \
 		ft_printf_fd.c \
 		ft_printf.c \
-		ft_sprintf.c \
-		ft_printf_strnew.c \
+		ft_snprintf.c \
 		\
 		$(addprefix output/, \
 			ft_pf_output_flush.c \

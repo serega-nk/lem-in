@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/25 00:04:33 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/25 00:08:25 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ void			app_calc(t_app *self)
 	}
 	if (best == NULL)
 		app_error(self);
-	ft_printf("#USE routes %d = %d steps\n", best->routes->count, best->steps);
 	calc_populate(self, best->routes);
 }

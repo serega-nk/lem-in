@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 19:14:06 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/24 23:43:18 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/25 00:34:12 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static t_heap	*calc_option_routes(t_app *self)
 		route = calc_option_route(self, walk);
 		heap_insert(routes, route->count, route);
 	}
+	list_iter_destroy(&iter);
 	return (routes);
 }
 

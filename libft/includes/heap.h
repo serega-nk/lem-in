@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:04:45 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/19 06:39:52 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/25 00:00:41 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void		heap_sift_down(t_heap *self, size_t index);
 
 void		heap_insert(t_heap *self, size_t priority, void *data);
 int			heap_extract(t_heap *self, size_t *apriority, void **adata);
+void		*heap_peek(t_heap *self);
 
 #endif

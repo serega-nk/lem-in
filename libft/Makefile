@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/04 01:21:24 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/24 17:49:49 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/25 00:06:02 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,6 +129,7 @@ SOURCES		= \
 		heap_extract.c \
 		heap_insert.c \
 		heap_item_swap.c \
+		heap_peek.c \
 		heap_resize.c \
 		heap_sift_down.c \
 		heap_sift_up.c \

@@ -105,11 +105,21 @@ def make_routes(self):
     return routes
 
 
-def print_test1(routes):
+# def print_test1(routes):
     
-    line = ' '.join(str(len(route) - 1)  for route in routes)
-    print(len(routes), ' ( ', line, ')', sep='')
+#     line = ' '.join(str(len(route) - 1)  for route in routes)
+#     print(len(routes), ' ( ', line, ')', sep='')
 
+def print_test1(self, routes):
+    routes = [len(route) - 1 for route in routes]
+    count = self.number
+    value = 0
+    while (count > 0): 
+        count -= 1
+        routes[0] += 1
+        value = max(value, routes[0])
+        routes = sorted(routes)
+    print(len(routes), '=', value, '/', self.required)
 
 def app_calc(self):
     index = 0
@@ -118,7 +128,7 @@ def app_calc(self):
     while bellman_ford(self):
         suurballe(self)
         routes = make_routes(self)
-        print_test1(routes)
+        print_test1(self, routes)
         index += 1
 
     # rooms = set()
@@ -135,6 +145,7 @@ def app_calc(self):
 
 class App:
     def __init__(self, fn):
+        self.required = 0
         self.rooms = {}
         self.links = []
         self._load(fn)
@@ -169,7 +180,9 @@ class App:
         flag_start = flag_end = False
         for line in iterble:
             line = line.strip()
-            if line.startswith('#'):
+            if line.startswith('#Here is the number of lines required: '):
+                self.required = int(line.split(': ')[1])
+            elif line.startswith('#'):
                 if line == '##start':
                     flag_start = True
                 if line == '##end':
@@ -182,7 +195,7 @@ class App:
                 self._add_link(*line.split('-'))
 
 if __name__ == '__main__':
-    fn = '3.txt'
+    fn = '0.txt'
     import sys
     if (len(sys.argv) == 2):
         fn = sys.argv[1]

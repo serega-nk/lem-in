@@ -30,8 +30,8 @@ class Link:
         self.part1 = part1
         self.part2 = part2
         self.weight = weight
-        self.remove = False
         self.pair = None
+        self.remove = False
    
     def __repr__(self):
         return f'LINK ({self.part1} -> {self.part2} = {self.weight})'
@@ -51,7 +51,9 @@ def bellman_ford(self):
     while True:
         update = False
         for link in self.links:
-            if not link.remove and link.part1.link:
+            if link.remove:
+                pass
+            elif link.part1.link:
                 level = link.part1.level + link.weight
                 if link.part2.link is None or link.part2.level > level:
                     link.part2.link = link
@@ -66,19 +68,51 @@ def bellman_ford(self):
 
 
 def suurballe(self, debug=False):
-
+    last = None
     walk = self.room_end.part_in.link
     while walk != True:
-
+        # if debug:
+        #     print(walk)
+        
+        
         link = walk.part1.link
-        if walk.weight == 1:
-            room1 = walk.part2.room
-            room2 = walk.part1.room
-            room1.path = room2
-            
-        walk.part1, walk.part2 = walk.part2, walk.part1
-        walk.weight = -walk.weight
 
+        #print(walk)
+
+        if walk.weight == -1:
+            assert(walk.remove == False)
+            print('REMOVE', walk)
+            walk.remove = True
+
+            # if (last and link and last.part1.room == last.part2.room and link.part1.room == link.part2.room):
+            #     # print("AAA")
+            #     # walk.part1, walk.part2 = walk.part2, walk.part1
+            #     # walk.weight = -walk.weight
+            #     # if walk.pair and walk.pair.remove:
+            #     #     print('NOT REMOVE PAIR', walk.pair)
+            #     #     walk.pair.remove = False
+            #     #     if walk.pair.weight == -1:
+            #     #         walk.pair.part1, walk.pair.part2 = walk.pair.part2, walk.pair.part1
+            #     #         walk.pair.weight = -walk.pair.weight
+            #     #     print('NOT REMOVE PAIR', walk.pair)
+            #     pass
+            # else:
+                # print('REMOVE', walk)
+                # walk.remove = True
+                ##self.links.remove(walk)
+        else:
+            #if walk.part2.type == PART_IN and walk.part1.type == PART_OUT and walk.part2.room != walk.part1.room:
+            if walk.part2.room != walk.part1.room:
+                assert (walk.part2.type == PART_IN and walk.part1.type == PART_OUT)
+                room1 = walk.part2.room
+                room2 = walk.part1.room
+                room1.path = room2
+                #print('###', walk, room1, room2)
+
+            walk.part1, walk.part2 = walk.part2, walk.part1
+            walk.weight = -walk.weight
+
+        last = walk
         walk = link
 
     self.paths.append(self.room_end.path)
@@ -95,6 +129,11 @@ def make_routes(self):
         routes.append(route)
     return routes
 
+
+# def print_test1(routes):
+    
+#     line = ' '.join(str(len(route) - 1)  for route in routes)
+#     print(len(routes), ' ( ', line, ')', sep='')
 
 def print_test1(self, routes):
     
@@ -119,7 +158,7 @@ def print_test1(self, routes):
 def app_calc(self):
     last = 0
     index = 0
-    save = []
+    # save = []
     routes = []
     while bellman_ford(self):
         suurballe(self)
@@ -129,11 +168,9 @@ def app_calc(self):
         if last and last < value:
             break
         last = value
-        save = routes
-
-
-    for route in save:
-        print(route)
+        # save = routes
+        # for route in save:
+        #     print(route)
     
     # for link in self.links:
     #     print(link)

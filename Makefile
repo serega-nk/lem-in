@@ -113,4 +113,4 @@ norm:
 vv: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) < 0.txt
 
-.PHONY: all clean fclean re norm vv
+.PHONY: all clean fclean re norm vv *.txt

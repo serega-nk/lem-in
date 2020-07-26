@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 21:07:32 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/25 00:09:20 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 23:14:08 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void		output_lines(t_app *self)
+static inline void	output_lines(t_app *self)
 {
 	char	*line;
 
@@ -23,7 +23,7 @@ static void		output_lines(t_app *self)
 	}
 }
 
-static void		output_steps(t_app *self)
+static inline void	output_steps(t_app *self)
 {
 	t_list_iter		*iter;
 	t_ant			*ant;
@@ -51,7 +51,7 @@ static void		output_steps(t_app *self)
 	}
 }
 
-void			app_output(t_app *self)
+void				app_output(t_app *self)
 {
 	output_lines(self);
 	ft_printf("\n");

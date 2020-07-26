@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:47 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/26 23:09:12 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 23:12:31 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void		calc_bellman_ford_clean(t_app *self)
+static inline void	calc_bellman_ford_clean(t_app *self)
 {
 	t_room		*room;
 
@@ -27,7 +27,7 @@ static void		calc_bellman_ford_clean(t_app *self)
 	self->room_start->out.link = (t_link *)TRUE;
 }
 
-static int		calc_bellman_ford_update(t_app *self)
+static inline int	calc_bellman_ford_update(t_app *self)
 {
 	t_bool		update;
 	t_list_iter	*iter;
@@ -53,7 +53,7 @@ static int		calc_bellman_ford_update(t_app *self)
 	return (update);
 }
 
-t_bool			calc_bellman_ford(t_app *self)
+t_bool				calc_bellman_ford(t_app *self)
 {
 	size_t		index;
 

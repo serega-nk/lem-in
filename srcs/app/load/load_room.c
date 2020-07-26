@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:19:19 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/24 17:53:17 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 23:13:29 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static t_bool	load_room_parse(t_app *self, t_room *room)
+static inline t_bool	load_room_parse(t_app *self, t_room *room)
 {
 	char	*line;
 
@@ -28,7 +28,7 @@ static t_bool	load_room_parse(t_app *self, t_room *room)
 	return (FALSE);
 }
 
-static t_bool	load_room_insert(t_app *self, t_room *room)
+static inline t_bool	load_room_insert(t_app *self, t_room *room)
 {
 	if (self->signal_start && self->signal_end)
 		return (FALSE);
@@ -57,7 +57,7 @@ static t_bool	load_room_insert(t_app *self, t_room *room)
 	return (FALSE);
 }
 
-t_bool			load_room(t_app *self)
+t_bool				load_room(t_app *self)
 {
 	t_room	*room;
 

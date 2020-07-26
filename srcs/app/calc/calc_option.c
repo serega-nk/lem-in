@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 19:14:06 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/25 15:20:25 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 23:12:15 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static t_list	*calc_option_route(t_app *self, t_room *walk)
+static inline t_list	*calc_option_route(t_app *self, t_room *walk)
 {
 	t_list		*route;
 
@@ -26,7 +26,7 @@ static t_list	*calc_option_route(t_app *self, t_room *walk)
 	return (route);
 }
 
-static void		calc_option_routes(t_app *self, t_option *option)
+static inline void		calc_option_routes(t_app *self, t_option *option)
 {
 	t_list_iter	*iter;
 	t_room		*walk;
@@ -42,7 +42,7 @@ static void		calc_option_routes(t_app *self, t_option *option)
 	list_iter_destroy(&iter);
 }
 
-static void		calc_option_steps(t_app *self, t_option *option)
+static inline void		calc_option_steps(t_app *self, t_option *option)
 {
 	t_heap		*heap;
 	size_t		size;
@@ -66,7 +66,7 @@ static void		calc_option_steps(t_app *self, t_option *option)
 	heap_destroy(&heap);
 }
 
-t_option		*calc_option(t_app *self)
+t_option				*calc_option(t_app *self)
 {
 	t_option	*option;
 

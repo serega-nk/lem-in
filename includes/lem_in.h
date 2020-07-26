@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:58:05 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/24 23:39:07 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/27 01:53:33 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ void		load_check(t_app *self);
 t_bool		calc_bellman_ford(t_app *self);
 void		calc_suurballe(t_app *self);
 t_option	*calc_option(t_app *self);
-void		calc_populate(t_app *self, t_heap *routes);
+void		calc_populate(t_app *self, t_option *option);
 
 void		app_error(t_app *self);
 void		app_load(t_app *self);

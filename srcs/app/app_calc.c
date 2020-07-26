@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 00:00:40 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/25 00:08:25 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/27 01:55:01 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void			app_calc(t_app *self)
 	}
 	if (best == NULL)
 		app_error(self);
-	calc_populate(self, best->routes);
+	calc_populate(self, best);
 }

@@ -6,7 +6,7 @@
 #    By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/25 20:00:06 by bconchit          #+#    #+#              #
-#    Updated: 2020/07/25 15:41:33 by bconchit         ###   ########.fr        #
+#    Updated: 2020/07/26 12:05:46 by bconchit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,14 +93,14 @@ clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -rf $(OBJ_DIR)
 	rm -rf $(NAME).dSYM
-	rm .temp
+	rm -rf .temp
 
 fclean:
 	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -rf $(OBJ_DIR)
 	rm -rf $(NAME).dSYM
-	rm .temp
 	rm -rf $(NAME)
+	rm -rf .temp
 
 re: fclean all
 

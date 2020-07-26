@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 19:59:47 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/25 00:50:11 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 23:09:12 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_bool			calc_bellman_ford(t_app *self)
 
 	calc_bellman_ford_clean(self);
 	index = 0;
-	while (index < self->links->count)
+	while (index < self->rooms->count)
 	{
 		if (!calc_bellman_ford_update(self))
 			break ;

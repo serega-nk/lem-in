@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:23:23 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 14:07:46 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 11:42:16 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
-int		list_pop_front(t_list *self, void **adata)
+t_bool	list_pop_front(t_list *self, void **adata)
 {
 	t_list_item	*item;
 
@@ -26,7 +26,7 @@ int		list_pop_front(t_list *self, void **adata)
 		if (adata)
 			*adata = item->data;
 		list_item_destroy(&item);
-		return (1);
+		return (TRUE);
 	}
-	return (0);
+	return (FALSE);
 }

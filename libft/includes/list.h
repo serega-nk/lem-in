@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 08:04:39 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/21 14:07:44 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 11:42:53 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ struct			s_list_iter
 {
 	t_list			*list;
 	t_list_item		**awalk;
-	int				remove;
+	t_bool			remove;
 };
 
 t_list			*list_create(void);
@@ -45,7 +45,7 @@ void			list_destroy(t_list **aself);
 
 void			list_clean(t_list *self, void (*delf)());
 
-int				list_pop_front(t_list *self, void **adata);
+t_bool			list_pop_front(t_list *self, void **adata);
 void			list_push_back(t_list *self, void *data);
 void			list_push_front(t_list *self, void *data);
 
@@ -55,8 +55,8 @@ void			list_item_destroy(t_list_item **aself);
 t_list_iter		*list_iter_create(t_list *list);
 void			list_iter_destroy(t_list_iter **aself);
 
-int				list_iter_next(t_list_iter *self, void **adata);
-int				list_iter_remove(t_list_iter *self, void (*delf)());
+t_bool			list_iter_next(t_list_iter *self, void **adata);
+t_bool			list_iter_remove(t_list_iter *self, void (*delf)());
 void			*list_iter_next2(t_list_iter *self);
 
 #endif

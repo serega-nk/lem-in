@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:30:57 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 18:37:23 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 11:47:48 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int		parse_goto(char **addr, const char *find)
+t_bool	parse_goto(char **addr, const char *find)
 {
 	char	*ptr;
 	size_t	len;
@@ -24,9 +24,9 @@ int		parse_goto(char **addr, const char *find)
 		if (ft_strncmp(ptr, find, len) == 0)
 		{
 			*addr = ptr + len;
-			return (1);
+			return (TRUE);
 		}
 		ptr++;
 	}
-	return (0);
+	return (FALSE);
 }

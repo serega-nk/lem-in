@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 17:49:29 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 17:57:15 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 11:50:03 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int		parse_skip(char **addr, const char *skip)
+t_bool	parse_skip(char **addr, const char *skip)
 {
 	size_t	len;
 
@@ -20,7 +20,7 @@ int		parse_skip(char **addr, const char *skip)
 	if (ft_strncmp(*addr, skip, len) == 0)
 	{
 		*addr += len;
-		return (1);
+		return (TRUE);
 	}
-	return (0);
+	return (FALSE);
 }

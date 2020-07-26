@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 02:44:31 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/11 21:42:37 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 11:48:58 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int		parse_int(char **addr, int *avalue)
+t_bool	parse_int(char **addr, int *avalue)
 {
 	char	*ptr;
 	long	value;
@@ -35,7 +35,7 @@ int		parse_int(char **addr, int *avalue)
 		}
 		*addr = ptr;
 		*avalue = (int)(value * (negative ? -1 : 1));
-		return (1);
+		return (TRUE);
 	}
-	return (0);
+	return (FALSE);
 }

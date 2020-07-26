@@ -6,15 +6,15 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 17:48:26 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/27 17:58:05 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 11:49:48 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int		parse_none(char **addr)
+t_bool	parse_none(char **addr)
 {
 	if (*(*addr) == '\0')
-		return (1);
-	return (0);
+		return (TRUE);
+	return (FALSE);
 }

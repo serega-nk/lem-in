@@ -6,13 +6,13 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 19:59:37 by bconchit          #+#    #+#             */
-/*   Updated: 2020/06/29 23:07:02 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/26 11:53:00 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "heap.h"
 
-int		heap_extract(t_heap *self, size_t *apriority, void **adata)
+t_bool	heap_extract(t_heap *self, size_t *apriority, void **adata)
 {
 	if (self && self->count > 0)
 	{
@@ -26,7 +26,7 @@ int		heap_extract(t_heap *self, size_t *apriority, void **adata)
 			*apriority = self->table[self->count].priority;
 		if (adata)
 			*adata = self->table[self->count].data;
-		return (1);
+		return (TRUE);
 	}
-	return (0);
+	return (FALSE);
 }

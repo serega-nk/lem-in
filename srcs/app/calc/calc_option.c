@@ -6,7 +6,7 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 19:14:06 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/26 23:12:15 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/27 01:30:37 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static inline void		calc_option_routes(t_app *self, t_option *option)
 	t_room		*walk;
 	t_list		*route;
 
-	option->routes = heap_create();
 	iter = list_iter_create(self->paths);
 	while (list_iter_next(iter, (void **)&walk))
 	{

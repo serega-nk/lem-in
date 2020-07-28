@@ -6,29 +6,51 @@
 /*   By: bconchit <bconchit@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:04:16 by bconchit          #+#    #+#             */
-/*   Updated: 2020/07/27 01:54:34 by bconchit         ###   ########.fr       */
+/*   Updated: 2020/07/27 02:18:27 by bconchit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void		calc_populate(t_app *self, t_option *option)
+static t_list	*list_from_heap(t_heap *heap)
 {
-	int		number;
-	size_t	size;
-	t_list	*route;
-	t_heap	*heap;
+	t_list	*list;
+	t_heap	*copy;
+	void	*data;
 
-	heap = heap_copy(option->routes);
-	number = 0;
-	while (number++ < self->number)
+	list = list_create();
+	copy = heap_copy(heap);
+	while (heap_extract(copy, NULL, &data))
 	{
-		if (!heap_extract(heap, &size, (void **)&route))
-		{
-			app_error(self);
-		}
-		list_push_back(self->ants, (void *)ant_create(number, route));
-		heap_insert(heap, size + 1, (void *)route);
+		list_push_back(list, data);
 	}
-	heap_destroy(&heap);
+	heap_destroy(&copy);
+	return (list);
+}
+
+void			calc_populate(t_app *self, t_option *option)
+{
+	int			number;
+	size_t		steps;
+	t_list		*list;
+	t_list_iter	*iter;
+	t_list		*route;
+
+	number = 0;
+	steps = option->steps;
+	list = list_from_heap(option->routes);
+	while (steps > 0)
+	{
+		iter = list_iter_create(list);
+		while (list_iter_next(iter, (void **)&route))
+		{
+			if (steps > route->count - 2 && number < self->number)
+				list_push_back(self->ants, (void *)ant_create(++number, route));
+		}
+		list_iter_destroy(&iter);
+		steps--;
+	}
+	list_destroy(&list);
+	if (number != self->number)
+		app_error(self);
 }

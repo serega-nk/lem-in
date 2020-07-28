@@ -85,7 +85,7 @@ edge_color = [data['color'] for _, _, data in G.edges(data=True)]
 pos = nx.spring_layout(G)  
 
 # nodes
-nx.draw_networkx_nodes(G, pos, node_size=100, node_color=node_color)
+nx.draw_networkx_nodes(G, pos, node_size=20, node_color=node_color)
 # edges
 nx.draw_networkx_edges(G, pos, width=1, edge_color=edge_color)
 

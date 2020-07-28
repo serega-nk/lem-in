@@ -57,7 +57,7 @@ static inline t_bool	load_room_insert(t_app *self, t_room *room)
 	return (FALSE);
 }
 
-t_bool				load_room(t_app *self)
+t_bool					load_room(t_app *self)
 {
 	t_room	*room;
 

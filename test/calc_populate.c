@@ -49,9 +49,8 @@ void			calc_populate(t_app *self, t_option *option)
 		}
 		list_iter_destroy(&iter);
 		steps--;
-	}	
+	}
 	list_destroy(&list);
 	if (number != self->number)
 		app_error(self);
-
 }

@@ -1,5 +1,5 @@
 # lem-in
-42 Project - Find the shortests paths in a graph!
+42 Project - Find the shortests paths in a graph.
 
 https://cdn.intra.42.fr/pdf/pdf/6161/lem-in.en.pdf
 
